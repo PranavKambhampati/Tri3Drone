@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{fragments/layout}" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 
-<head><div layout:fragment="metadata" th:remove="tag">
+<head>
     <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
@@ -53,9 +53,12 @@
             padding: 5px;
         }
     </style>
-</div></head>
+</head>
 
-<body><div layout:fragment="content" th:remove="tag">
+<body>
+<div th:replace="fragments/topnav :: navbar">
+
+</div>
 <div class="container">
     <div class="content">
         <h1>p1-Drone Trimester 3 2021</h1>
