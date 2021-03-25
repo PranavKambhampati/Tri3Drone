@@ -4,29 +4,36 @@ import java.util.stream.IntStream;
 import java.time.Duration;
 
 public class NakulRecursion {
-    Duration recursionProcessingTime;
-    Duration loopProcessingTime;
-    Duration streamProcessingTime;
+    public int recursionProcessingTime;
+    public int loopProcessingTime;
+    public int streamProcessingTime;
 
-    int recursionFactorialResult;
-    int loopFactorialResult;
-    int streamFactorialResult;
+    Duration recursionProcessingTimeSec;
+    Duration loopProcessingTimeSec;
+    Duration streamProcessingTimeSec;
+
+    public int recursionFactorialResult;
+    public int loopFactorialResult;
+    public int streamFactorialResult;
 
     public NakulRecursion(int n) {
         Instant start = Instant.now();
         recursionFactorialResult = recursionFactorial(n);
         Instant end = Instant.now();
-        recursionProcessingTime = Duration.between(start, end);
+        recursionProcessingTimeSec = Duration.between(start, end);
+        recursionProcessingTime = recursionProcessingTimeSec.getNano();
 
         start = Instant.now();
         loopFactorialResult = loopFactorial(n);
         end = Instant.now();
-        loopProcessingTime = Duration.between(start, end);
+        loopProcessingTimeSec = Duration.between(start, end);
+        loopProcessingTime = loopProcessingTimeSec.getNano();
 
         start = Instant.now();
         streamFactorialResult = streamFactorial(n);
         end = Instant.now();
-        streamProcessingTime = Duration.between(start, end);
+        streamProcessingTimeSec = Duration.between(start, end);
+        streamProcessingTime = streamProcessingTimeSec.getNano();
     }
 
     public int recursionFactorial(int n){
@@ -48,5 +55,4 @@ public class NakulRecursion {
         return IntStream.rangeClosed(1, n)
                 .reduce(1, (x, y) -> x * y);
     }
-
 }
