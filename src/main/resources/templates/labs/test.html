@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}" lang="en">
+
+<head><div layout:fragment="metadata" th:remove="tag">
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+    <title>Test</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: #d6d6d6;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
 
-    p {
-        font-size: 125%;
-    }
-</style>
-<body>
+        p {
+            font-size: 125%;
+        }
+    </style>
+</div></head>
+
+<body><div layout:fragment="content" th:remove="tag">
     <p>
         Actual route is /labs/test, but GetMapping is "/test" in LabsController
     </p>
-</body>
+</div></body>
 </html>

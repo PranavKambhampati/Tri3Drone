@@ -1,59 +1,69 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+    </style>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: #d6d6d6;
-    }
-    .container {
-        position: relative;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        top: 25px;
-        background: #eeeeee;
-        border-radius: 10px;
-        min-height: 75px;
-        max-width: 1000px;
-        box-shadow: 10px 10px 50px 10px #888888;
-    }
-
-    .container .content {
-        padding: 20px;
-    }
-
-    h1 {
-        font-weight: 600;
-    }
-
-    p {
-        font-size: 125%;
-    }
-
-    .container .content li a {
-        color: #4769ae;
-        display: block;
-    }
-
-    .container .content .labButton {
-        background: #72bdc8;
-        border-radius: 5px;
-        text-align: center;
-    }
-
-    .container .content .labButton p {
-        color: white;
-        padding: 5px;
-    }
-</style>
 <body>
+<div th:replace="fragments/topnav :: navbar">
 
+</div>
 <div class="container">
     <div class="content">
         <h1>p1-Drone Trimester 3 2021</h1>
@@ -70,7 +80,11 @@
             <p>Routing Example</p>
         </a></div>
     </div>
+</div></div>
+
+<div th:replace="fragments/footer :: footer">
+
 </div>
-</form>
+
 </body>
 </html>
