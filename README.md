@@ -1,4 +1,5 @@
 # Tri3Drone
+[p1-Drone Project Idea](https://docs.google.com/document/d/1XclmN6p6ZTHF3Li8fR3im8bIHbzxoyLGvw0yj-aHqR4/edit?usp=sharing)
 
 [p1-Drone GitHub Repo](https://github.com/aryan114/Tri3Drone)
 
