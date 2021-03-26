@@ -1,9 +1,11 @@
 # Tri3Drone
 
 [p1-Drone GitHub Repo](https://github.com/aryan114/Tri3Drone)
+
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
 On Project Board, we have smart goals listed for each ticket as check-offs. Descriptions for each ticket is provided below.
+
 Commits for each person on their mini-lab can be seen in the branches section. Each scrum-member has their own branch.
 
 ### Tickets
