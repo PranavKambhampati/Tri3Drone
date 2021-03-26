@@ -1,10 +1,10 @@
 # Tri3Drone
 
 [p1-Drone GitHub Repo](https://github.com/aryan114/Tri3Drone)
-
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
 On Project Board, we have smart goals listed for each ticket as check-offs. Descriptions for each ticket is provided below.
+Commits for each person on their mini-lab can be seen in the branches section. Each scrum-member has their own branch.
 
 ### Tickets
 
@@ -18,7 +18,7 @@ On Project Board, we have smart goals listed for each ticket as check-offs. Desc
 
 
 ##### In Progress Tickets
-1. Micahel Recursion Lab: Michael's Recursion Lab.
+1. Michael Recursion Lab: Michael's Recursion Lab.
 2. Aryan Recursion Lab: Aryan's Factorial Recursion Lab.
 3. Pranav Recursion Lab: Pranav's Factorial Recursion Lab.
 4. Nakul Recursion Lab: Nakul's Factorial Recursion Lab.
