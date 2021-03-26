@@ -22,8 +22,8 @@ Mini Review #1 Submission:
 
 ##### In Progress Tickets
 1. Michael Recursion Lab: Michael's Recursion Lab.
-2. Aryan Recursion Lab: Aryan's Factorial Recursion Lab.
-3. Pranav Recursion Lab: Pranav's Factorial Recursion Lab.
-4. Nakul Recursion Lab: Nakul's Factorial Recursion Lab.
+2. Aryan Recursion Lab: Aryan's Factorial Recursion Lab (see GitHub branches, AryanRecursion).
+3. Pranav Recursion Lab: Pranav's Factorial Recursion Lab (see GitHub branches, pranavrecursion).
+4. Nakul Recursion Lab: Nakul's Factorial Recursion Lab (see GitHub branches, NakulRecursion).
 5. Setup Thymeleaf Fragments: Navbar and footer have been added to index.html. Other fragments have been set up, but not added yet.
 6. Bootstrap CSS Styling: Used bootstrap code for navbar. Working on implementing bootstrap styling to other areas of the project.
