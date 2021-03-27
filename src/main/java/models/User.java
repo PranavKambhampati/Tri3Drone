@@ -19,7 +19,7 @@ The last annotation connect to database
 @Getter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Entity
 public class User {
     @Id

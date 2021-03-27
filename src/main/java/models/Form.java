@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 @Getter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Entity
 public class Form {
     @Id

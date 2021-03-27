@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Entity
 public class Question {
 
