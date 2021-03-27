@@ -39,7 +39,7 @@ public class User {
     private String password;
 
     @OneToMany
-    @JoinColumn(name = "FORM_ID", referencedColumnName = "ID")
+    //@JoinColumn(name = "FORM_ID", referencedColumnName = "ID")
     private List<Form> forms;
 
 }
