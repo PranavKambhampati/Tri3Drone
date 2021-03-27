@@ -21,7 +21,7 @@ Mini Review #1 Submission:
 
 
 ##### In Progress Tickets
-1. Michael Recursion Lab: Michael's Recursion Lab.
+1. Michael Recursion Lab: Michael's Recursion Lab with base algo insertion sort (see main).
 2. Aryan Recursion Lab: Aryan's Factorial Recursion Lab (see GitHub branches, AryanRecursion).
 3. Pranav Recursion Lab: Pranav's Factorial Recursion Lab (see GitHub branches, pranavrecursion).
 4. Nakul Recursion Lab: Nakul's Factorial Recursion Lab (see GitHub branches, NakulRecursion).
