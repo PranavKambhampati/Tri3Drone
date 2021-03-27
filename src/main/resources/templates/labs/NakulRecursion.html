@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NakulRecursion</title>
+    <style>
+        h1 {
+            text-align: center;
+            vertical-align: top;
+            font-size: x-large;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 600;
+            margin-bottom: 50px;
+            margin-top: 0;
+        }
+
+        input[type=text], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        input[type=password], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        label{
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        button[type=submit] {
+            position: relative;
+            width: 125%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 20px;
+            margin-bottom: 0;
+            margin-top: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            left: auto;
+        }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .form {
+            position: relative;
+            border-radius: 20px;
+            background-color: #f2f2f2;
+            padding: 125px 250px;
+            left: 275px;
+            top: 25px;
+            float: left;
+        }
+
+        .form .alert-error{
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            font-size: small;
+            color: #ff0200;
+        }
+
+        .form .alert-success{
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            font-size: small;
+            color: #ff0200;
+        }
+
+        a.link {
+            position: relative;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            left: 400px;
+            top: 25px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        a.link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+
+    <form name="form" action="/labs/NakulRecursion" method="GET">
+        <table>
+            <tr>
+                <h1>
+                    Recursion Comparison Lsb
+                </h1>
+            </tr>
+            <tr>
+                <td><input type="text" id="nValue" name="nValue" placeholder="Enter n..."/></td>
+            </tr>
+            <tr>
+                <td><label>Number Entered:</label></td>
+                <td th:text="${n}"></td>
+            </tr>
+            <tr>
+                <td><label>Recursion:</label></td>
+                <td th:text="'Answer: ' + ${recursionResult}"></td>
+                <td th:text="'Time Taken: ' + ${recursionTime}"></td>
+            </tr>
+            <tr>
+                <td><label>Loop:</label></td>
+                <td th:text="'Answer: ' + ${loopResult}"></td>
+                <td th:text="'Time Taken: ' + ${loopTime}"></td>
+            </tr>
+            <tr>
+                <td><label>Stream:</label></td>
+                <td th:text="'Answer: ' + ${streamResult}"></td>
+                <td th:text="'Time Taken: ' + ${streamTime}"></td>
+            </tr>
+            <tr>
+                <button>Submit</button>
+            </tr>
+        </table>
+    </form>
+
+</div>
+</body>
+</html>
