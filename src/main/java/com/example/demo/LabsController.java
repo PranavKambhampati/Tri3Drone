@@ -30,5 +30,4 @@ public class LabsController {
         model.addAttribute("totalNumber", nth);
         return "labs/AryanRecursionLab";
     }
-
 }

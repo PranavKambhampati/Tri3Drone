@@ -55,22 +55,26 @@
     </style>
 </div></head>
 
-<body><div layout:fragment="content" th:remove="tag">
+<body>
+<div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
             <h1>Aryan's Recursion Lab</h1>
             <div style="margin: 2%;">
-                <form id="factorial" action="/factorial" method="GET" >
+                <form id="factorial" action="/labs/AryanRecursion" method="GET" >
                     <label for="num">Type a number:</label>
                     <input name="num" id="num" type="text">
                     <button>Enter!</button>
                 </form>
             </div>
             <div style="margin: 2%;">
-                <td th:text="'Factorial of the number: ' + ${recursionAnswer}"></td>
+                <td th:text="'Factorial of the number (using recursion): ' + ${recursionAnswer}"></td>
+                <br><td th:text="'Factorial of the number (using for loops): ' + ${ForLoopAnswer}"></td> </br>
+                <td th:text="'Factorial of the number (using streams): ' + ${StreamsAnswer}"></td>
             </div>
 
         </div>
     </div></div>
+
 </body>
 </html>
