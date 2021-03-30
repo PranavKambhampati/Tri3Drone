@@ -62,12 +62,12 @@
             <div style="margin: 2%;">
                 <form id="factorial" action="/factorial" method="GET" >
                     <label for="num">Type a number:</label>
-                    <input name="num" id="num" type="number">
+                    <input name="num" id="num" type="text">
                     <button>Enter!</button>
                 </form>
             </div>
             <div style="margin: 2%;">
-                <p th:text="'Factorial of the number: + ${num}'"></p>
+                <td th:text="'Factorial of the number: ' + ${recursionAnswer}"></td>
             </div>
 
         </div>

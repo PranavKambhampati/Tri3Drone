@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import Labs.AryanRecursion;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +19,16 @@ public class LabsController {
     }
 
     @GetMapping("/AryanRecursion")
-    public String AryanRecursion (@RequestParam(name="num", required=false,  defaultValue="10") String num, Model model) {
+    public String AryanRecursion (@RequestParam(name="num", required=false,  defaultValue="1") String num, Model model) {
         int nth = Integer.parseInt(num);
+        AryanRecursion recursionLab = new AryanRecursion(nth);
 
-        return "/AryanRecursion";
+        model.addAttribute("recursionAnswer", recursionLab.answerRecursionFactorial);
+        model.addAttribute("ForLoopAnswer", recursionLab.answerForLoop);
+        model.addAttribute("StreamsAnswer", recursionLab.answerForStream);
+
+        model.addAttribute("totalNumber", nth);
+        return "labs/AryanRecursionLab";
     }
 
 }
