@@ -1,17 +1,43 @@
 package Labs;
 
 import java.util.stream.LongStream;
+import java.time.Duration;
+import java.time.Instant;
 
 public class AryanRecursion {
     public int answerRecursionFactorial;
-    public int answerForLoop;
-    public int answerForStream;
+    public int timeRecursionFactorial;
 
+    public int answerForLoop;
+    public int timeForLoop;
+
+    public int answerForStream;
+    public int timeForStream;
+
+    Duration r;
+    Duration f;
+    Duration s;
 
     public AryanRecursion(int totalNumber) {
+
+        Instant startCalc = Instant.now();
         answerRecursionFactorial = recursionFactorial(totalNumber);
+        Instant endCalc = Instant.now();
+        r = Duration.between(startCalc, endCalc);
+        timeRecursionFactorial = r.getNano();
+
+        Instant startCalc1 = Instant.now();
         answerForLoop = factorialForLoop(totalNumber);
+        Instant endCalc1 = Instant.now();
+        f = Duration.between(startCalc1, endCalc1);
+        timeForLoop = f.getNano();
+
+        Instant startCalc2 = Instant.now();
         answerForStream = streamsFactorial(totalNumber);
+        Instant endCalc2 = Instant.now();
+        s = Duration.between(startCalc2, endCalc2);
+        timeForStream = s.getNano();
+
     }
 
     // Method using recursion to calculate the factorial of a number

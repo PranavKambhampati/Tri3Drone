@@ -18,14 +18,20 @@ public class LabsController {
         return "labs/test";
     }
 
-    @GetMapping("/AryanRecursion")
+    @GetMapping("/AryanRecursion") // web address will be /labs/AryanRecursion
     public String AryanRecursion (@RequestParam(name="num", required=false,  defaultValue="1") String num, Model model) {
         int nth = Integer.parseInt(num);
-        AryanRecursion recursionLab = new AryanRecursion(nth);
+        AryanRecursion recursionLab = new AryanRecursion(nth); // creates object of class AryanRecursion
 
+        // adding the components of the control into the model, to be used in the view later
         model.addAttribute("recursionAnswer", recursionLab.answerRecursionFactorial);
         model.addAttribute("ForLoopAnswer", recursionLab.answerForLoop);
         model.addAttribute("StreamsAnswer", recursionLab.answerForStream);
+        model.addAttribute("timeForRecursion", recursionLab.timeRecursionFactorial);
+        model.addAttribute("timeForLoops", recursionLab.timeForLoop);
+        model.addAttribute("timeForStreams", recursionLab.timeForStream);
+
+
 
         model.addAttribute("totalNumber", nth);
         return "labs/AryanRecursionLab";

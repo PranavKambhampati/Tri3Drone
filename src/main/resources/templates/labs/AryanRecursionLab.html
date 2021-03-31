@@ -69,8 +69,11 @@
             </div>
             <div style="margin: 2%;">
                 <td th:text="'Factorial of the number (using recursion): ' + ${recursionAnswer}"></td>
-                <br><td th:text="'Factorial of the number (using for loops): ' + ${ForLoopAnswer}"></td> </br>
+                <br><td th:text="'Time taken (recursion): ' + ${timeForRecursion}"></td> </br>
+                <td th:text="'Factorial of the number (using for loops): ' + ${ForLoopAnswer}"></td>
+                <br><td th:text="'Time taken (for loops): ' + ${timeForLoops}"></td></br>
                 <td th:text="'Factorial of the number (using streams): ' + ${StreamsAnswer}"></td>
+                <br><td th:text="'Time taken (streams): ' + ${timeForStreams}"></td></br>
             </div>
 
         </div>
