@@ -31,9 +31,12 @@ public class LabsController {
         model.addAttribute("timeForLoops", recursionLab.timeForLoop);
         model.addAttribute("timeForStreams", recursionLab.timeForStream);
 
-
-
         model.addAttribute("totalNumber", nth);
         return "labs/AryanRecursionLab";
+    }
+
+    @GetMapping("/404")
+    public String AryanRecursion404 () {
+        return "labs/AryanRecursionLab404";
     }
 }

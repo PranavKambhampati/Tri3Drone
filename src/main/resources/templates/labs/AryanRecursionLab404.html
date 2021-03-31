@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}" lang="en">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>404 Error Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</div></head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <h1>Whoops, something went wrong!</h1>
+            <div style="margin: 2%;">
+                <form id="404" action="/labs/404" method="GET" >
+                </form>
+            </div>
+            <div style="margin: 2%;">
+            </div>
+
+        </div>
+    </div></div>
+
+</body>
+</html>
