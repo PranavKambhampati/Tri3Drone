@@ -1,4 +1,4 @@
-package Labs;
+package com.example.demo.Labs;
 import java.time.Instant;
 import java.util.stream.IntStream;
 import java.time.Duration;
