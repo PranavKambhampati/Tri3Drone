@@ -31,7 +31,7 @@ End Sprint #1 Submission:
 
 
 ##### Done Tickets
-1. Aryan Recursion Lab: Aryan's Factorial Recursion Lab (see GitHub branches, AryanRecursion).
+1. Aryan Recursion Lab: Aryan's Factorial Recursion Lab (see master).
 2. Pranav Recursion Lab: Pranav's Factorial Recursion Lab (see master).
-3. Nakul Recursion Lab: Nakul's Factorial Recursion Lab (see GitHub branches, NakulRecursion).
+3. Nakul Recursion Lab: Nakul's Factorial Recursion Lab (see master).
 4. Deploy Project Using Heroku: For this week, we are using Heroku for deployment, but we will be switching to AWS next week.
