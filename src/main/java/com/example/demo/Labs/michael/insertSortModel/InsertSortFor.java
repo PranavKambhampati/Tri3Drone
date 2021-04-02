@@ -9,8 +9,9 @@ public class InsertSortFor extends _InsertionSort{
     @Override
     protected void init() {
         super.approachName = "For";
-        int n = super.unsortedMutable.length;
-        for (int i = 1; i < n; ++i) {
+        int length = super.unsortedMutable.length;
+
+        for (int i = 1; i < length; ++i) {
             int currentPosition = unsortedMutable[i];
             int leftOfPosition = i - 1;
 
@@ -24,8 +25,8 @@ public class InsertSortFor extends _InsertionSort{
 
     public static void main(String[] args){
         String referenceArrayLiteral = "7,6,3,1,9,2";
-        _InsertionSort insertionSort = new InsertSortFor(referenceArrayLiteral);
+        _InsertionSort insertionSortFor = new InsertSortFor(referenceArrayLiteral);
 
-        insertionSort.printIt();
+        insertionSortFor.printIt();
     }
 }
