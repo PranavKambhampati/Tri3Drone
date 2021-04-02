@@ -7,9 +7,12 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
-Mini Review #1 Submission:
+End Sprint #1 Submission:
 * On Project Board, we have smart goals listed for each ticket as check-offs. Descriptions for each ticket is provided below.
-* Commits for each person on their mini-lab can be seen in the branches section. Each scrum-member has their own branch.
+* Commits for each person on their mini-lab can be seen in the branches section. Each scrum-member has their own branch, but these labs have now been deployed.
+* All supplemental links are at the top of the README, including deployed project, and Project Idea with work-assignments for team members.
+* Thymeleaf fragments for project can be see in Tri3Drone/src/main/resources/templates/fragments.
+* Mini-Labs for each scrum member are located on home-page of website.
 
 ### Tickets
 
