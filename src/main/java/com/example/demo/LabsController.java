@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.NakulRecursion;
+import com.example.demo.Labs.PranavRecursion.PranavRecursion;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,5 +57,22 @@ public class LabsController {
     @GetMapping("/404")
     public String AryanRecursion404 () {
         return "labs/AryanRecursionLab404";
+    }
+
+    @GetMapping("/PranavRecursion")
+    public String PranavRecursion(@RequestParam(name="number", required = false, defaultValue="1") String number, Model model){
+        int numbertocalc = Integer.parseInt(number);
+        PranavRecursion pranav = new PranavRecursion(numbertocalc);
+
+        model.addAttribute("recursionanswer", pranav.recanswer);
+        model.addAttribute("forloopanswer", pranav.foranswer);
+        model.addAttribute("streamsanswer", pranav.streamanswer);
+        model.addAttribute("recursiontime", pranav.rectime);
+        model.addAttribute("forlooptime", pranav.fortime);
+        model.addAttribute("streamtime", pranav.streamtime);
+
+        model.addAttribute("total",number);
+
+        return "labs/PranavRecursionLab";
     }
 }
