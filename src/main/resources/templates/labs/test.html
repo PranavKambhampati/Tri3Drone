@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{fragments/layout}" lang="en">
-
-<head><div layout:fragment="metadata" th:remove="tag">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <title>Test</title>
     <style>
@@ -19,7 +16,6 @@
     </style>
 </div></head>
 
-<body><div layout:fragment="content" th:remove="tag">
     <p>
         Actual route is /com.example.demo.Labs/test, but GetMapping is "/test" in LabsController
     </p>
