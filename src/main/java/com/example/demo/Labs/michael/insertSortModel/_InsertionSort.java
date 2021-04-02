@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Getter
 public abstract class _InsertionSort {
@@ -15,8 +16,8 @@ public abstract class _InsertionSort {
     Duration processTime;
     ArrayList<Long> result;
 
-    public _InsertionSort(int referenceArray[]) {
-        this.unsorted = referenceArray;
+    public _InsertionSort(String referenceArrayLiteral) {
+        this.unsorted = toIntArray(referenceArrayLiteral);
         this.unsortedMutable = this.unsorted.clone();
         this.result = new ArrayList<>();
 
@@ -34,6 +35,19 @@ public abstract class _InsertionSort {
 
     public int getProcessTimeSec(){ return (int)(this.processTime).getSeconds(); }
 
+    public int[] toIntArray(String arrayLiteral) {
+        /* Input box gives back a string literal, but an int[] is needed */
+        String[] array = arrayLiteral.split(","); // automatic split into String[]
+        List<String> list = Arrays.asList(array); // conversion to List because of management of a List
+
+        int[] unsortedArray = new int[list.size()];
+
+        for (String element : list) {
+            unsortedArray[list.indexOf(element)] = Integer.parseInt(element);
+        }
+
+        return unsortedArray;
+    }
 
     public void printIt() {
         System.out.println("Approach: " + getApproachName());

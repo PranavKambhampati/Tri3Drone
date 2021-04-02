@@ -75,4 +75,13 @@ public class LabsController {
 
         return "labs/PranavRecursionLab";
     }
+
+    @GetMapping("/MichaelRecursion") // actual web address will be /labs/michael
+    public String MichaelRecursion (@RequestParam(name = "unsortedArray", required = false, defaultValue = "3,2,3,4") String unsortedArrayLiteral, Model model) {
+
+
+
+        return "labs/michaelRecursion";
+    }
+
 }

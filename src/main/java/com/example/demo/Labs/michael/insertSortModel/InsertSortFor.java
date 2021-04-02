@@ -2,8 +2,8 @@ package com.example.demo.Labs.michael.insertSortModel;
 
 public class InsertSortFor extends _InsertionSort{
 
-    public InsertSortFor(int referenceArray[]) {
-        super(referenceArray);
+    public InsertSortFor(String referenceArrayLiteral) {
+        super(referenceArrayLiteral);
     }
 
     @Override
@@ -23,8 +23,8 @@ public class InsertSortFor extends _InsertionSort{
     }
 
     public static void main(String[] args){
-        int referenceArray[] = new int[]{7,6,3,1,9,2};
-        _InsertionSort insertionSort = new InsertSortFor(referenceArray);
+        String referenceArrayLiteral = "7,6,3,1,9,2";
+        _InsertionSort insertionSort = new InsertSortFor(referenceArrayLiteral);
 
         insertionSort.printIt();
     }
