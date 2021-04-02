@@ -1,12 +1,13 @@
 package com.example.demo;
 
-import Labs.NakulRecursion;
+import com.example.demo.Labs.AryanRecursion;
+import com.example.demo.Labs.NakulRecursion;
+import com.example.demo.Labs.PranavRecursion.PranavRecursion;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping("/labs")
@@ -34,5 +35,44 @@ public class LabsController {
         model.addAttribute("n", nInteger);
 
         return "labs/NakulRecursion";
+    }
+
+    @GetMapping("/AryanRecursion") // web address will be /labs/AryanRecursion
+    public String AryanRecursion (@RequestParam(name="num", required=false,  defaultValue="1") String num, Model model) {
+        int nth = Integer.parseInt(num);
+        AryanRecursion recursionLab = new AryanRecursion(nth); // creates object of class AryanRecursion
+
+        // adding the components of the control into the model, to be used in the view later
+        model.addAttribute("recursionAnswer", recursionLab.answerRecursionFactorial);
+        model.addAttribute("ForLoopAnswer", recursionLab.answerForLoop);
+        model.addAttribute("StreamsAnswer", recursionLab.answerForStream);
+        model.addAttribute("timeForRecursion", recursionLab.timeRecursionFactorial);
+        model.addAttribute("timeForLoops", recursionLab.timeForLoop);
+        model.addAttribute("timeForStreams", recursionLab.timeForStream);
+
+        model.addAttribute("totalNumber", nth);
+        return "labs/AryanRecursionLab";
+    }
+
+    @GetMapping("/404")
+    public String AryanRecursion404 () {
+        return "labs/AryanRecursionLab404";
+    }
+
+    @GetMapping("/PranavRecursion")
+    public String PranavRecursion(@RequestParam(name="number", required = false, defaultValue="1") String number, Model model){
+        int numbertocalc = Integer.parseInt(number);
+        PranavRecursion pranav = new PranavRecursion(numbertocalc);
+
+        model.addAttribute("recursionanswer", pranav.recanswer);
+        model.addAttribute("forloopanswer", pranav.foranswer);
+        model.addAttribute("streamsanswer", pranav.streamanswer);
+        model.addAttribute("recursiontime", pranav.rectime);
+        model.addAttribute("forlooptime", pranav.fortime);
+        model.addAttribute("streamtime", pranav.streamtime);
+
+        model.addAttribute("total",number);
+
+        return "labs/PranavRecursionLab";
     }
 }

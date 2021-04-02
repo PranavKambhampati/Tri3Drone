@@ -1,4 +1,4 @@
-package Labs.michael.insertSortModel;
+package com.example.demo.Labs.michael.insertSortModel;
 
 public class InsertSortFor extends _InsertionSort{
 

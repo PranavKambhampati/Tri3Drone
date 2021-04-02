@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pranav's Recursion Lab</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #cd5353;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+
+        .contact{
+            top: 90%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1><b><i>Pranav's Recursion Lab</i></b></h1>
+            <h5>Calculations accurate for inputs only from 0 to 12 due to Java limitations</h5>
+            <div style="margin: 2%;">
+                <form id="factorial" action="/labs/PranavRecursion" method="GET" >
+                    <label for="number">Number:</label>
+                    <input name="number" id="number" type="text">
+                    <button>Calculate!</button>
+                </form>
+            </div>
+            <div style="margin: 2%;">
+                <td th:text="'Recursion: Factorial of the number: ' + ${recursionanswer}"></td>
+                <br><td th:text="'Recursion: Time taken: ' + ${recursiontime}"></td> </br>
+                <td th:text="'For Loop: Factorial of the number: ' + ${forloopanswer}"></td>
+                <br><td th:text="'For Loop: Time taken: ' + ${forlooptime}"></td></br>
+                <td th:text="'Streams: Factorial of the number: ' + ${streamsanswer}"></td>
+                <br><td th:text="'Streams: Time taken: ' + ${streamtime}"></td></br>
+            </div>
+
+            <div class="contact" style="height: 35vh;">
+                <div class="contact" style="height: 35vh;">
+
+                    <div style="margin: 2%;">
+                        <h1><strong>3 Different Ways to Calculate Factorials</strong></h1>
+                    </div>
+
+
+                    <div style="margin: 2%;">
+
+                        <div>
+                            <h5>Calculating Factorials using Iteration</h5>
+                        </div>
+                        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FPranavKambhampati%2FCalculatorHubPlayground%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2FFactorial%2FFactorialIteration.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                        <div>
+                            <h5>Calculating Factorials using Recursion</h5>
+                        </div>
+                        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FPranavKambhampati%2FCalculatorHubPlayground%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2FFactorial%2FFactorialRecursion.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                        <div>
+                            <h5>Calculating Factorials using Streams</h5>
+                        </div>
+                        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FPranavKambhampati%2FCalculatorHubPlayground%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2FFactorial%2FFactorialStreams.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
