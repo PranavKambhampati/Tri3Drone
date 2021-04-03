@@ -3,11 +3,18 @@ package com.example.demo;
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.NakulRecursion;
 import com.example.demo.Labs.PranavRecursion.PranavRecursion;
+import com.example.demo.Labs.michael.insertSortModel.InsertSortFor;
+import com.example.demo.Labs.michael.insertSortModel.InsertSortRecurse;
+import com.example.demo.Labs.michael.insertSortModel.InsertSortWhile;
+import com.example.demo.Labs.michael.insertSortModel._InsertionSort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/labs")
@@ -75,4 +82,19 @@ public class LabsController {
 
         return "labs/PranavRecursionLab";
     }
+
+    @GetMapping("/MichaelRecursion") // actual web address will be /labs/michael
+    public String MichaelRecursion (@RequestParam(name = "unsortedArray", required = false, defaultValue = "3,2,3,4") String unsortedArrayLiteral, Model model) {
+
+        List<_InsertionSort> insertSortApproachList = new ArrayList<_InsertionSort>();
+
+        insertSortApproachList.add(new InsertSortFor(unsortedArrayLiteral));
+        insertSortApproachList.add(new InsertSortWhile(unsortedArrayLiteral));
+        insertSortApproachList.add(new InsertSortRecurse(unsortedArrayLiteral));
+
+        model.addAttribute("insertSortList", insertSortApproachList);
+
+        return "labs/michaelRecursion";
+    }
+
 }
