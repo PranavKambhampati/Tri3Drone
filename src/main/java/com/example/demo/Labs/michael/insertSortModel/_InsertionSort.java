@@ -14,17 +14,21 @@ public abstract class _InsertionSort {
     int[] unsortedMutable;
     String approachName;
     Duration processTime;
-    ArrayList<Long> result;
+
+    private static int lastRecordedSpeed;
+    private static int rollingAverageSpeed;
 
     public _InsertionSort(String referenceArrayLiteral) {
         this.unsorted = toIntArray(referenceArrayLiteral);
         this.unsortedMutable = this.unsorted.clone();
-        this.result = new ArrayList<>();
 
         Instant processStart = Instant.now();
         this.init();
         Instant processEnd = Instant.now();
         this.processTime = Duration.between(processStart, processEnd);
+
+        lastRecordedSpeed = this.getProcessTimeNano();
+        rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2;
     }
 
     //public void assignData(long )
@@ -34,6 +38,15 @@ public abstract class _InsertionSort {
     public int getProcessTimeNano(){ return this.processTime.getNano(); }
 
     public int getProcessTimeSec(){ return (int)(this.processTime).getSeconds(); }
+
+    public int getLastRecordedSpeed() { return lastRecordedSpeed; }
+
+    public int getRollingAverageSpeed() { return rollingAverageSpeed; }
+
+    public String getUnsortedFormatted() { return Arrays.toString(getUnsorted()); }
+
+    public String getSortedFormatted() { return Arrays.toString(getUnsortedMutable()); }
+
 
     public int[] toIntArray(String arrayLiteral) {
         /* Input box gives back a string literal, but an int[] is needed */

@@ -37,17 +37,17 @@
             font-size: 125%;
         }
 
-        .container .content li a {
+        .container .content .dataEntry li a {
             color: #4769ae;
             display: block;
         }
         /* ".name" = div, "#name" = id of element */
-        .container .content input {
+        .container .content .dataEntry input {
             width: 500px;
             border-radius: 1.5px;
         }
 
-        .container .content button {
+        .container .content .dataEntry button {
             border-radius: 10px;
             color: white;
             background: #3ba0ff;
@@ -57,9 +57,13 @@
             font-size: 101%;
         }
 
-        .container .content button:hover {
+        .container .content .dataEntry button:hover {
             background: #2d7dc3;
             border: #2d6dff;
+        }
+
+        .container .content .results table th {
+            padding: 5px;
         }
 
         footer{
@@ -74,11 +78,32 @@
 </div><div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
-            <h1>Michael's Insertion Sort 3 Ways</h1>
-            <form class="unsortedArray" action="/labs/MichaelRecursion" th:type="GET">
-                <input type="text" id="jumbledArray" name="unsortedArray" placeholder="Enter a string of numbers separated by a comma"/>
-                <button class="submit">Sort!</button>
-            </form>
+            <div class="dataEntry">
+                <h1>Michael's Insertion Sort 3 Ways</h1>
+                <form class="unsortedArray" action="/labs/MichaelRecursion" th:type="GET">
+                    <input type="text" id="jumbledArray" name="unsortedArray" placeholder="Enter a string of numbers separated by a comma"/>
+                    <button class="submit">Sort!</button>
+                </form>
+            <div/>
+            <div class="resultTable">
+                <table class="results">
+                    <tr>
+                        <th>Approach</th>
+                        <th>Result</th>
+                        <th>Time</th>
+                        <th>Last Process Speed</th>
+                        <th>Speed Compared to Rolling Average</th>
+                    </tr>
+                    <tr th:each="insertSort : ${insertSortList}">
+                        <td th:text="${insertSort.getApproachName()}"></td>
+                        <td th:text="${insertSort.getSortedFormatted()}"></td>
+                        <td th:text="${insertSort.getProcessTimeNano()}"></td>
+                        <td th:text="${insertSort.getLastRecordedSpeed()}"></td>
+                        <td th:text="${insertSort.getRollingAverageSpeed()}"></td>
+                    </tr>
+                </table>
+            <div/>
+
         </div>
     </div>
 </div></div>
