@@ -1,9 +1,18 @@
 package com.example.demo.Labs.michael.insertSortModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InsertSortRecurse extends _InsertionSort {
+
+    private static List<Integer> speedRecords = new ArrayList<>();
+    private static int rollingAverageSpeed = 1000;
 
     public InsertSortRecurse(String referenceArrayLiteral) {
         super(referenceArrayLiteral);
+
+        this.speedRecords.add(this.getProcessTimeNano());
+        rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2;
     }
 
     @Override
@@ -33,7 +42,17 @@ public class InsertSortRecurse extends _InsertionSort {
             unsortedArray[shift + 1] = last;
 
             return unsortedArray;
+    }
+
+    public int getLastSpeedRecord() {
+        if (speedRecords.size() <= 1) {
+            return speedRecords.get(speedRecords.size() - 1);
+        } else {
+            return speedRecords.get(speedRecords.size() - 2);
         }
+    }
+
+    public int getRollingAverageSpeed() { return rollingAverageSpeed; }
 
     public static void main(String[] args){
         String referenceArrayLiteral = "7,6,3,1,9,2";
