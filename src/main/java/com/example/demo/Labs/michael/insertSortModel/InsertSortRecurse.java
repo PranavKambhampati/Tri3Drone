@@ -76,7 +76,7 @@ public class InsertSortRecurse extends _InsertionSort {
             rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2;
         }
 
-        timeComparedToAverage = rollingAverageSpeed - this.getProcessTimeNano();
+        timeComparedToAverage = this.getProcessTimeNano() - rollingAverageSpeed;
     }
 
     public static void main(String[] args){

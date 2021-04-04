@@ -91,6 +91,13 @@
             text-align: center;
 
         }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
     </style>
 </div></head>
 
@@ -121,7 +128,7 @@
                         <td th:text="${insertSort.getSortedFormatted()}"></td>
                         <td th:text="${insertSort.getProcessTimeNano()}"></td>
                         <td th:text="${insertSort.getLastSpeedRecord()}"></td>
-                        <td th:text="${insertSort.getTimeComparedToAverage()}"></td>
+                        <div class="timeComparison"><td th:text="${insertSort.getTimeComparedToAverage()}"></td></div>
                         <td th:text="${insertSort.getRollingAverageSpeed()}"></td>
 
                     </tr>
