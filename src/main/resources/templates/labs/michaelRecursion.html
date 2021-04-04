@@ -114,13 +114,16 @@
                         <th>Time</th>
                         <th>Last Process Speed</th>
                         <th>Speed Compared to Rolling Average</th>
+                        <th>Rolling Average</th>
                     </tr>
                     <tr th:each="insertSort : ${insertSortList}">
                         <td th:text="${insertSort.getApproachName()}"></td>
                         <td th:text="${insertSort.getSortedFormatted()}"></td>
                         <td th:text="${insertSort.getProcessTimeNano()}"></td>
                         <td th:text="${insertSort.getLastSpeedRecord()}"></td>
+                        <td th:text="${insertSort.getTimeComparedToAverage()}"></td>
                         <td th:text="${insertSort.getRollingAverageSpeed()}"></td>
+
                     </tr>
                 </table>
             <div/>
