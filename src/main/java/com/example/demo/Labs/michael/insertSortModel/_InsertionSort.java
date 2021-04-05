@@ -15,10 +15,6 @@ public abstract class _InsertionSort {
     String approachName;
     Duration processTime;
 
-    private static int lastRecordedSpeed;
-    //private static List<Integer> speedRecords = new ArrayList<>();
-    //private static int rollingAverageSpeed = 1000;
-
     public _InsertionSort(String referenceArrayLiteral) {
         this.unsorted = toIntArray(referenceArrayLiteral);
         this.unsortedMutable = this.unsorted.clone();
@@ -27,12 +23,7 @@ public abstract class _InsertionSort {
         this.init();
         Instant processEnd = Instant.now();
         this.processTime = Duration.between(processStart, processEnd);
-
-        /*this.speedRecords.add(this.getProcessTimeNano());
-        rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2; */
     }
-
-    //public void assignData(long )
 
     protected abstract void init();
 

@@ -1,18 +1,24 @@
 package com.example.demo.Labs.michael.insertSortModel;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class InsertSortRecurse extends _InsertionSort {
-
+    /* Statics for time analysis */
     private static List<Integer> speedRecords = new ArrayList<>();
-    private static int rollingAverageSpeed = 1000;
+    private static int rollingAverageSpeed;
+    private static int timeComparedToAverage;
+
 
     public InsertSortRecurse(String referenceArrayLiteral) {
         super(referenceArrayLiteral);
 
         this.speedRecords.add(this.getProcessTimeNano());
-        rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2;
+
+        staticInit();
     }
 
     @Override
@@ -45,6 +51,7 @@ public class InsertSortRecurse extends _InsertionSort {
     }
 
     public int getLastSpeedRecord() {
+        /* Index out of bounds exception avoidance via simple logic */
         if (speedRecords.size() <= 1) {
             return speedRecords.get(speedRecords.size() - 1);
         } else {
@@ -52,7 +59,25 @@ public class InsertSortRecurse extends _InsertionSort {
         }
     }
 
+    /* Static getters applicable to purpose of statics (used in th HTML) */
     public int getRollingAverageSpeed() { return rollingAverageSpeed; }
+
+    public int getTimeComparedToAverage() { return timeComparedToAverage;}
+
+
+    /**
+     * Uses speed records created for each activation and creates a rolling average
+     * and comparison to rolling average
+     */
+    public void staticInit() {
+        if (speedRecords.size() <= 1){
+            rollingAverageSpeed = this.getProcessTimeNano();
+        } else {
+            rollingAverageSpeed = (rollingAverageSpeed + this.getProcessTimeNano()) / 2;
+        }
+
+        timeComparedToAverage = this.getProcessTimeNano() - rollingAverageSpeed;
+    }
 
     public static void main(String[] args){
         String referenceArrayLiteral = "7,6,3,1,9,2";
