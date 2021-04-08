@@ -7,7 +7,7 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
-### End Sprint #1 Submission:
+## End Sprint #1 Submission (10/10):
 * On Project Board, we have smart goals listed for each ticket as check-offs. Descriptions for each ticket is provided below binary grading.
 * Commits for each person on their mini-lab can be seen in the branches section. Each scrum-member has their own branch, but these labs have now been deployed into **master**.
 * All supplemental links are at the top of the README, including deployed project, and Project Idea with work-assignments for team members.
