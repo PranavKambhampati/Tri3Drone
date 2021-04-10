@@ -1,15 +1,15 @@
 package com.example.demo.Labs.michael.trackModel;
 
-public class Distance extends Athlete {
-    public enum keyType {name, grade, gender, school, seedTime, split, event}
+public class Sprinter extends Athlete {
+    public enum keyType {name, grade, gender, school, seedTime, wind, event}
     public static keyType key = keyType.name;
 
-    private final double split;
+    private final double wind;
     private final String event;
 
-    public Distance(String name, int grade, String gender, String school, double seedTime, double split, String event){
+    public Sprinter(String name, int grade, String gender, String school, double seedTime, double wind, String event){
         super(name, grade, gender, school, seedTime);
-        this.split = split;
+        this.wind = wind;
         this.event = event;
     }
 
@@ -29,15 +29,17 @@ public class Distance extends Athlete {
             case seedTime:
                 formattedString += super.getSeedTime();
                 break;
-            case split:
-                formattedString += this.split;
+            case wind:
+                formattedString += this.wind;
                 break;
             case event:
-                formattedString += this.event;
+                formattedString = this.event;
+                break;
             default:
-                formattedString = super.getType() + ": " + super.getName() + " " + super.getGrade() + " " + super.getSchool() + " " + this.event + " " + this.split + " " + super.getSeedTime();
+                formattedString = super.getType() + ": " + super.getName() + " " + super.getGrade() + " " + super.getSchool() + " " + this.event + " " + super.getSeedTime() + " " + this.wind;
                 break;
         }
         return formattedString;
     }
 }
+
