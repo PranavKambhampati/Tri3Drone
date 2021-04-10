@@ -80,6 +80,8 @@ public class LabsController {
 
         model.addAttribute("total",number);
 
+        System.out.println(number);
+
         return "labs/PranavRecursionLab";
     }
 
