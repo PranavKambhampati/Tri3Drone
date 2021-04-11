@@ -18,6 +18,8 @@ public class InheritanceController {
     private int count;
     private boolean student;
     private Student.KeyType studentKey;
+    private boolean gems;
+    private Gems.KeyType gemsKey;
 
     public InheritanceController(){
         list = new ArrayList<Object>();
@@ -55,11 +57,15 @@ public class InheritanceController {
         //title defaults
         this.studentKey = Student.KeyType.title;
         Student.key = this.studentKey;
+        this.gemsKey = Gems.KeyType.title;
+        Gems.key = this.gemsKey;
 
         //control options
         this.student = true;
+        this.gems = true;
         //load data
         this.addToList(Student.studentData());
+        this.addToList(Gems.gemsData());
 
         //data is not sorted, queue order (FIFO) is default
         model.addAttribute("ctl", this);
@@ -71,6 +77,8 @@ public class InheritanceController {
     public String dataFilter(
             @RequestParam(value = "student", required = false) String student,
             @RequestParam(value = "studentKey") Student.KeyType studentKey,
+            @RequestParam(value = "gems", required = false) String gems,
+            @RequestParam(value = "gemsKey") Gems.KeyType gemsKey,
             Model model)
     {
         //re-init data according to check boxes selected
@@ -84,6 +92,14 @@ public class InheritanceController {
             Student.key = this.studentKey;    //toString configure for sort order
         } else {
             this.student = false;
+        }
+        if (gems != null) {
+            this.addToList(Gems.gemsData());  //adding Student data to list
+            this.gems = true;             //persistent selection from check box selection
+            this.gemsKey = gemsKey;     //persistent enum update from radio button selection
+            Gems.key = this.gemsKey;    //toString configure for sort order
+        } else {
+            this.gems = false;
         }
         //sort data according to selected options
         insertionSortArrayList();
