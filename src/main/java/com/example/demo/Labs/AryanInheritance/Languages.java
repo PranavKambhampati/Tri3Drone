@@ -26,7 +26,6 @@ public class Languages extends AryanInheritance {
                 break;
             case year:
                 display += year;
-                display = display.substring(display.length()-2);
                 break;
             case creator:
                 display += creator;
