@@ -44,13 +44,27 @@
                         <div class="col-md-4">
                             <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
                             <input type="checkbox" id="gems" name="gems" value="1" th:checked="${ctl.isGems()}">
-                            <label for="student">Gems</label>
+                            <label for="gems">Gems</label>
                             <div class="form-group">
                                 <label>Sort by</label>
                                 <div th:each="option : ${T(com.example.demo.Labs.NakulInheritance.Gems.KeyType).values()}">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" th:field="*{gemsKey}" th:value="${option}" class="custom-control-input">
                                         <label class="custom-control-label" th:for="${#ids.prev('gemsKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                            <input type="checkbox" id="countries" name="countries" value="1" th:checked="${ctl.isCountries()}">
+                            <label for="countries">Countries</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.NakulInheritance.Countries.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{countriesKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('countriesKey')}" th:text="${option}">option</label>
                                     </div>
                                 </div>
                             </div>

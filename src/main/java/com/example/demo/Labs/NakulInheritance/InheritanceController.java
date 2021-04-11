@@ -20,6 +20,8 @@ public class InheritanceController {
     private Student.KeyType studentKey;
     private boolean gems;
     private Gems.KeyType gemsKey;
+    private boolean countries;
+    private Countries.KeyType countriesKey;
 
     public InheritanceController(){
         list = new ArrayList<Object>();
@@ -59,6 +61,8 @@ public class InheritanceController {
         Student.key = this.studentKey;
         this.gemsKey = Gems.KeyType.title;
         Gems.key = this.gemsKey;
+        this.countriesKey = Countries.KeyType.title;
+        Countries.key = this.countriesKey;
 
         //control options
         this.student = true;
@@ -66,6 +70,7 @@ public class InheritanceController {
         //load data
         this.addToList(Student.studentData());
         this.addToList(Gems.gemsData());
+        this.addToList(Countries.countriesData());
 
         //data is not sorted, queue order (FIFO) is default
         model.addAttribute("ctl", this);
@@ -79,6 +84,8 @@ public class InheritanceController {
             @RequestParam(value = "studentKey") Student.KeyType studentKey,
             @RequestParam(value = "gems", required = false) String gems,
             @RequestParam(value = "gemsKey") Gems.KeyType gemsKey,
+            @RequestParam(value = "countries", required = false) String countries,
+            @RequestParam(value = "countriesKey") Countries.KeyType countriesKey,
             Model model)
     {
         //re-init data according to check boxes selected
@@ -100,6 +107,14 @@ public class InheritanceController {
             Gems.key = this.gemsKey;    //toString configure for sort order
         } else {
             this.gems = false;
+        }
+        if (countries != null) {
+            this.addToList(Countries.countriesData());  //adding Student data to list
+            this.countries = true;             //persistent selection from check box selection
+            this.countriesKey = countriesKey;     //persistent enum update from radio button selection
+            Countries.key = this.countriesKey;    //toString configure for sort order
+        } else {
+            this.countries = false;
         }
         //sort data according to selected options
         insertionSortArrayList();

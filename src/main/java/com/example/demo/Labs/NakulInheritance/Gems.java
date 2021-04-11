@@ -43,7 +43,7 @@ public class Gems extends MasterClass{
                 new Gems("Sapphire", 1600, "Blue"),
                 new Gems("Ruby", 1200, "Red"),
                 new Gems("Topaz", 3500, "Orange"),
-                new Gems("Alexandrite", 5000, "Blueish Green"),
+                new Gems("Alexandrite", 9600, "Blueish Green"),
                 new Gems("Opal", 6000, "White"),
 
         };
