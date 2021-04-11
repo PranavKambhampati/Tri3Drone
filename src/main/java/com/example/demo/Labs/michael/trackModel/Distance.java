@@ -37,6 +37,7 @@ public class Distance extends Athlete {
                 break;
             case event:
                 formattedString += this.event;
+                break;
             default:
                 formattedString = super.getType() + ": " + super.getName() + " " + super.getGrade() + " " + super.getSchool() + " " + this.event + " " + this.split + " " + super.getSeedTime();
                 break;

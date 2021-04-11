@@ -142,6 +142,16 @@
                     <button>Sort</button>
                 </form>
             </div>
+
+            <table class="mx-auto">
+                <tr>
+                    <th scope="col">Rows</th>
+                </tr>
+
+                <tr th:each="line: ${allAthleteData.getAllAthletes().getList()}">
+                    <td th:text="${line}" ></td>
+                </tr>
+            </table>
         </div>
 
     </div>
