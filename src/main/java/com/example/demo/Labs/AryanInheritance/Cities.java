@@ -9,6 +9,7 @@ public class Cities extends AryanInheritance {
     private final int population;
 
     public Cities (String city1, String state1, int population1) {
+        super.setName("Cities");
         city = city1;
         state = state1;
         population = population1;
@@ -30,7 +31,7 @@ public class Cities extends AryanInheritance {
                 break;
             case title:
             default:
-                display += "";
+                display += super.getName() + city;
         }
         return display;
     }

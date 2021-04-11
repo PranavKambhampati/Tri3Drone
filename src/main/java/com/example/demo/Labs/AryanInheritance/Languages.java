@@ -10,6 +10,7 @@ public class Languages extends AryanInheritance {
     private final String use;
 
     public Languages (String language1, int year1, String creator1, String use1) {
+        super.setName("Languages");
         language = language1;
         year = year1;
         creator = creator1;
@@ -35,7 +36,7 @@ public class Languages extends AryanInheritance {
                 break;
             case title:
             default:
-                display += "";
+                display += super.getName() + language;
         }
         return display;
 
