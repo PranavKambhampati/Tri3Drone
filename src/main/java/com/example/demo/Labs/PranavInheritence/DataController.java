@@ -1,6 +1,10 @@
 package com.example.demo.Labs.PranavInheritence;
 
 import com.example.demo.Labs.PranavInheritence.ConsoleMethods.ConsoleMethods;
+import com.example.demo.Labs.PranavInheritence.Car;
+import com.example.demo.Labs.PranavInheritence.Planets;
+
+
 
 import com.example.demo.Labs.PranavInheritence.Technicals.CircleQueue;
 import lombok.Getter;
@@ -21,6 +25,9 @@ public class DataController {
     private int count;
     private boolean planet;
     private Planets.KeyType planetkey;
+
+    private Car.KeyType carKey;
+    private boolean car;
 
     public DataController(){
         count = 0;
@@ -62,9 +69,14 @@ public class DataController {
         this.planetkey = Planets.KeyType.title;
         Planets.key = this.planetkey;
 
+        this.carKey = Car.KeyType.title;
+        Car.key = this.carKey;
+
         this.planet = true;
+        this.car = true;
 
         this.addCQueue(Planets.PlanetsData());
+        this.addCQueue(Car.carData());
 
         model.addAttribute("ctl", this);
         return "labs/PranavInheritence";
@@ -73,7 +85,10 @@ public class DataController {
     @PostMapping("/pi")
     public String dataFilter(
             @RequestParam(value = "planet", required = false) String planet,
-            @RequestParam(value = "planetkey") Planets.KeyType planetkey, Model model){
+            @RequestParam(value = "planetkey") Planets.KeyType planetkey,
+            @RequestParam(value = "car", required = false) String car,
+            @RequestParam(value = "carKey") Car.KeyType carKey,
+            Model model){
 
         count = 0;
         queue = new CircleQueue();
@@ -85,6 +100,14 @@ public class DataController {
             Planets.key = this.planetkey;
         } else {
             this.planet = false;
+        }
+        if(car != null){
+            this.addCQueue(Car.carData());
+            this.car = true;
+            this.carKey = carKey;
+            Car.key = this.carKey;
+        } else{
+            this.car = false;
         }
 
         this.queue.InsertionSort();
@@ -108,15 +131,18 @@ public class DataController {
         DataController trial = new DataController();
 
         trial.addCQueue(Planets.PlanetsData());
+        trial.addCQueue(Car.carData());
         ConsoleMethods.println("Add order (all data)");
         trial.printCQueue();
 
         Planets.key = Planets.KeyType.name;
+        Car.key = Car.KeyType.name;
         trial.queue.InsertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.printCQueue();
 
         Planets.key = Planets.KeyType.title;
+        Car.key = Car.KeyType.title;
         ConsoleMethods.println("Retain sorted order (all data)");
         trial.printCQueue();
         trial.queue.InsertionSort();

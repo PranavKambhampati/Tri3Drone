@@ -87,6 +87,19 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4">
+                            <input type="checkbox" id="car" name="car" value="1" th:checked="${ctl.isCar()}">
+                            <label for="car">Cars</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.PranavInheritence.Car.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{carKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('carKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <button>Go!</button>
                 </form>
