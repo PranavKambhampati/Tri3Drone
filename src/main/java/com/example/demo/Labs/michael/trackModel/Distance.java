@@ -1,10 +1,8 @@
 package com.example.demo.Labs.michael.trackModel;
 
-import javax.persistence.Basic;
-
 public class Distance extends Athlete {
-    public enum keyType {name, grade, gender, school, seedTime, split, event}
-    public static keyType key = keyType.name;
+    public enum KeyType {name, grade, gender, school, seedTime, split, event}
+    public static KeyType key = KeyType.name;
 
     private final String split;
     private final String event;
