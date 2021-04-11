@@ -7,14 +7,16 @@ import lombok.Setter;
 @Setter
 public abstract class Athlete extends BasicData{
 
+    private int id;
     private final String name;
     private final int grade;
     private final String gender;
     private final String school;
-    private final double seedTime;
+    private final String seedTime;
 
-    public Athlete(String name, int grade, String gender, String school, double seedTime) {
+    public Athlete(int id, String name, int grade, String gender, String school, String seedTime) {
         this.setType("Athlete");
+        this.id = id;
         this.name = name;
         this.grade = grade;
         this.gender = gender;

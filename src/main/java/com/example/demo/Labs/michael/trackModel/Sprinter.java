@@ -4,11 +4,11 @@ public class Sprinter extends Athlete {
     public enum keyType {name, grade, gender, school, seedTime, wind, event}
     public static keyType key = keyType.name;
 
-    private final double wind;
+    private final String wind;
     private final String event;
 
-    public Sprinter(String name, int grade, String gender, String school, double seedTime, double wind, String event){
-        super(name, grade, gender, school, seedTime);
+    public Sprinter(int id, String name, int grade, String gender, String school, String seedTime, String wind, String event){
+        super(id, name, grade, gender, school, seedTime);
         this.wind = wind;
         this.event = event;
     }
@@ -22,6 +22,9 @@ public class Sprinter extends Athlete {
                 break;
             case grade:
                 formattedString += "00" + super.getGrade();
+                break;
+            case gender:
+                formattedString = super.getGender();
                 break;
             case school:
                 formattedString = super.getSchool();
@@ -40,6 +43,15 @@ public class Sprinter extends Athlete {
                 break;
         }
         return formattedString;
+    }
+
+    public static BasicData[] sprinterAthleteData() {
+        BasicData[] data = new BasicData[30];
+        for (int i = 0; i < 30; i++) {
+            data[i] = new Sprinter(i, "Hayes, Michael", 9, "male", "Del Norte", "0:58.22", "-0.7", "400 meters");
+        }
+
+        return data;
     }
 }
 
