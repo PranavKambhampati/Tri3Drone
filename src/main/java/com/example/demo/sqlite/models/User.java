@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.Max;
+//import javax.validation.constraints.Min;
+//import javax.validation.constraints.Size;
 
 
 @Setter
@@ -27,12 +27,12 @@ public class User {
     @Size(min=2, max=30): Allows names between 2 and 30 characters long.
      */
     @NonNull
-    @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
+    //@Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
 
     // Age is restricted
     @NonNull
-    @Min(0) @Max(122)
+    //@Min(0) @Max(122)
     private Integer age;
 
 }
