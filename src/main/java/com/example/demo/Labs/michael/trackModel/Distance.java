@@ -21,6 +21,8 @@ public class Distance extends Athlete {
 
     public Distance(int id, String name, int grade, String gender, String school, String seedTime, String split, String event){
         super(id, name, grade, gender, school, seedTime);
+        this.setType("Distance");
+
         this.split = split;
         this.event = event;
     }

@@ -1,5 +1,6 @@
 package com.example.demo.Labs.michael.trackModel;
 
+import com.example.demo.Labs.michael.trackModel.extras.CsvExtractor;
 import lombok.Getter;
 
 @Getter
@@ -12,6 +13,8 @@ public class Sprinter extends Athlete {
 
     public Sprinter(int id, String name, int grade, String gender, String school, String seedTime, String wind, String event){
         super(id, name, grade, gender, school, seedTime);
+        this.setType("Sprinter");
+
         this.wind = wind;
         this.event = event;
     }
@@ -49,9 +52,32 @@ public class Sprinter extends Athlete {
     }
 
     public static BasicData[] sprinterAthleteData() {
-        BasicData[] data = new BasicData[30];
+        /*BasicData[] data = new BasicData[30];
         for (int i = 0; i < 30; i++) {
             data[i] = new Sprinter(i, "Hayes, Michael", 9, "male", "Del Norte", "0:58.22", "-0.7", "400 meters");
+        }
+
+        return data;*/
+        CsvExtractor maleNames = new CsvExtractor("src/main/java/com/example/demo/Labs/michael/trackModel/extras/male_names.csv");
+        maleNames.parseData();
+        maleNames.print();
+
+        BasicData[] data = new BasicData[24];
+
+        for (int i = 24; i < 48; i++) {
+            String school;
+            if (i % 2 == 0 ) {
+                school = "Del Norte";
+            } else {
+                school = "Rancho Bernardo";
+            }
+            if (i < 32) {
+                data[i - 24] = new Sprinter(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (14 - 10.5)) + 10.5), String.valueOf((Math.random() * (2 - 0)) + 0), "100 meters");
+            } else if (i < 40){
+                data[i - 24] = new Sprinter(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (30 - 24)) + 24), String.valueOf((Math.random() * (2 - 0)) + 0), "200 meters");
+            } else {
+                data[i - 24] = new Sprinter(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (61 - 52)) + 52), String.valueOf((Math.random() * (2 - 0) + 0)), "400 meters");
+            }
         }
 
         return data;
