@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Michael Inheritance</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <div class="dataEntry">
+                <h1>Michael's Inheritance Track Sort</h1>
+                <form id="userSelection" action="/michaelInheritance" th:object="${allAthleteData}" method="POST" >
+
+                <div class="col-md-4">
+                    <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                    <input type="checkbox" id="distance" name="distance" value="1" th:checked="${allAthleteData.isDistance()}">
+                    <label for="distance">Distance</label>
+                    <div class="form-group">
+                        <label>Sort by</label>
+                        <div th:each="option : ${T(com.example.demo.Labs.michael.trackModel.Distance.KeyType).values()}">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" th:field="*{distanceKey}" th:value="${option}" class="custom-control-input">
+                                <label class="custom-control-label" th:for="${#ids.prev('distanceKey')}" th:text="${option}">option</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+                <div class="col-md-4">
+                    <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                    <input type="checkbox" id="sprinter" name="sprinter" value="1" th:checked="${allAthleteData.isSprints()}">
+                    <label for="sprinter">Sprints</label>
+                    <div class="form-group">
+                        <label>Sort by</label>
+                        <div th:each="option : ${T(com.example.demo.Labs.michael.trackModel.Sprinter.KeyType).values()}">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" th:field="*{sprinterKey}" th:value="${option}" class="custom-control-input">
+                                <label class="custom-control-label" th:for="${#ids.prev('sprinterKey')}" th:text="${option}">option</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <button>Sort</button>
+                </form>
+            </div>
+            <div class="resultsTable">
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Yr</th>
+                        <th scope="col">School</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Seed Time</th>
+                        <!-- THYMELEAF CONDITIONALS reference:https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#simple-conditionals-if-and-unless-->
+
+                        <!-- 1 of 2 ThymeLeaf Conditionals th:if -->
+                        <div th:if="${allAthleteData.isDistance()}">
+                            <th scope="col">Split</th>
+                        </div>
+                        <div th:if="${allAthleteData.isSprints()}">
+                            <th scope="col">Wind</th>
+                        </div>
+                    </tr>
+
+                    <tr th:each="line: ${allAthleteData.getAllAthletes().getList()}">
+                        <!-- Objects are still sorted by toString, but using traditional getters allows display of all data when sorted -->
+                        <td th:text="${line.getId}"></td>
+                        <td th:text="${line.getName}"></td>
+                        <td th:text="${line.getGrade}"></td>
+                        <td th:text="${line.getSchool}"></td>
+                        <td th:text="${line.getEvent}"></td>
+                        <td th:text="${line.getSeedTime}"></td>
+                        <!-- If both distance and sprints are displayed at the same time, the split values are displayed in second to last row and wind values are displayed in last row -->
+                        <!-- 2 of 2 ThymeLeaf conditionals th:switch and th:case -->
+                        <div th:if="${allAthleteData.isDistance() and allAthleteData.isSprints()}">
+                            <div th:switch="${line.getType}">
+                                <span th:case="'Distance'"><td th:text="${line.getSplit}"></td></span>
+                                <span th:case="'Sprinter'"><td></td><td th:text="${line.getWind}"></td></span>
+                            </div>
+                        </div>
+                        <!-- If only Distance athletes are displayed, ony a split column is displayed -->
+                        <div th:if="${allAthleteData.isDistance() and (not allAthleteData.isSprints())}">
+                            <td th:text="${line.getSplit}"></td>
+                        </div>
+                        <!-- If only Sprinter athletes are displayed, only a wind column is displayed -->
+                        <div th:if="${allAthleteData.isSprints() and (not allAthleteData.isDistance())}">
+                            <td th:text="${line.getWind}"></td>
+                        </div>
+
+
+
+                        <!--
+                        <div th:if="${allAthleteData.isDistance()}">
+                            <td th:text="${line.getSplit}"></td>
+                        </div>
+                        <div th:if="${allAthleteData.isSprints()}">
+                            <td th:text="${line.getWind}"></td>
+                        </div>-->
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
