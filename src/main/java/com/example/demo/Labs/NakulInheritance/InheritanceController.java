@@ -67,6 +67,7 @@ public class InheritanceController {
         //control options
         this.student = true;
         this.gems = true;
+        this.countries = true;
         //load data
         this.addToList(Student.studentData());
         this.addToList(Gems.gemsData());
