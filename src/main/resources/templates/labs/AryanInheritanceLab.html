@@ -120,7 +120,7 @@
                      <tr>
                          <th scope="col">Rows</th>
                      </tr>
-                     <tr th:each="stuff: ${ctl.printCircleQueues()}">
+                     <tr th:each="stuff: ${ctl.getCircleQueueList()}">
                          <td th:text="${stuff}" ></td>
                      </tr>
                  </table>
