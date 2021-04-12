@@ -1,5 +1,11 @@
 package com.example.demo.Labs.AryanInheritance;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
 public class Cities extends AryanInheritance {
 
     public enum Info {title, city, state, population}
