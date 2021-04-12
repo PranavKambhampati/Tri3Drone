@@ -1,6 +1,7 @@
 package com.example.demo.Labs.michael.trackModel;
 
 import com.example.demo.Labs.michael.trackModel.extras.CsvExtractor;
+import lombok.Getter;
 
 import javax.persistence.Basic;
 import java.io.File;
@@ -8,9 +9,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+@Getter
 public class Distance extends Athlete {
     public enum KeyType {name, grade, gender, school, seedTime, split, event}
     public static KeyType key = KeyType.name;
+
+    public static boolean distanceSorted;
 
     private final String split;
     private final String event;
@@ -50,6 +54,7 @@ public class Distance extends Athlete {
                 formattedString = super.getType() + ": " + super.getName() + " " + super.getGrade() + " " + super.getSchool() + " " + this.event + " " + this.split + " " + super.getSeedTime();
                 break;
         }
+
         return formattedString;
     }
 

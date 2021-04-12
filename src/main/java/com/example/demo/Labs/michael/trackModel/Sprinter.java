@@ -1,5 +1,8 @@
 package com.example.demo.Labs.michael.trackModel;
 
+import lombok.Getter;
+
+@Getter
 public class Sprinter extends Athlete {
     public enum KeyType {name, grade, gender, school, seedTime, wind, event}
     public static KeyType key = KeyType.name;

@@ -142,16 +142,39 @@
                     <button>Sort</button>
                 </form>
             </div>
+            <div class="resultsTable">
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Yr</th>
+                        <th scope="col">School</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Seed Time</th>
+                        <div th:if="${allAthleteData.isDistance()}">
+                            <th scope="col">Split</th>
+                        </div>
+                        <div th:if="${allAthleteData.isSprints()}">
+                            <th scope="col">Wind</th>
+                        </div>
+                    </tr>
 
-            <table class="mx-auto">
-                <tr>
-                    <th scope="col">Rows</th>
-                </tr>
-
-                <tr th:each="line: ${allAthleteData.getAllAthletes().getList()}">
-                    <td th:text="${line}" ></td>
-                </tr>
-            </table>
+                    <tr th:each="line: ${allAthleteData.getAllAthletes().getList()}">
+                        <td th:text="${line.getId}"></td>
+                        <td th:text="${line.getName}"></td>
+                        <td th:text="${line.getGrade}"></td>
+                        <td th:text="${line.getSchool}"></td>
+                        <td th:text="${line.getEvent}"></td>
+                        <td th:text="${line.getSeedTime}"></td>
+                        <div th:if="${allAthleteData.isDistance()}">
+                            <td th:text="${line.getSplit}"></td>
+                        </div>
+                        <div th:if="${allAthleteData.isSprints()}">
+                            <td th:text="${line.getWind}"></td>
+                        </div>
+                    </tr>
+                </table>
+            </div>
         </div>
 
     </div>
