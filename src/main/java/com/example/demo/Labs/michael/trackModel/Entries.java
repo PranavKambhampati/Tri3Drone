@@ -16,7 +16,7 @@ public class Entries {
             BasicData current = list.get(j);
             int i = j - 1;
 
-            while ((i > -1) && (list.get(i).toString().compareTo(current.toString()) == 1)) {
+            while ((i > -1) && (list.get(i).toString().compareTo(current.toString()) > 0)) {
                 list.set(i + 1, list.get(i));
                 i--;
             }
