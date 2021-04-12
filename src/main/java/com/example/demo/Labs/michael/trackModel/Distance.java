@@ -14,8 +14,6 @@ public class Distance extends Athlete {
     public enum KeyType {name, grade, gender, school, seedTime, split, event}
     public static KeyType key = KeyType.name;
 
-    public static boolean distanceSorted;
-
     private final String split;
     private final String event;
 
@@ -36,6 +34,7 @@ public class Distance extends Athlete {
                 break;
             case grade:
                 formattedString += "00" + super.getGrade();
+                formattedString = formattedString.substring(formattedString.length()-2);
                 break;
             case gender:
                 formattedString = super.getGender();
@@ -60,12 +59,15 @@ public class Distance extends Athlete {
         return formattedString;
     }
 
+    /**
+     * Distance data generated via
+     * 1. name parsed from CSV file (trackModel.extras.males_names.csv)
+     * 2. school with simple randomization
+     * 3. grade, seedTime, and split from Math.random() generation
+     * 4. Event via 8 athletes per event
+     * @return
+     */
     public static BasicData[] distanceAthleteData() {
-
-        /*for (int i = 0; i < 30; i++) {
-            data[i] = new Distance(i, "Hayes, Michael", 9, "male", "Del Norte", "2:08.37", "1:02.43", "800 meters");
-        }
-        return data;*/
         CsvExtractor maleNames = new CsvExtractor("src/main/java/com/example/demo/Labs/michael/trackModel/extras/male_names.csv");
         maleNames.parseData();
         maleNames.print();

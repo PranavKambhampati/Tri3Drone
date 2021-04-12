@@ -28,6 +28,7 @@ public class Sprinter extends Athlete {
                 break;
             case grade:
                 formattedString += "00" + super.getGrade();
+                formattedString = formattedString.substring(formattedString.length()-2);
                 break;
             case gender:
                 formattedString = super.getGender();
@@ -50,14 +51,16 @@ public class Sprinter extends Athlete {
         }
         return formattedString;
     }
-
+    /**
+     * Sprinter data generated via
+     * 1. name parsed from CSV file (trackModel.extras.males_names.csv)
+     * 2. school with simple randomization
+     * 3. grade, seedTime, and wind from Math.random() generation
+     * 4. Event via 8 athletes per event
+     * @return
+     */
     public static BasicData[] sprinterAthleteData() {
-        /*BasicData[] data = new BasicData[30];
-        for (int i = 0; i < 30; i++) {
-            data[i] = new Sprinter(i, "Hayes, Michael", 9, "male", "Del Norte", "0:58.22", "-0.7", "400 meters");
-        }
 
-        return data;*/
         CsvExtractor maleNames = new CsvExtractor("src/main/java/com/example/demo/Labs/michael/trackModel/extras/male_names.csv");
         maleNames.parseData();
         maleNames.print();

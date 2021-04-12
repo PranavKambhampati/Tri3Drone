@@ -3,6 +3,10 @@ package com.example.demo.Labs.michael.trackModel;
 import lombok.Getter;
 import lombok.Setter;
 
+/*
+    Parent of Distance and Sprinter classes
+ */
+
 @Getter
 @Setter
 public abstract class Athlete extends BasicData{

@@ -6,6 +6,10 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Entries hold the list of BasicData. Abstracted to a class due to idea to an Entry object for the separate organization of each event different from the main list
+ */
+
 @Getter
 @Setter
 public class Entries {
