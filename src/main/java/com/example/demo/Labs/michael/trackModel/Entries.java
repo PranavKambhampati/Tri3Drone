@@ -15,12 +15,12 @@ public class Entries {
         for (int j = 1; j < list.size(); j++) {
             BasicData current = list.get(j);
             int i = j - 1;
-            // list.get(i).toString().compareTo(current.toString()
-            while ((i > -1) && (current.toString().compareTo(list.get(i).toString()) == 1)) {
-                list.set(i + 1, current);
+
+            while ((i > -1) && (list.get(i).toString().compareTo(current.toString()) == 1)) {
+                list.set(i + 1, list.get(i));
                 i--;
             }
-            list.set(i + 1, list.get(i));
+            list.set(i + 1, current);
         }
     }
 
