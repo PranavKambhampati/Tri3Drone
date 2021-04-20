@@ -7,7 +7,7 @@ public class LinkedList {
 
     public LinkedList(Object curr, LinkedList node){
         setObject(curr);
-        setprev(prev);
+        setprev(node);
         setnext(null);
     }
 
