@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Labs.AryanRecursion;
+import com.example.demo.Labs.AryanSorts.AryanSorts;
 import com.example.demo.Labs.NakulRecursion;
 import com.example.demo.Labs.PranavRecursion.PranavRecursion;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortFor;
@@ -99,6 +100,28 @@ public class LabsController {
         return "labs/michaelRecursion";
     }
 
+    @GetMapping("/AryanSorts") // web address will be /labs/AryanRecursion
+    public String AryanSorts (@RequestParam(name="array", required=false,  defaultValue="1,1,1,1,1") String num, Model model) {
+        /*
+        int[] largeArray = new int[5];
+        if (num.trim() == "") {
+            num = "1,1,1,1,1";
+        }
+        String [] arrayToSort = num.split(",");
+        for (int i = 0; i < arrayToSort.length; i++) {
+            largeArray[i]=Integer.parseInt(arrayToSort[i]);
+        }
 
+        AryanSorts sortsLab = new AryanSorts(largeArray);
+         */
+        AryanSorts sortsLab = new AryanSorts(num);
+        model.addAttribute("bubbleSortAnswer", sortsLab.BubbleSortPrintedAnswer);
+        model.addAttribute("selectionSortAnswer", sortsLab.SelectionSortPrintedAnswer);
+        model.addAttribute("timeForBubble", sortsLab.timeForBubbleSorts);
+        model.addAttribute("timeForSelection", sortsLab.timeForSelectionSorts);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanSortsLab";
+    }
 
 }
