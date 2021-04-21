@@ -1,9 +1,8 @@
 package com.example.demo.Labs.PranavInheritence;
 
 import com.example.demo.Labs.PranavInheritence.ConsoleMethods.ConsoleMethods;
+import com.example.demo.Labs.PranavInheritence.Planet;
 import com.example.demo.Labs.PranavInheritence.Car;
-import com.example.demo.Labs.PranavInheritence.Planets;
-
 
 
 import com.example.demo.Labs.PranavInheritence.Technicals.CircleQueue;
@@ -24,7 +23,7 @@ public class DataController {
     private CircleQueue queue;
     private int count;
     private boolean planet;
-    private Planets.KeyType planetkey;
+    private Planet.KeyType planetKey;
 
     private Car.KeyType carKey;
     private boolean car;
@@ -39,7 +38,7 @@ public class DataController {
         for(Object o: objects){
             queue.addobj(o);
             ConsoleMethods.println("Add: " + queue.getObject() + " " + queue);
-
+            this.count++;
         }
     }
 
@@ -66,8 +65,8 @@ public class DataController {
     public String data(Model model){
         this.count = 0;
         this.queue = new CircleQueue();
-        this.planetkey = Planets.KeyType.title;
-        Planets.key = this.planetkey;
+        this.planetKey = Planet.KeyType.title;
+        Planet.key = this.planetKey;
 
         this.carKey = Car.KeyType.title;
         Car.key = this.carKey;
@@ -75,7 +74,7 @@ public class DataController {
         this.planet = true;
         this.car = true;
 
-        this.addCQueue(Planets.PlanetsData());
+        this.addCQueue(Planet.planetData());
         this.addCQueue(Car.carData());
 
         model.addAttribute("ctl", this);
@@ -85,19 +84,19 @@ public class DataController {
     @PostMapping("/pi")
     public String dataFilter(
             @RequestParam(value = "planet", required = false) String planet,
-            @RequestParam(value = "planetkey") Planets.KeyType planetkey,
+            @RequestParam(value = "planetKey", required = false) Planet.KeyType planetKey,
             @RequestParam(value = "car", required = false) String car,
-            @RequestParam(value = "carKey") Car.KeyType carKey,
+            @RequestParam(value = "carKey",required = false) Car.KeyType carKey,
             Model model){
 
         count = 0;
         queue = new CircleQueue();
 
         if (planet != null){
-            this.addCQueue(Planets.PlanetsData());
+            this.addCQueue(Planet.planetData());
             this.planet = true;
-            this.planetkey = planetkey;
-            Planets.key = this.planetkey;
+            this.planetKey = planetKey;
+            Planet.key = this.planetKey;
         } else {
             this.planet = false;
         }
@@ -109,7 +108,6 @@ public class DataController {
         } else{
             this.car = false;
         }
-
         this.queue.InsertionSort();
         model.addAttribute("ctl", this);
         return "labs/PranavInheritence";
@@ -130,18 +128,18 @@ public class DataController {
     public static void main(String[] args) {
         DataController trial = new DataController();
 
-        trial.addCQueue(Planets.PlanetsData());
+        trial.addCQueue(Planet.planetData());
         trial.addCQueue(Car.carData());
         ConsoleMethods.println("Add order (all data)");
         trial.printCQueue();
 
-        Planets.key = Planets.KeyType.name;
+        Planet.key = Planet.KeyType.name;
         Car.key = Car.KeyType.name;
         trial.queue.InsertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.printCQueue();
 
-        Planets.key = Planets.KeyType.title;
+        Planet.key = Planet.KeyType.title;
         Car.key = Car.KeyType.title;
         ConsoleMethods.println("Retain sorted order (all data)");
         trial.printCQueue();
