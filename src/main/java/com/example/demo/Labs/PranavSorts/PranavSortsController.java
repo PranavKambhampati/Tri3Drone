@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/labs")
 public class PranavSortsController {
 
-    @GetMapping("/PranavSorts")
+    @GetMapping("/PranavIntSorts")
     public String PranavSorts (@RequestParam(name="array", required=false,  defaultValue="1,1,1,1,1") String num, Model model) {
 
         PranavSorts sorts = new PranavSorts(num);
@@ -22,6 +22,24 @@ public class PranavSortsController {
         model.addAttribute("timeForInsertion", sorts.insertsorttime);
         model.addAttribute("totalArrays", num);
         return "labs/PranavSortsLab";
+    }
+
+    @GetMapping("/PranavStringSorts")
+    public String PranavStringSorts (@RequestParam(name="array", required=false,  defaultValue="a,a,a,a,a") String num, Model model){
+        PranavStringSorts stringsort = new PranavStringSorts(num);
+        model.addAttribute("bubbleSortAnswer", stringsort.bubbleprintanswer);
+        model.addAttribute("selectionSortAnswer", stringsort.selectprintanswer);
+        model.addAttribute("insertionSortAnswer",stringsort.insertprintanswer);
+        model.addAttribute("timeForBubble", stringsort.bubblesorttime);
+        model.addAttribute("timeForSelection", stringsort.selectsorttime);
+        model.addAttribute("timeForInsertion", stringsort.insertsorttime);
+        model.addAttribute("totalArrays", num);
+        return "labs/PranavStringSorts";
+
+
+
+
+
     }
 
 
