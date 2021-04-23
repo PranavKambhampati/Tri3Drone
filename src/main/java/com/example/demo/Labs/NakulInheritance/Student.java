@@ -44,7 +44,9 @@ public class Student extends MasterClass{
                 new Student("Aryan Amberkar", 16, "Sophomore"),
                 new Student("Pranav Khambhampati", 17, "Junior"),
                 new Student("John Smith", 15, "Freshman"),
-                new Student("Karen Greene", 22, "Undergraduate")
+                new Student("Karen Greene", 22, "Undergraduate"),
+                new Student("Marian Brady", 20, "Undergraduate"),
+                new Student("Thomas Marsden", 19, "Senior")
         };
     }
 }
