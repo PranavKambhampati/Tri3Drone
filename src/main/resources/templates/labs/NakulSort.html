@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">>
+<head><div layout:fragment="metadata" th:remove="tag">
+    <meta charset="UTF-8">
+    <title>NakulSort</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        h1 {
+            text-align: center;
+            vertical-align: top;
+            font-size: x-large;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 600;
+            margin-bottom: 50px;
+            margin-top: 0;
+        }
+
+        input[type=text], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        input[type=password], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        label{
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        button[type=submit] {
+            position: relative;
+            width: 125%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 20px;
+            margin-bottom: 0;
+            margin-top: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            left: auto;
+        }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+
+        a.link {
+            position: relative;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            left: 400px;
+            top: 25px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        a.link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</div></head>
+<body><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <form name="form" action="/labs/NakulSort" th:object="${sort}" method="POST">
+                <table class="mx-auto">
+                    <tr>
+                        <h1>
+                            Sort Comparison Lab
+                        </h1>
+                    </tr>
+                    <tr>
+                        <button>SORT</button>
+                    </tr>
+                    <tr>
+                        <td th:text="'INTEGER'" style="font-weight: bold"></td>
+                    </tr>
+                    <tr th:each="line: ${sort.intArray}">
+                        <td th:text="${line}" ></td>
+                    </tr>
+
+                    <tr>
+                        <td th:text="'STRING'" style="font-weight: bold"></td>
+                    </tr>
+                    <tr th:each="line: ${sort.strArray}">
+                        <td th:text="${line}" ></td>
+                    </tr>
+
+                    <tr>
+                        <td th:text="'OBJECT'" style="font-weight: bold"></td>
+                    </tr>
+                    <tr th:each="line: ${sort.objArray}">
+                        <td th:text="${line}" ></td>
+                    </tr>
+
+                    <tr>
+                        <h1>
+                            <td th:text="'BUBBLE SORT'" style="font-weight: bold"></td>
+                        </h1>
+                    </tr>
+                    <tr>
+                        <td th:text="'Integer Time Taken: ' + ${intBubbleSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'String Time Taken: ' + ${stringBubbleSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Object Time Taken: ' + ${objBubbleSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Worst Case Complexity: O(n^2) {Max 64 total operations}'"></td>
+                    </tr>
+
+                    <tr>
+                        <h1>
+                            <td th:text="'INSERTION SORT'" style="font-weight: bold"></td>
+                        </h1>
+                    </tr>
+                    <tr>
+                        <td th:text="'Integer Time Taken: ' + ${intInsertionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'String Time Taken: ' + ${stringInsertionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Object Time Taken: ' + ${objInsertionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Worst Case Complexity: O(n^2) {Max 64 total operations}'"></td>
+                    </tr>
+
+                    <tr>
+                        <h1>
+                            <td th:text="'SELECTION SORT'" style="font-weight: bold"></td>
+                        </h1>
+                    </tr>
+                    <tr>
+                        <td th:text="'Integer Time Taken: ' + ${intSelectionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'String Time Taken: ' + ${stringSelectionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Object Time Taken: ' + ${objSelectionSortTime} + ' nanoseconds'"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Worst Case Complexity: O(n^2) {Max 64 total operations}'"></td>
+                    </tr>
+
+                    <tr>
+                        <h1>
+                            <td th:text="'Best Sort: INSERTION SORT'" style="font-weight: bold"></td>
+                        </h1>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div></body>
+</html>
