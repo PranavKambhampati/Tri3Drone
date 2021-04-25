@@ -6,7 +6,9 @@ public class BubbleSort extends _Sorts {
         super(stringLiteral);
 
         super.sortName = "Bubble Sort";
-        super.sortDescription = "The bubble sort loops through all of the elements in comparing it to single element. Once all of the elements have been compared to to that single element, the process repeats with the next element to the right. Once the last element is compared to the other elements, the list will be sorted. Complexity: O(n²)";
+        super.sortDescription = "The bubble sort loops through all of the elements in comparing it to single element. Once all of the elements have been compared to to that single element, the process repeats with the next element to the right. Once the last element is compared to the other elements, the list will be sorted.";
+        super.complexity = "Complexity: O(n) - O(n²)";
+        super.use = "Fastest sort if the list is already ordered";
     }
 
     /**

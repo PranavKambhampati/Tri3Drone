@@ -7,6 +7,8 @@ public class InsertionSort extends _Sorts{
 
         super.sortName = "Insertion Sort";
         super.sortDescription = "The insertion sort cycles through all of the elements in a list. The currently selected element is compared to all of the elements in previous indexes. If the currently selected element is larger than smaller indexes, that element is moved to the correct place so that it is trending towards the correct order. Complexity: O(n²)";
+        super.complexity = "Complexity: O(n²)";
+        super.use = "Good for a small list size";
     }
 
     @Override

@@ -15,10 +15,12 @@ public abstract class _Sorts {
     protected String[] unsortedDataS; // ""
     protected String sortName;
     protected String sortDescription;
+    protected String complexity;
+    protected String use;
     private Duration sortTime;
 
     public enum DataType {String, Int, Object}
-    protected DataType data;
+    public DataType data;
 
     public _Sorts(String stringLiteral) {
         this.rawData = stringLiteral;
@@ -67,6 +69,14 @@ public abstract class _Sorts {
                 break;
         }
     }
+
+    public String getSortedIFormatted() { return Arrays.toString(this.getUnsortedDataI()); }
+
+    public String getSortedSFormatted() { return Arrays.toString(this.getUnsortedDataS()); }
+
+    public int getSortTimeFormatted(){ return this.sortTime.getNano(); }
+
+
 
     public void checkDataType() {
         if (rawData.charAt(0) >= '0' && rawData.charAt(0) <= '9') {
