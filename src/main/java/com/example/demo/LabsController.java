@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.AryanSorts.AryanSorts;
+import com.example.demo.Labs.AryanSorts.AryanSortsStrings;
 import com.example.demo.Labs.NakulRecursion;
 import com.example.demo.Labs.PranavRecursion.PranavRecursion;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortFor;
@@ -100,7 +101,7 @@ public class LabsController {
         return "labs/michaelRecursion";
     }
 
-    @GetMapping("/AryanSorts") // web address will be /labs/AryanRecursion
+    @GetMapping("/AryanSortsIntegers")
     public String AryanSorts (@RequestParam(name="array", required=false,  defaultValue="1,1,1,1,1") String num, Model model) {
         /*
         int[] largeArray = new int[5];
@@ -119,9 +120,31 @@ public class LabsController {
         model.addAttribute("selectionSortAnswer", sortsLab.SelectionSortPrintedAnswer);
         model.addAttribute("timeForBubble", sortsLab.timeForBubbleSorts);
         model.addAttribute("timeForSelection", sortsLab.timeForSelectionSorts);
+        model.addAttribute("insertionSortAnswer", sortsLab.InsertionSortPrintedAnswer);
+        model.addAttribute("timeForInsertion", sortsLab.timeForInsertionSorts);
+        model.addAttribute("fastestSort", sortsLab.fastestSort);
+
 
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsLab";
     }
+
+    @GetMapping("/AryanSortsStrings")
+    public String AryanSortsStrings (@RequestParam(name="array", required=false,  defaultValue="t,t,t,t,t") String num, Model model) {
+
+        AryanSortsStrings StringsSortsLab = new AryanSortsStrings(num);
+        model.addAttribute("bubbleSortAnswer", StringsSortsLab.BubbleSortPrintedAnswer);
+        model.addAttribute("selectionSortAnswer", StringsSortsLab.SelectionSortPrintedAnswer);
+        model.addAttribute("timeForBubble", StringsSortsLab.timeForBubbleSorts);
+        model.addAttribute("timeForSelection", StringsSortsLab.timeForSelectionSorts);
+        model.addAttribute("insertionSortAnswer", StringsSortsLab.InsertionSortPrintedAnswer);
+        model.addAttribute("timeForInsertion", StringsSortsLab.timeForInsertionSorts);
+        model.addAttribute("fastestSort", StringsSortsLab.fastestSort);
+
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanSortsLabStrings";
+    }
+
 
 }

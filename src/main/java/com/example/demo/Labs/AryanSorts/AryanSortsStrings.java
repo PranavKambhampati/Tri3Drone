@@ -3,18 +3,17 @@ package com.example.demo.Labs.AryanSorts;
 import java.time.Duration;
 import java.time.Instant;
 
+public class AryanSortsStrings {
 
-public class AryanSorts {
-
-    public int [] BubbleSortAnswer;
+    public String [] BubbleSortAnswer;
 
     public String BubbleSortPrintedAnswer;
 
-    public int [] SelectionSortAnswer;
+    public String [] SelectionSortAnswer;
 
     public String SelectionSortPrintedAnswer;
 
-    public int [] InsertionSortAnswer;
+    public String [] InsertionSortAnswer;
 
     public String InsertionSortPrintedAnswer;
 
@@ -30,56 +29,32 @@ public class AryanSorts {
     Duration f;
     Duration s;
 
-    public AryanSorts(int [] totalArray) {
-
-        Instant startCalc = Instant.now();
-        BubbleSortAnswer = BubbleSort(totalArray);
-        BubbleSortPrintedAnswer = printBubbleSort(BubbleSortAnswer);
-        Instant endCalc = Instant.now();
-        r = Duration.between(startCalc, endCalc);
-        timeForBubbleSorts = r.getNano();
-
-        Instant startCalc1 = Instant.now();
-        SelectionSortAnswer = SelectionSort(totalArray);
-        SelectionSortPrintedAnswer = printBubbleSort(SelectionSortAnswer);
-        Instant endCalc1 = Instant.now();
-        f = Duration.between(startCalc1, endCalc1);
-        timeForSelectionSorts = f.getNano();
-
-        Instant startCalc2 = Instant.now();
-        InsertionSortAnswer = InsertionSort(totalArray);
-        InsertionSortPrintedAnswer = printBubbleSort(InsertionSortAnswer);
-        Instant endCalc2 = Instant.now();
-        s = Duration.between(startCalc2, endCalc2);
-        timeForInsertionSorts = s.getNano();
-    }
-
-    public AryanSorts(String strTotalArray) {
-        int[] totalArray = new int[5];
+    public AryanSortsStrings(String strTotalArray) {
+        String[] totalArray = new String[5];
         if (strTotalArray.trim() == "") {
-            strTotalArray = "1,1,1,1,1";
+            strTotalArray = "t,t,t,t,t";
         }
         String [] arrayToSort = strTotalArray.split(",");
         for (int i = 0; i < arrayToSort.length; i++) {
-            totalArray[i]=Integer.parseInt(arrayToSort[i]);
+            totalArray[i]= arrayToSort[i];
         }
         Instant startCalc = Instant.now();
         BubbleSortAnswer = BubbleSort(totalArray);
-        BubbleSortPrintedAnswer = printBubbleSort(BubbleSortAnswer);
+        BubbleSortPrintedAnswer = printArray(BubbleSortAnswer);
         Instant endCalc = Instant.now();
         r = Duration.between(startCalc, endCalc);
         timeForBubbleSorts = r.getNano();
 
         Instant startCalc1 = Instant.now();
         SelectionSortAnswer = SelectionSort(totalArray);
-        SelectionSortPrintedAnswer = printBubbleSort(SelectionSortAnswer);
+        SelectionSortPrintedAnswer = printArray(SelectionSortAnswer);
         Instant endCalc1 = Instant.now();
         f = Duration.between(startCalc1, endCalc1);
         timeForSelectionSorts = f.getNano();
 
         Instant startCalc2 = Instant.now();
         InsertionSortAnswer = InsertionSort(totalArray);
-        InsertionSortPrintedAnswer = printBubbleSort(InsertionSortAnswer);
+        InsertionSortPrintedAnswer = printArray(InsertionSortAnswer);
         Instant endCalc2 = Instant.now();
         s = Duration.between(startCalc2, endCalc2);
         timeForInsertionSorts = s.getNano();
@@ -88,16 +63,14 @@ public class AryanSorts {
 
     }
 
-
-
-    public int[] BubbleSort(int[] arrayToSort) {
+    public String[] BubbleSort(String[] arrayToSort) {
         int length = arrayToSort.length;
 
         for (int i = 0; i < length-1; i++) {
             for (int k = 0; k < length-i-1; k++) {
 
-                if (arrayToSort[k] > arrayToSort[k+1]) {
-                    int temporaryIndex = arrayToSort[k];
+                if (arrayToSort[k].compareTo(arrayToSort[k+1]) > 0) {
+                    String temporaryIndex = arrayToSort[k];
                     arrayToSort[k] = arrayToSort[k+1];
                     arrayToSort[k+1] = temporaryIndex;
                 }
@@ -106,7 +79,7 @@ public class AryanSorts {
         return arrayToSort;
     }
 
-    public String printBubbleSort(int [] arrayToSort) {
+    public String printArray(String [] arrayToSort) {
         String finalArray = "";
         for (int i = 0; i < arrayToSort.length; i++) {
             if (finalArray.trim() != "") {
@@ -117,28 +90,27 @@ public class AryanSorts {
         return finalArray;
     }
 
-    public int[] SelectionSort(int [] arrayToSort) {
-        int length = arrayToSort.length;
-        for (int i = 0; i < length - 1; i++) {
+    public String[] SelectionSort(String [] arrayToSort) {
+        for (int i = 0; i < arrayToSort.length - 1; i++) {
             int lowestNumber = i;
-            for (int o = length +1; o < length; o++) {
-                if (arrayToSort[o] < arrayToSort[lowestNumber]) {
+            for (int o = i + 1; o < arrayToSort.length; o++) {
+                if (arrayToSort[o].compareTo(arrayToSort[lowestNumber]) < 0) {
                     lowestNumber = o;
                 }
             }
-            int temporaryIndex = arrayToSort[lowestNumber];
-            arrayToSort[lowestNumber] = arrayToSort[i];
-            arrayToSort[i] = temporaryIndex;
-            }
+            String temporaryIndex = arrayToSort[i];
+            arrayToSort[i] = arrayToSort[lowestNumber];
+            arrayToSort[lowestNumber] = temporaryIndex;
+        }
         return arrayToSort;
     }
 
-    public int[] InsertionSort(int [] arrayToSort) {
+    public String[] InsertionSort(String [] arrayToSort) {
         int length = arrayToSort.length;
         for (int i = 1; i < length; i++) {
-            int lowestNumber = arrayToSort[i];
+            String lowestNumber = arrayToSort[i];
             int t = i - 1;
-            while (t >= 0 && arrayToSort[t] > lowestNumber) {
+            while (t >= 0 && arrayToSort[t].compareTo(lowestNumber) > 0) {
                 arrayToSort[t + 1] = arrayToSort [t];
                 t = t - 1;
             }
@@ -147,7 +119,7 @@ public class AryanSorts {
         return arrayToSort;
     }
 
-    public String getFastestSort(int [] arr) {
+    public String getFastestSort(String [] arr) {
         if ((timeForBubbleSorts < timeForInsertionSorts) && (timeForBubbleSorts < timeForSelectionSorts)) {
             fastestSort = "bubble sorts";
         }
@@ -168,5 +140,6 @@ public class AryanSorts {
         }
         return fastestSort;
     }
+
 
 }
