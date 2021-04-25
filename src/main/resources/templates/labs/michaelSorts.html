@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Michael Sorts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .contetn .dataEntry {
+            display: inline;
+        }
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+
+        .container p {
+            font-size: 90%;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <div class="dataEntry">
+                <h1>Michael's Sorts Lab: String, Integer, POJO</h1>
+                <form class="unsortedArray" action="/michaelSorts" method="POST">
+                    <input type="text" id="jumbledArray" name="unsortedArray" placeholder="Enter a string of numbers or letters separated by a comma"/>
+                    <button class="submit">Sort!</button>
+                </form>
+                <form class="default" action="/michaelSorts" method="GET">
+                    <button class="submit">Default</button>
+                </form>
+                <div/>
+                <span class="resultTable">
+                    <table class="results">
+                        <tr class="header">
+                            <th>Approach</th>
+                            <th>Result</th>
+                            <th>Time</th>
+                            <th>Description</th>
+                            <th>Complexity</th>
+                            <th>Best Use</th>
+                        </tr>
+                        <tr th:each="sort : ${sorts.getSortsList()}">
+                            <td th:text="${sort.getSortName()}"></td>
+                            <div th:switch="${sort.getData()}">
+                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Int}"><td th:text="${sort.getSortedIFormatted()}"></td></span>
+                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).String}"><td th:text="${sort.getSortedSFormatted()}"></td></span>
+                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Object}"><td>
+                                    <div th:each="row : ${sort.getSortedOFormatted}">
+                                        <p th:text="${row.getAllInstanceData}"></p>
+                                    </div>
+                                    </td>
+                                </span>
+                            </div>
+                            <td th:text="${sort.getSortTimeFormatted()}"></td>
+                            <td th:text="${sort.getSortDescription()}"></td>
+                            <td th:text="${sort.getComplexity()}"></td>
+                            <td th:text="${sort.getUse()}"></td>
+                        </tr>
+                    </table>
+                    <div/>
+
+                </span></div>
+            </div>
+        </div></div>
+
+
+
+</div>
+
+</body>
+</html>

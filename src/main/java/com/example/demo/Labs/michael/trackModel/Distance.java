@@ -92,4 +92,38 @@ public class Distance extends Athlete {
 
         return data;
     }
+
+    public static Distance[] distanceAthleteDataD() {
+        CsvExtractor maleNames = new CsvExtractor("src/main/java/com/example/demo/Labs/michael/trackModel/extras/male_names.csv");
+        maleNames.parseData();
+        maleNames.print();
+
+        Distance[] data = new Distance[24];
+
+        for (int i = 0; i < 24; i++) {
+            String school;
+            if (i % 2 == 0 ) {
+                school = "Del Norte";
+            } else {
+                school = "Rancho Bernardo";
+            }
+            if (i < 8) {
+                data[i] = new Distance(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters");
+            } else if (i < 16){
+                data[i] = new Distance(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters");
+            } else {
+                data[i] = new Distance(i, maleNames.getData().get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (750 - 615)) + 615), String.valueOf((Math.random() * (360 - 300) + 300)), "3200 meters");
+            }
+        }
+
+        return data;
+    }
+
+    /**
+     * "toString" to display all of the contents of the class
+     * @return
+     */
+    public String getAllInstanceData() {
+        return this.getId() + ", " + this.getName() + ", " + this.getGrade() + ", " +  this.getSchool() + ", " + this.getEvent() + ", " + this.getSeedTime();
+    }
 }
