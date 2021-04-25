@@ -6,7 +6,7 @@ public class SelectionSort extends _Sorts {
         super(stringLiteral);
 
         super.sortName = "Selection Sort";
-        super.sortDescription = "The selection sort repeatedly keeps checking the first element compared to all of the other elements. If one of the other elements has a smaller value that the first index, then that element becomes the new first index and the first element is swapped into the index of the other element.";
+        super.sortDescription = "The selection sort repeatedly keeps checking the first element compared to all of the other elements. If one of the other elements has a smaller value that the first index, then that element becomes the new first index and the first element is swapped into the index of the other element. O(n²)";
     }
 
     @Override
