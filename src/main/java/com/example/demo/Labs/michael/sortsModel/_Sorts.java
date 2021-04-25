@@ -1,7 +1,10 @@
 package com.example.demo.Labs.michael.sortsModel;
 
+import com.example.demo.Labs.michael.trackModel.BasicData;
 import lombok.Data;
 import lombok.Getter;
+
+import javax.persistence.Basic;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
@@ -13,6 +16,7 @@ public abstract class _Sorts {
     protected Object[] unsortedData; // deprecated type that was going to be used as an opaque type
     protected Integer[] unsortedDataI; // holds sorted data if the type is identified from checkDataType
     protected String[] unsortedDataS; // ""
+    protected BasicData[] unsortedDataO;
     protected String sortName;
     protected String sortDescription;
     protected String complexity;
@@ -31,31 +35,26 @@ public abstract class _Sorts {
         this.checkDataType();
         this.toArray();
 
-        Instant sortStart = Instant.now();
-        this.sort();
-        Instant sortEnd = Instant.now();
-        this.sortTime = Duration.between(sortStart, sortEnd);
-
+        init();
     }
 
     /**
      * Constructor for POJO
-     * @param stringLiteral
+     * @param data
      * @param knownType
      */
-    public _Sorts(String stringLiteral, DataType knownType) {
-        this.rawData = stringLiteral;
+    public _Sorts(BasicData[] data, DataType knownType) {
+        this.unsortedDataO = data;
         this.data = knownType;
 
         init();
     }
 
     public void init() {
-        this.toArray();
-
         Instant sortStart = Instant.now();
         this.sort();
         Instant sortEnd = Instant.now();
+
         this.sortTime = Duration.between(sortStart, sortEnd);
     }
 
@@ -98,6 +97,8 @@ public abstract class _Sorts {
     public String getSortedIFormatted() { return Arrays.toString(this.getUnsortedDataI()); }
 
     public String getSortedSFormatted() { return Arrays.toString(this.getUnsortedDataS()); }
+
+    public String getSortedOFormatted() { return Arrays.toString(unsortedDataO); }
 
     public int getSortTimeFormatted(){ return this.sortTime.getNano(); }
 

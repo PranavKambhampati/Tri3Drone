@@ -1,5 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
+import com.example.demo.Labs.michael.trackModel.BasicData;
+
 public class BubbleSort extends _Sorts {
 
     public BubbleSort(String stringLiteral) {
@@ -8,8 +10,8 @@ public class BubbleSort extends _Sorts {
         initB();
     }
 
-    public BubbleSort(String stringLiteral, DataType knownType) {
-        super(stringLiteral, knownType);
+    public BubbleSort(BasicData[] data, DataType knownType) {
+        super(data, knownType);
 
         initB();
     }
@@ -44,6 +46,17 @@ public class BubbleSort extends _Sorts {
                             String temp = unsortedDataS[j];
                             unsortedDataS[j] = unsortedDataS[j + 1];
                             unsortedDataS[j + 1] = temp;
+                        }
+                    }
+                }
+                break;
+            case Object:
+                for (int i = 0; i < unsortedDataO.length; i++) {
+                    for (int j = 0; j < unsortedDataO.length - i - 1; j++) {
+                        if (unsortedDataO[j].toString().compareTo(unsortedDataO[j + 1].toString()) > 0) {
+                            BasicData temp = unsortedDataO[j];
+                            unsortedDataO[j] = unsortedDataO[j + 1];
+                            unsortedDataO[j + 1] = temp;
                         }
                     }
                 }

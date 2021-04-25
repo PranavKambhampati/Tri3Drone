@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Duration;
+import java.time.Instant;
+
 @Getter
 @Setter
 @Controller
@@ -24,6 +27,8 @@ public class TrackController {
 
     private boolean sprints;
     private Sprinter.KeyType sprinterKey;
+
+    private Duration sortTime;
 
     public TrackController() {
         allAthletes = new Entries();
@@ -84,5 +89,9 @@ public class TrackController {
 
         model.addAttribute("allAthleteData", this);
         return "labs/michaelInheritance";
+    }
+
+    public int getSortTimeFormatted() {
+        return this.getSortTime().getNano();
     }
 }

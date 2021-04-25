@@ -1,5 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
+import com.example.demo.Labs.michael.trackModel.BasicData;
+
 public class InsertionSort extends _Sorts{
 
     public InsertionSort(String stringLiteral) {
@@ -8,8 +10,8 @@ public class InsertionSort extends _Sorts{
         initI();
     }
 
-    public InsertionSort(String stringLiteral, DataType knownType) {
-        super(stringLiteral, knownType);
+    public InsertionSort(BasicData[] data, DataType knownType) {
+        super(data, knownType);
 
         initI();
     }
@@ -54,6 +56,23 @@ public class InsertionSort extends _Sorts{
                         unsortedDataS[jS] = tempS;
                         i = jS;
                         jS--;
+                    }
+                }
+                break;
+            case Object:
+                int jO;
+                BasicData tempO;
+
+                for (int i = 1; i < unsortedDataO.length; i++)
+                {
+                    jO = i - 1;
+                    while (jO >= 0 && unsortedDataO[jO].toString().compareTo(unsortedDataO[i].toString()) > 0 )
+                    {
+                        tempO = unsortedDataO[i];
+                        unsortedDataO[i] = unsortedDataO[jO];
+                        unsortedDataO[jO] = tempO;
+                        i = jO;
+                        jO--;
                     }
                 }
                 break;

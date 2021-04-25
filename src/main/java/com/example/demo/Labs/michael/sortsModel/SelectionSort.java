@@ -1,5 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
+import com.example.demo.Labs.michael.trackModel.BasicData;
+
 public class SelectionSort extends _Sorts {
 
     public SelectionSort(String stringLiteral) {
@@ -8,8 +10,8 @@ public class SelectionSort extends _Sorts {
         initS();
     }
 
-    public SelectionSort(String stringLiteral, DataType knownType) {
-        super(stringLiteral, knownType);
+    public SelectionSort(BasicData[] data, DataType knownType) {
+        super(data, knownType);
 
         initS();
     }
@@ -51,6 +53,21 @@ public class SelectionSort extends _Sorts {
                     String temp = unsortedDataS[firstIndex];
                     unsortedDataS[firstIndex] = unsortedDataS[i];
                     unsortedDataS[i] = temp;
+                }
+                break;
+            case Object:
+                for (int i = 0; i < unsortedDataO.length; i++) {
+
+                    int firstIndex = i;
+                    for (int j = i + 1; j < unsortedDataO.length; j++) {
+                        if (unsortedDataO[j].toString().compareTo(unsortedDataO[firstIndex].toString()) < 0){
+                            firstIndex = j;
+                        }
+                    }
+
+                    BasicData temp = unsortedDataO[firstIndex];
+                    unsortedDataO[firstIndex] = unsortedDataO[i];
+                    unsortedDataO[i] = temp;
                 }
                 break;
             default:
