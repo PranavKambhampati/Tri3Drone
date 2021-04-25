@@ -11,7 +11,7 @@ public class BubbleSort extends _Sorts {
         initB();
     }
 
-    public BubbleSort(BasicData[] data, DataType knownType) {
+    public BubbleSort(Distance[] data, DataType knownType) {
         super(data, knownType);
 
         initB();
@@ -55,7 +55,7 @@ public class BubbleSort extends _Sorts {
                 for (int i = 0; i < unsortedDataO.length; i++) {
                     for (int j = 0; j < unsortedDataO.length - i - 1; j++) {
                         if (unsortedDataO[j].toString().compareTo(unsortedDataO[j + 1].toString()) > 0) {
-                            BasicData temp = unsortedDataO[j];
+                            Distance temp = unsortedDataO[j];
                             unsortedDataO[j] = unsortedDataO[j + 1];
                             unsortedDataO[j + 1] = temp;
                         }
@@ -81,7 +81,7 @@ public class BubbleSort extends _Sorts {
             System.out.print(s + ", ");
         }
 
-        _Sorts arrayO = new BubbleSort(Distance.distanceAthleteData(), DataType.Object);
+        _Sorts arrayO = new BubbleSort((Distance[]) Distance.distanceAthleteData(), DataType.Object);
         System.out.println(arrayO.getSortedOFormatted());
 
     }

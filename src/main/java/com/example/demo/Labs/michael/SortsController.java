@@ -42,9 +42,9 @@ public class SortsController {
         /* Java POJO Athlete */
         this.distanceKey = Distance.KeyType.school;
         Distance.key = distanceKey;
-        sortsList.add(new BubbleSort(Distance.distanceAthleteData(), _Sorts.DataType.Object));
-        sortsList.add(new InsertionSort(Distance.distanceAthleteData(), _Sorts.DataType.Object));
-        sortsList.add(new SelectionSort(Distance.distanceAthleteData(), _Sorts.DataType.Object));
+        sortsList.add(new BubbleSort(Distance.distanceAthleteDataD(), _Sorts.DataType.Object));
+        sortsList.add(new InsertionSort(Distance.distanceAthleteDataD(), _Sorts.DataType.Object));
+        sortsList.add(new SelectionSort(Distance.distanceAthleteDataD(), _Sorts.DataType.Object));
     }
 
     @GetMapping("/michaelSorts")

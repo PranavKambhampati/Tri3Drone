@@ -1,6 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
 import com.example.demo.Labs.michael.trackModel.BasicData;
+import com.example.demo.Labs.michael.trackModel.Distance;
 
 public class SelectionSort extends _Sorts {
 
@@ -10,7 +11,7 @@ public class SelectionSort extends _Sorts {
         initS();
     }
 
-    public SelectionSort(BasicData[] data, DataType knownType) {
+    public SelectionSort(Distance[] data, DataType knownType) {
         super(data, knownType);
 
         initS();
@@ -65,7 +66,7 @@ public class SelectionSort extends _Sorts {
                         }
                     }
 
-                    BasicData temp = unsortedDataO[firstIndex];
+                    Distance temp = unsortedDataO[firstIndex];
                     unsortedDataO[firstIndex] = unsortedDataO[i];
                     unsortedDataO[i] = temp;
                 }

@@ -1,6 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
 import com.example.demo.Labs.michael.trackModel.BasicData;
+import com.example.demo.Labs.michael.trackModel.Distance;
 
 public class InsertionSort extends _Sorts{
 
@@ -10,7 +11,7 @@ public class InsertionSort extends _Sorts{
         initI();
     }
 
-    public InsertionSort(BasicData[] data, DataType knownType) {
+    public InsertionSort(Distance[] data, DataType knownType) {
         super(data, knownType);
 
         initI();
@@ -61,7 +62,7 @@ public class InsertionSort extends _Sorts{
                 break;
             case Object:
                 int jO;
-                BasicData tempO;
+                Distance tempO;
 
                 for (int i = 1; i < unsortedDataO.length; i++)
                 {

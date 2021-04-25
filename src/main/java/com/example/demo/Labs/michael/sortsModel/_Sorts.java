@@ -18,7 +18,7 @@ public abstract class _Sorts {
     protected Object[] unsortedData; // deprecated type that was going to be used as an opaque type
     protected Integer[] unsortedDataI; // holds sorted data if the type is identified from checkDataType
     protected String[] unsortedDataS; // ""
-    protected BasicData[] unsortedDataO;
+    protected Distance[] unsortedDataO;
     protected String sortName;
     protected String sortDescription;
     protected String complexity;
@@ -45,7 +45,7 @@ public abstract class _Sorts {
      * @param data
      * @param knownType
      */
-    public _Sorts(BasicData[] data, DataType knownType) {
+    public _Sorts(Distance[] data, DataType knownType) {
         this.unsortedDataO = data;
         this.data = knownType;
 
@@ -100,7 +100,14 @@ public abstract class _Sorts {
 
     public String getSortedSFormatted() { return Arrays.toString(this.getUnsortedDataS()); }
 
-    public String getSortedOFormatted() { return Arrays.toString(unsortedDataO); }
+    public String getSortedOFormatted() {
+        String formatted = "[";
+        for (Distance athlete: this.unsortedDataO) {
+          formatted += athlete.getFormattedSortedList() + ", \n";
+        }
+        formatted += "]";
+        return formatted;
+    }
 
     public int getSortTimeFormatted(){ return this.sortTime.getNano(); }
 
