@@ -18,7 +18,7 @@ public abstract class _Sorts {
     protected Object[] unsortedData; // deprecated type that was going to be used as an opaque type
     protected Integer[] unsortedDataI; // holds sorted data if the type is identified from checkDataType
     protected String[] unsortedDataS; // ""
-    protected Distance[] unsortedDataO;
+    public Distance[] unsortedDataO;
     protected String sortName;
     protected String sortDescription;
     protected String complexity;
@@ -72,7 +72,7 @@ public abstract class _Sorts {
                 Integer[] unsortedArrayI = new Integer[listI.size()];
 
                 for (String element : listI) { // takes each element of the list and converts it to an int which is stuffed into an int[]
-                    unsortedArrayI[listI.indexOf(element)] = Integer.parseInt(element);
+                    unsortedArrayI[listI.indexOf(element)] = Integer.parseInt(element.trim());
                 }
 
                 this.unsortedDataI = unsortedArrayI; // assigns parsed array to corresponding instance variable
@@ -85,7 +85,7 @@ public abstract class _Sorts {
                 String[] unsortedArrayS = new String[listS.size()];
 
                 for (String element : listS) { // takes each element of the list and converts it to an Integer which is stuffed into an Integer[]
-                    unsortedArrayS[listS.indexOf(element)] = element;
+                    unsortedArrayS[listS.indexOf(element)] = element.trim();
                 }
 
                 this.unsortedDataS = unsortedArrayS; // assigns parsed array to corresponding instance variable
@@ -100,13 +100,8 @@ public abstract class _Sorts {
 
     public String getSortedSFormatted() { return Arrays.toString(this.getUnsortedDataS()); }
 
-    public String getSortedOFormatted() {
-        String formatted = "[";
-        for (Distance athlete: this.unsortedDataO) {
-          formatted += athlete.getFormattedSortedList() + ", \n";
-        }
-        formatted += "]";
-        return formatted;
+    public Distance[] getSortedOFormatted() {
+        return unsortedDataO.clone();
     }
 
     public int getSortTimeFormatted(){ return this.sortTime.getNano(); }

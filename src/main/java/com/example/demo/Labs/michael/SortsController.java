@@ -40,7 +40,7 @@ public class SortsController {
         sortsList.add(new SelectionSort("g,y,e,w,v,b,a"));
 
         /* Java POJO Athlete */
-        this.distanceKey = Distance.KeyType.school;
+        this.distanceKey = Distance.KeyType.seedTime;
         Distance.key = distanceKey;
         sortsList.add(new BubbleSort(Distance.distanceAthleteDataD(), _Sorts.DataType.Object));
         sortsList.add(new InsertionSort(Distance.distanceAthleteDataD(), _Sorts.DataType.Object));

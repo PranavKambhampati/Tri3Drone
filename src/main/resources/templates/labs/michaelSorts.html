@@ -98,6 +98,10 @@
         .container .results .timeComparison.red td {
             color: red;
         }
+
+        .container p {
+            font-size: 90%;
+        }
     </style>
 </div></head>
 
@@ -113,7 +117,7 @@
                     <button class="submit">Sort!</button>
                 </form>
                 <div/>
-                <div class="resultTable">
+                <span class="resultTable">
                     <table class="results">
                         <tr class="header">
                             <th>Approach</th>
@@ -125,11 +129,16 @@
                         </tr>
                         <tr th:each="sort : ${sorts.getSortsList()}">
                             <td th:text="${sort.getSortName()}"></td>
-                            <span th:switch="${sort.getData()}">
+                            <div th:switch="${sort.getData()}">
                                 <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Int}"><td th:text="${sort.getSortedIFormatted()}"></td></span>
                                 <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).String}"><td th:text="${sort.getSortedSFormatted()}"></td></span>
-                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Object}"><td th:text="${sort.getSortedOFormatted()}"></td></span>
-                            </span>
+                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Object}"><td>
+                                    <div th:each="row : ${sort.getSortedOFormatted}">
+                                        <p th:text="${row.getAllInstanceData}"></p>
+                                    </div>
+                                    </td>
+                                </span>
+                            </div>
                             <td th:text="${sort.getSortTimeFormatted()}"></td>
                             <td th:text="${sort.getSortDescription()}"></td>
                             <td th:text="${sort.getComplexity()}"></td>
@@ -138,7 +147,7 @@
                     </table>
                     <div/>
 
-                </div>
+                </span></div>
             </div>
         </div></div>
 

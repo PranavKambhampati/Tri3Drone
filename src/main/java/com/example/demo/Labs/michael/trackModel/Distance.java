@@ -123,7 +123,7 @@ public class Distance extends Athlete {
      * "toString" to display all of the contents of the class
      * @return
      */
-    public String getFormattedSortedList() {
+    public String getAllInstanceData() {
         return this.getId() + ", " + this.getName() + ", " + this.getGrade() + ", " +  this.getSchool() + ", " + this.getEvent() + ", " + this.getSeedTime();
     }
 }

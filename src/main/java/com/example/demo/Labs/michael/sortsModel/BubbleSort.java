@@ -81,8 +81,10 @@ public class BubbleSort extends _Sorts {
             System.out.print(s + ", ");
         }
 
-        _Sorts arrayO = new BubbleSort((Distance[]) Distance.distanceAthleteData(), DataType.Object);
-        System.out.println(arrayO.getSortedOFormatted());
+        _Sorts arrayO = new BubbleSort(Distance.distanceAthleteDataD(), DataType.Object);
+        for (Distance row : arrayO.getSortedOFormatted()) {
+            System.out.println(row.getAllInstanceData());
+        }
 
     }
 }
