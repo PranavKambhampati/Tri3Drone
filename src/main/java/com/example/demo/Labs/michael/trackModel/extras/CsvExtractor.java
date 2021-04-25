@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Getter
 public class CsvExtractor {
     private String path;
-    private List<String> data;
+    public List<String> data;
 
     public CsvExtractor(String path) {
         this.path = path;

@@ -9,6 +9,7 @@ import javax.persistence.Basic;
 import javax.persistence.DiscriminatorColumn;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,7 +69,6 @@ public abstract class _Sorts {
                 /* Input box gives back a string literal, but an Integer[] is needed */
                 String[] arrayI = this.rawData.split(","); // automatic split into String[]
                 List<String> listI = Arrays.asList(arrayI); // conversion to List because of management of a List
-
                 Integer[] unsortedArrayI = new Integer[listI.size()];
 
                 for (String element : listI) { // takes each element of the list and converts it to an int which is stuffed into an int[]
