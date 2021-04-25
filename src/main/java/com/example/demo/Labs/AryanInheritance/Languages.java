@@ -44,14 +44,14 @@ public class Languages extends AryanInheritance {
 
     public static AryanInheritance[] LanguageInfo() {
         return new AryanInheritance[] {
-                new Languages("Java", 1996, "James Gosling", "Web APIs, cloud based programs, Code once run everywhere"),
-                new Languages("Python", 1991, "Guido van Rossum", "Web applications, backend coding"),
-                new Languages("C++", 1998,"Bjarne Stroustrup","CPU functions, operating systems (MacOS, Windows), web browsers, advanced graphics"),
-                new Languages("Swift", 2010,"Chris Lattner and Apple developers", "iOS apps"),
-                new Languages("HTML", 1993, "Tim Berners-Lee", "web development, structure of page"),
-                new Languages("CSS", 1994, "Håkon Wium Lie", "styling web pages"),
-                new Languages("JavaScript", 1995,"Brandan Eich", "back end code for web pages"),
-                new Languages("Scratch", 2003, "Mitchel Resnick", "teach kids the fundamentals of coding")
+                new Languages(" Java", 1996, "James Gosling", "Web APIs, cloud based programs, Code once run everywhere"),
+                new Languages(" Python", 1991, "Guido van Rossum", "Web applications, backend coding"),
+                new Languages(" C++", 1998,"Bjarne Stroustrup","CPU functions, operating systems (MacOS, Windows), web browsers, advanced graphics"),
+                new Languages(" Swift", 2010,"Chris Lattner and Apple developers", "iOS apps"),
+                new Languages(" HTML", 1993, "Tim Berners-Lee", "web development, structure of page"),
+                new Languages(" CSS", 1994, "Håkon Wium Lie", "styling web pages"),
+                new Languages(" JavaScript", 1995,"Brandan Eich", "back end code for web pages"),
+                new Languages(" Scratch", 2003, "Mitchel Resnick", "teach kids the fundamentals of coding")
         };
 
     }

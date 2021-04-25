@@ -61,7 +61,7 @@ public class AryanSorts {
         }
         String [] arrayToSort = strTotalArray.split(",");
         for (int i = 0; i < arrayToSort.length; i++) {
-            totalArray[i]=Integer.parseInt(arrayToSort[i]);
+            totalArray[i]=Integer.parseInt(arrayToSort[i].trim());
         }
         Instant startCalc = Instant.now();
         BubbleSortAnswer = BubbleSort(totalArray);

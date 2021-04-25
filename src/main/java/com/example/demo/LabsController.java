@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.AryanSorts.AryanSorts;
+import com.example.demo.Labs.AryanSorts.AryanSortsObjects;
 import com.example.demo.Labs.AryanSorts.AryanSortsStrings;
 import com.example.demo.Labs.NakulRecursion;
 import com.example.demo.Labs.PranavRecursion.PranavRecursion;
@@ -144,6 +145,23 @@ public class LabsController {
 
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsLabStrings";
+    }
+
+    @GetMapping("/AryanSortsObjects")
+    public String AryanSortsObjects (@RequestParam(name="array", required=false,  defaultValue="t,t,t,t,t") String num, Model model) {
+
+        AryanSortsObjects ObjectsSortsLab = new AryanSortsObjects(num);
+        model.addAttribute("bubbleSortAnswer", ObjectsSortsLab.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("selectionSortAnswer", ObjectsSortsLab.SelectionSortPrintedAnswer);
+        model.addAttribute("timeForBubble", ObjectsSortsLab.timeForBubbleSorts);
+        model.addAttribute("timeForSelection", ObjectsSortsLab.timeForSelectionSorts);
+        model.addAttribute("insertionSortAnswer", ObjectsSortsLab.InsertionSortPrintedAnswer);
+        model.addAttribute("timeForInsertion", ObjectsSortsLab.timeForInsertionSorts);
+        model.addAttribute("fastestSort", ObjectsSortsLab.fastestSort);
+
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanSortsObjectsLab";
     }
 
 
