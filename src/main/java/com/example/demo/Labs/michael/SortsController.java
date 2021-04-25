@@ -13,6 +13,8 @@ import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,10 @@ public class SortsController {
         sortsList.add(new InsertionSort("g,y,e,w,v,b,a"));
         sortsList.add(new SelectionSort("g,y,e,w,v,b,a"));
 
+        initObject();
+    }
+
+    public void initObject() {
         /* Java POJO Athlete */
         this.distanceKey = Distance.KeyType.seedTime;
         Distance.key = distanceKey;
@@ -51,6 +57,21 @@ public class SortsController {
     public String defaultDisplay(Model model) {
 
         init();
+
+        model.addAttribute("sorts", this);
+        return "labs/michaelSorts";
+    }
+
+    @PostMapping("/michaelSorts")
+    public String userResults(@RequestParam(name = "unsortedArray", required = true) String unsorted, Model model) {
+        /* User inputted array (either of Integers or Strings) */
+        sortsList = new ArrayList<>();
+
+        sortsList.add(new BubbleSort(unsorted));
+        sortsList.add(new InsertionSort(unsorted));
+        sortsList.add(new SelectionSort(unsorted));
+
+        initObject();
 
         model.addAttribute("sorts", this);
         return "labs/michaelSorts";

@@ -37,6 +37,9 @@
             font-size: 125%;
         }
 
+        .container .contetn .dataEntry {
+            display: inline;
+        }
         .container .content .dataEntry li a {
             color: #4769ae;
             display: block;
@@ -112,9 +115,12 @@
         <div class="content">
             <div class="dataEntry">
                 <h1>Michael's Sorts Lab: String, Integer, POJO</h1>
-                <form class="unsortedArray" action="/labs/MichaelRecursion" th:type="GET">
+                <form class="unsortedArray" action="/michaelSorts" method="POST">
                     <input type="text" id="jumbledArray" name="unsortedArray" placeholder="Enter a string of numbers or letters separated by a comma"/>
                     <button class="submit">Sort!</button>
+                </form>
+                <form class="default" action="/michaelSorts" method="GET">
+                    <button class="submit">Default</button>
                 </form>
                 <div/>
                 <span class="resultTable">
