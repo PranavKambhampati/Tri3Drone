@@ -113,6 +113,23 @@
                      <button>Go!</button>
                  </form>
              </div>
+
+            <div class="col-md-6">
+                <h3>Filtered Summary</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Size</th>
+                        <th scope="col">First Row</th>
+                        <th scope="col">Last Row</th>
+                    </tr>
+                    <tr>
+                        <td th:text="${ctl.getNumber()}"></td>
+                        <td th:text="${ctl.getCircles().getFirstObject()}"></td>
+                        <td th:text="${ctl.getCircles().getLastObject()}"></td>
+
+                    </tr>
+
+                </table>
              <div class="col-md-6">
 
                  <br><h3>Data Details</h3>
@@ -134,9 +151,10 @@
             border: 1px solid;
         }
         td, th {
-            text-align:left;
+            text-aligt:left;
         }
     </style>
+</div>
 </div>
 </body>
 </html>

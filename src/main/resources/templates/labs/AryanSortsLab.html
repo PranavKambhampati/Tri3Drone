@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<title>Aryan's Sorts Lab (Integers)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: #d6d6d6;
+    }
+    .container {
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        top: 25px;
+        background: #eeeeee;
+        border-radius: 10px;
+        min-height: 75px;
+        max-width: 1000px;
+        box-shadow: 10px 10px 50px 10px #888888;
+    }
+
+    .container .content {
+        padding: 20px;
+    }
+
+    h1 {
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 125%;
+    }
+
+    .container .content li a {
+        color: #4769ae;
+        display: block;
+    }
+
+    .container .content .labButton {
+        background: #72bdc8;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .container .content .labButton p {
+        color: white;
+        padding: 5px;
+    }
+</style>
+</div></head>
+
+<body>
+<div class="container">
+    <div class="content">
+        <h1>Aryan's Sorts Lab</h1>
+        <div style="margin: 2%;">
+            <form id="sorts" action="/labs/AryanSortsIntegers" method="GET" >
+                <label for="array">Type an array with 5 digits (commas between each element):</label>
+                <input name="array" id="array" type="text">
+                <button>Enter!</button>
+            </form>
+        </div>
+        <div style="margin: 2%;">
+            <td th:text="'Sorted Array (using bubble sorts): ' + ${bubbleSortAnswer}"></td>
+            <br><td th:text="'Time taken (bubble sorts): ' + ${timeForBubble}"></td> </br>
+            <td th:text="'O(n^2) is complexity for bubble sorts, O(25) '"></td> </br>
+            <td th:text="'Sorted Array (using selection sorts): ' + ${selectionSortAnswer}"></td>
+            <br><td th:text="'Time taken (selection sorts): ' + ${timeForSelection}"></td></br>
+            <td th:text="'O(n^2) is complexity for selection sorts, O(25) '"></td> </br>
+            <td th:text="'Sorted Array (using insertion sorts): ' + ${insertionSortAnswer}"></td>
+            <br><td th:text="'Time taken (insertion sorts): ' + ${timeForInsertion}"></td> </br>
+            <td th:text="'O(n^2) is complexity for insertion sorts, O(25) '"></td> </br>
+            <td th:text="'Fastest sort: ' + ${fastestSort}"></td>
+        </div>
+
+    </div>
+</div></div>
+
+</body>
+</html>
