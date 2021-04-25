@@ -4,7 +4,11 @@ import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.AryanSorts.AryanSorts;
 import com.example.demo.Labs.AryanSorts.AryanSortsObjects;
 import com.example.demo.Labs.AryanSorts.AryanSortsStrings;
+import com.example.demo.Labs.NakulInheritance.Countries;
+import com.example.demo.Labs.NakulInheritance.Gems;
+import com.example.demo.Labs.NakulInheritance.Student;
 import com.example.demo.Labs.NakulRecursion;
+import com.example.demo.Labs.NakulSort.Sort;
 import com.example.demo.Labs.PranavRecursion.PranavRecursion;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortFor;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortRecurse;
@@ -13,9 +17,12 @@ import com.example.demo.Labs.michael.insertSortModel._InsertionSort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -162,6 +169,100 @@ public class LabsController {
 
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsObjectsLab";
+    }
+  
+    @GetMapping("/NakulSort")
+    public String NakulSortGet(Model model) {
+
+        //initialize data
+        Sort sort = new Sort();
+        model.addAttribute("sort", sort);
+        return "labs/NakulSort"; //HTML render default condition
+    }
+
+    @PostMapping("/NakulSort") // root for Nakul page
+    public String NakulSort(Model model) {
+        Duration intBubbleSort;
+        Duration stringBubbleSort;
+        Duration objBubbleSort;
+        Duration intInsertionSort;
+        Duration stringInsertionSort;
+        Duration objInsertionSort;
+        Duration intSelectionSort;
+        Duration stringSelectionSort;
+        Duration objSelectionSort;
+
+        int intBubbleSortTime;
+        int stringBubbleSortTime;
+        int objBubbleSortTime;
+        int intInsertionSortTime;
+        int stringInsertionSortTime;
+        int objInsertionSortTime;
+        int intSelectionSortTime;
+        int stringSelectionSortTime;
+        int objSelectionSortTime;
+
+        Sort sort = new Sort();
+        model.addAttribute("sort", sort);
+
+        Instant start = Instant.now();
+        sort.intArray = sort.intArrayBubbleSort(sort.intArray);
+        Instant end = Instant.now();
+        intBubbleSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.strArray = sort.stringArrayBubbleSort(sort.strArray);
+        end = Instant.now();
+        stringBubbleSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.objArray = sort.objArrayBubbleSort(sort.objArray);
+        end = Instant.now();
+        objBubbleSortTime = Duration.between(start, end).getNano();
+
+        model.addAttribute("intBubbleSortTime", intBubbleSortTime);
+        model.addAttribute("objBubbleSortTime", objBubbleSortTime);
+        model.addAttribute("stringBubbleSortTime", stringBubbleSortTime);
+
+        start = Instant.now();
+        sort.intArray = sort.intArrayInsertionSort(sort.intArray);
+        end = Instant.now();
+        intInsertionSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.strArray = sort.stringArrayInsertionSort(sort.strArray);
+        end = Instant.now();
+        stringInsertionSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.objArray = sort.objArrayInsertionSort(sort.objArray);
+        end = Instant.now();
+        objInsertionSortTime = Duration.between(start, end).getNano();
+
+        model.addAttribute("intInsertionSortTime", intInsertionSortTime);
+        model.addAttribute("objInsertionSortTime", objInsertionSortTime);
+        model.addAttribute("stringInsertionSortTime", stringInsertionSortTime);
+
+        start = Instant.now();
+        sort.intArray = sort.intArraySelectionSort(sort.intArray);
+        end = Instant.now();
+        intSelectionSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.strArray = sort.stringArraySelectionSort(sort.strArray);
+        end = Instant.now();
+        stringSelectionSortTime = Duration.between(start, end).getNano();
+
+        start = Instant.now();
+        sort.objArray = sort.objArraySelectionSort(sort.objArray);
+        end = Instant.now();
+        objSelectionSortTime = Duration.between(start, end).getNano();
+
+        model.addAttribute("intSelectionSortTime", intSelectionSortTime);
+        model.addAttribute("objSelectionSortTime", objSelectionSortTime);
+        model.addAttribute("stringSelectionSortTime", stringSelectionSortTime);
+
+        return "labs/NakulSort";
     }
 
 
