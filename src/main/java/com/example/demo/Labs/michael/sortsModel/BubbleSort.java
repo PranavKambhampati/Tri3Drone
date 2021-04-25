@@ -5,12 +5,20 @@ public class BubbleSort extends _Sorts {
     public BubbleSort(String stringLiteral) {
         super(stringLiteral);
 
+        initB();
+    }
+
+    public BubbleSort(String stringLiteral, DataType knownType) {
+        super(stringLiteral, knownType);
+
+        initB();
+    }
+    public void initB() {
         super.sortName = "Bubble Sort";
         super.sortDescription = "The bubble sort loops through all of the elements in comparing it to single element. Once all of the elements have been compared to to that single element, the process repeats with the next element to the right. Once the last element is compared to the other elements, the list will be sorted.";
         super.complexity = "Complexity: O(n) - O(n²)";
         super.use = "Fastest sort if the list is already ordered";
     }
-
     /**
      *  After attempts to use opaque class Object to write a single sort algos, enum that identifies data type
      *  for sort and uses the correct bubble algo

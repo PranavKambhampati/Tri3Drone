@@ -22,6 +22,10 @@ public abstract class _Sorts {
     public enum DataType {String, Int, Object}
     public DataType data;
 
+    /**
+     * Constructor for String and Integer types
+     * @param stringLiteral
+     */
     public _Sorts(String stringLiteral) {
         this.rawData = stringLiteral;
         this.checkDataType();
@@ -32,6 +36,27 @@ public abstract class _Sorts {
         Instant sortEnd = Instant.now();
         this.sortTime = Duration.between(sortStart, sortEnd);
 
+    }
+
+    /**
+     * Constructor for POJO
+     * @param stringLiteral
+     * @param knownType
+     */
+    public _Sorts(String stringLiteral, DataType knownType) {
+        this.rawData = stringLiteral;
+        this.data = knownType;
+
+        init();
+    }
+
+    public void init() {
+        this.toArray();
+
+        Instant sortStart = Instant.now();
+        this.sort();
+        Instant sortEnd = Instant.now();
+        this.sortTime = Duration.between(sortStart, sortEnd);
     }
 
     public abstract void sort();
