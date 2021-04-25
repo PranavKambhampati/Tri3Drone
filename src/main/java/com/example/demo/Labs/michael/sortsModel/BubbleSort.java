@@ -1,6 +1,7 @@
 package com.example.demo.Labs.michael.sortsModel;
 
 import com.example.demo.Labs.michael.trackModel.BasicData;
+import com.example.demo.Labs.michael.trackModel.Distance;
 
 public class BubbleSort extends _Sorts {
 
@@ -79,5 +80,9 @@ public class BubbleSort extends _Sorts {
         for (Integer s : arrayI.unsortedDataI) {
             System.out.print(s + ", ");
         }
+
+        _Sorts arrayO = new BubbleSort(Distance.distanceAthleteData(), DataType.Object);
+        System.out.println(arrayO.getSortedOFormatted());
+
     }
 }

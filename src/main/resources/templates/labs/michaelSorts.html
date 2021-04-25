@@ -128,6 +128,7 @@
                             <div th:switch="${sort.getData()}">
                                 <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Int}"><td th:text="${sort.getSortedIFormatted()}"></td></span>
                                 <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).String}"><td></td><td th:text="${sort.getSortedSFormatted()}"></td></span>
+                                <span th:case="${T(com.example.demo.Labs.michael.sortsModel._Sorts.DataType).Object}"><td></td><td th:text="${sort.getSortedOFormatted()}"></td></span>
                             </div>
                             <td th:text="${sort.getSortTimeFormatted()}"></td>
                             <td th:text="${sort.getSortDescription()}"></td>

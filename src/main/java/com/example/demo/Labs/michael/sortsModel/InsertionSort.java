@@ -66,7 +66,7 @@ public class InsertionSort extends _Sorts{
                 for (int i = 1; i < unsortedDataO.length; i++)
                 {
                     jO = i - 1;
-                    while (jO >= 0 && unsortedDataO[jO].toString().compareTo(unsortedDataO[i].toString()) > 0 )
+                    while (jO > -1 && unsortedDataO[jO].toString().compareTo(unsortedDataO[i].toString()) > 0 )
                     {
                         tempO = unsortedDataO[i];
                         unsortedDataO[i] = unsortedDataO[jO];

@@ -1,10 +1,12 @@
 package com.example.demo.Labs.michael.sortsModel;
 
 import com.example.demo.Labs.michael.trackModel.BasicData;
+import com.example.demo.Labs.michael.trackModel.Distance;
 import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.Basic;
+import javax.persistence.DiscriminatorColumn;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
@@ -101,8 +103,6 @@ public abstract class _Sorts {
     public String getSortedOFormatted() { return Arrays.toString(unsortedDataO); }
 
     public int getSortTimeFormatted(){ return this.sortTime.getNano(); }
-
-
 
     public void checkDataType() {
         if (rawData.charAt(0) >= '0' && rawData.charAt(0) <= '9') {
