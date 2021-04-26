@@ -62,6 +62,10 @@
       </form>
     </div>
     <div style="margin: 2%;">
+      <td th:text="'Original: ' + ${originalarray}"></td>
+      <h1></h1>
+
+
       <td th:text="'BubbleSort Sorted Array: ' + ${bubbleSortAnswer}"></td>
       <br><td th:text="'BubbleSort Time: ' + ${timeForBubble}"></td> </br>
       <h4>Worst case: O(n*n) = 25 operations</h4>
@@ -74,6 +78,7 @@
       <br><td th:text="'InsertionSort Time: ' + ${timeForInsertion}"></td></br>
       <h4>Worst case: O(n*n) = 25 operations</h4>
     </div>
+    <h1></h1>
     <h1></h1>
     <h4><td th:text="'Fastest Sort Algorithm: ' + ${fastestsort}"></td></h4>
 
