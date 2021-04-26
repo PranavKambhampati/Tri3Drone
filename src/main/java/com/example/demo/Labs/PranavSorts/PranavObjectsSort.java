@@ -1,5 +1,6 @@
 package com.example.demo.Labs.PranavSorts;
 
+import com.example.demo.Labs.NakulSort.Sort;
 import com.example.demo.Labs.PranavInheritence.Car;
 import java.time.*;
 import java.util.Arrays;
@@ -24,6 +25,7 @@ public class PranavObjectsSort {
     public String fastestsortalgo;
 
     public Object[] mainarray = this.makearray(Car.carData());
+    public String main = SortObjectPrinter(mainarray);
 
     public PranavObjectsSort(String strtotal){
         Instant startCalc = Instant.now();
@@ -111,7 +113,7 @@ public class PranavObjectsSort {
         String answer = "";
         for(Object j: arr){
             if (answer.trim() != ""){
-                answer += ",";
+                answer += " || ";
             }
             answer += j;
         }

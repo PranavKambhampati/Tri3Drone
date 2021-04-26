@@ -49,6 +49,7 @@ public class PranavSortsController {
         model.addAttribute("timeForSelection", objsort.selectsorttime);
         model.addAttribute("timeForInsertion", objsort.insertsorttime);
         model.addAttribute("fastestsort",objsort.fastestsortalgo);
+        model.addAttribute("originalarray",objsort.main);
         model.addAttribute("totalArrays", num);
 
         return "labs/PranavObjectSorts";
