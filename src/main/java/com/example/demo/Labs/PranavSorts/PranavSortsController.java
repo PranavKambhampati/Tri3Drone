@@ -20,6 +20,7 @@ public class PranavSortsController {
         model.addAttribute("timeForBubble", sorts.bubblesorttime);
         model.addAttribute("timeForSelection", sorts.selectsorttime);
         model.addAttribute("timeForInsertion", sorts.insertsorttime);
+        model.addAttribute("fastestsort",sorts.fastestsortalgo);
         model.addAttribute("totalArrays", num);
         return "labs/PranavSortsLab";
     }
@@ -33,13 +34,24 @@ public class PranavSortsController {
         model.addAttribute("timeForBubble", stringsort.bubblesorttime);
         model.addAttribute("timeForSelection", stringsort.selectsorttime);
         model.addAttribute("timeForInsertion", stringsort.insertsorttime);
+        model.addAttribute("fastestsort",stringsort.fastestsortalgo);
         model.addAttribute("totalArrays", num);
         return "labs/PranavStringSorts";
+    }
 
+    @GetMapping("/PranavObjectSorts")
+    public String PranavObjectSorts (@RequestParam(name="array", required=false,  defaultValue="a,a,a,a,a") String num, Model model){
+        PranavObjectsSort objsort = new PranavObjectsSort(num);
+        model.addAttribute("bubbleSortAnswer", objsort.bubbleprintanswer);
+        model.addAttribute("selectionSortAnswer", objsort.selectprintanswer);
+        model.addAttribute("insertionSortAnswer",objsort.insertprintanswer);
+        model.addAttribute("timeForBubble", objsort.bubblesorttime);
+        model.addAttribute("timeForSelection", objsort.selectsorttime);
+        model.addAttribute("timeForInsertion", objsort.insertsorttime);
+        model.addAttribute("fastestsort",objsort.fastestsortalgo);
+        model.addAttribute("totalArrays", num);
 
-
-
-
+        return "labs/PranavObjectSorts";
     }
 
 

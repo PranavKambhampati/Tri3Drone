@@ -1,71 +1,70 @@
-//As of right now, only ints are sorted
-
 package com.example.demo.Labs.PranavSorts;
 
-import java.time.Duration;
-import java.time.Instant;
+import com.example.demo.Labs.PranavInheritence.Car;
+import java.time.*;
+import java.util.Arrays;
 
-public class PranavSorts {
+public class PranavObjectsSort {
 
-    public int[] bubbleanswer;
+    public Object[] bubbleanswer;
     public String bubbleprintanswer;
     public int bubblesorttime;
+    Duration a;
 
-    public int[] selectanswer;
+    public Object[] selectanswer;
     public String selectprintanswer;
     public int selectsorttime;
+    Duration b;
 
-    public int[] insertanswer;
+    public Object[] insertanswer;
     public String insertprintanswer;
     public int insertsorttime;
-
-    Duration a;
-    Duration b;
     Duration c;
 
     public String fastestsortalgo;
 
+    public Object[] mainarray = this.makearray(Car.carData());
 
-
-    public PranavSorts(String strtotal){
-        int[] arrtotal = new int[5];
-        if(strtotal.trim() == ""){
-            strtotal = "1,1,1,1,1";
-        }
-        String[] arraysort = strtotal.split(",");
-        for (int i = 0; i < arraysort.length; i++) {
-            arrtotal[i]=Integer.parseInt(arraysort[i]);
-        }
+    public PranavObjectsSort(String strtotal){
         Instant startCalc = Instant.now();
-        bubbleanswer = BubbleSortInt(arrtotal);
-        bubbleprintanswer = SortIntPrinter(bubbleanswer);
+        bubbleanswer = BubbleSortObject(mainarray);
+        bubbleprintanswer = SortObjectPrinter(bubbleanswer);
         Instant endCalc = Instant.now();
         a = Duration.between(startCalc, endCalc);
         bubblesorttime = a.getNano();
 
         Instant start = Instant.now();
-        selectanswer = SelectionSortInt(arrtotal);
-        selectprintanswer = SortIntPrinter(selectanswer);
+        selectanswer = SelectionSortObject(mainarray);
+        selectprintanswer = SortObjectPrinter(selectanswer);
         Instant end = Instant.now();
         b = Duration.between(start,end);
         selectsorttime = b.getNano();
 
-
         Instant s = Instant.now();
-        insertanswer = InsertionSortInt(arrtotal);
-        insertprintanswer = SortIntPrinter(insertanswer);
+        insertanswer = InsertionSortObject(mainarray);
+        insertprintanswer = SortObjectPrinter(insertanswer);
         Instant e= Instant.now();
         c = Duration.between(s,e);
         insertsorttime = c.getNano();
 
-        fastestsortalgo = fastestsort(arrtotal);
+        fastestsortalgo = fastestsort(mainarray);
     }
 
-    public int[] BubbleSortInt(int[] mixed){
+    public Object[] makearray(Object[] arr){
+        Object[] array = new Object[arr.length];
+        int index = 0;
+        for(Object obj: arr){
+            array[index] = obj;
+            index++;
+        }
+        return array;
+    }
+
+    public Object[] BubbleSortObject(Object[] mixed){
         for(int i=0; i<mixed.length-1; i++){
             for(int j=0; j<mixed.length-i-1;j++){
-                if(mixed[j]>mixed[j+1]){
-                    int temp = mixed[j];
+                if(mixed[j].toString().compareTo(mixed[j+1].toString())>0){
+                    Object temp = mixed[j];
                     mixed[j]=mixed[j+1];
                     mixed[j+1]=temp;
                 }
@@ -74,32 +73,32 @@ public class PranavSorts {
         return mixed;
     }
 
-    public int[] SelectionSortInt(int[] mixed){
+    public Object[] SelectionSortObject(Object[] mixed){
         for (int i = 0; i < mixed.length - 1; i++) {
             int lowestNumber = i;
             for (int j = mixed.length +1; j < mixed.length; j++) {
-                if (mixed[j] < mixed[lowestNumber]) {
+                if (mixed[j].toString().compareTo(mixed[j+1].toString())<0) {
                     lowestNumber = j;
                 }
             }
-            int temp=mixed[lowestNumber];
+            Object temp=mixed[lowestNumber];
             mixed[lowestNumber]=mixed[i];
             mixed[i]=temp;
         }
         return mixed;
     }
 
-    public int[] InsertionSortInt(int arr[])
+    public Object[] InsertionSortObject(Object arr[])
     {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
-            int key = arr[i];
+            Object key = arr[i];
             int j = i - 1;
 
             /* Move elements of arr[0..i-1], that are
                greater than key, to one position ahead
                of their current position */
-            while (j >= 0 && arr[j] > key) {
+            while (j >= 0 && arr[j].toString().compareTo(key.toString()) > 0) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
@@ -108,9 +107,9 @@ public class PranavSorts {
         return arr;
     }
 
-    public String SortIntPrinter(int[] arr){
+    public String SortObjectPrinter(Object[] arr){
         String answer = "";
-        for(int j: arr){
+        for(Object j: arr){
             if (answer.trim() != ""){
                 answer += ",";
             }
@@ -119,7 +118,7 @@ public class PranavSorts {
         return answer;
     }
 
-    public String fastestsort(int[] arr){
+    public String fastestsort(Object[] arr){
 
         if ((bubblesorttime < insertsorttime) && (bubblesorttime < selectsorttime)) {
             fastestsortalgo = "bubble sort";
@@ -142,7 +141,4 @@ public class PranavSorts {
         return fastestsortalgo;
 
     }
-
-
-
 }
