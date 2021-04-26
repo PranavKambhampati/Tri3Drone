@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface and Abstract Class FRQ</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<style>
+    .container .content .topicCard {
+        background: red;
+        width: 500px;
+        height: 500px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="content">
+        <button id="topicCardBtn"></button>
+        <div class="topicCard">
+
+        </div>
+    </div>
+    <script>
+        $("#topicCardBtn").click(function(){
+            let duration = 5000;
+            $(".topicCard").fadeOut(duration);
+        });
+    </script>
+</div>
+</body>
+</html>
