@@ -21,6 +21,8 @@ public class PranavStringSorts {
     Duration b;
     Duration c;
 
+    public String fastestsortalgo;
+
 
 
     public PranavStringSorts(String strtotal){
@@ -53,6 +55,8 @@ public class PranavStringSorts {
         Instant e= Instant.now();
         c = Duration.between(s,e);
         insertsorttime = c.getNano();
+
+        fastestsortalgo = fastestsort(arrtotal);
 
 
     }
@@ -126,4 +130,30 @@ public class PranavStringSorts {
         }
         return answer;
     }
+
+    public String fastestsort(String[] arr){
+
+        if ((bubblesorttime < insertsorttime) && (bubblesorttime < selectsorttime)) {
+            fastestsortalgo = "bubble sort";
+        }
+        if ((selectsorttime < insertsorttime) && (selectsorttime < bubblesorttime)) {
+            fastestsortalgo = "selection sort";
+        }
+        if ((insertsorttime < bubblesorttime) && (insertsorttime < selectsorttime)) {
+            fastestsortalgo = "insertion sort";
+        }
+        if ((bubblesorttime == selectsorttime)) {
+            fastestsortalgo = "bubble sort and selection sort";
+        }
+        if ((bubblesorttime == insertsorttime)) {
+            fastestsortalgo = "bubble sort and insertion sort";
+        }
+        if ((selectsorttime == insertsorttime)) {
+            fastestsortalgo = "selection sort and insertion sort";
+        }
+        return fastestsortalgo;
+
+    }
+
+
 }
