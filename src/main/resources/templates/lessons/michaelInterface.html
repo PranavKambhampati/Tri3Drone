@@ -1,31 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Interface and Abstract Class FRQ</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+
+        .everything {
+            padding: 25px;
+        }
+        .containerL{
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+        .containerM {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        containerR {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .containerM .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .containerM .content {
+            display: inline;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .containerM p {
+            font-size: 90%;
+        }
+
+        .topicCard {
+            background: red;
+            width: auto;
+            height: 500px;
+        }
+
+        .col-8 {
+            padding: 10px;
+        }
+        .col-sm {
+            padding: 10px
+        }
+
+        .card {
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+
+
+            padding: 13px
+        }
+    </style>
 </head>
 <style>
-    .container .content .topicCard {
-        background: red;
-        width: 500px;
-        height: 500px;
-    }
+
 </style>
 <body>
-<div class="container">
-    <div class="content">
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="everything">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="topicCard">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="card">
+                    <button id="topicBtn"></button>
+                    <div id="clickCard" class="topicCard">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card">
+                    Test
+                </div>
+            </div>
+        </div>
         <button id="topicCardBtn"></button>
         <div class="topicCard">
 
         </div>
     </div>
-    <script>
-        $("#topicCardBtn").click(function(){
-            let duration = 5000;
-            $(".topicCard").fadeOut(duration);
-        });
-    </script>
 </div>
+<script>
+    $("#topicBtn2").click(function(){
+        let duration = 220;
+        $("#clickCard").fadeOut(duration);
+    });
+</script>
 </body>
 </html>
