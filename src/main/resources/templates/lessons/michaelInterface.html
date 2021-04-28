@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 <head>
-    <meta charset="UTF-8">
     <title>Interface and Abstract Class FRQ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <style>
@@ -86,7 +86,7 @@
         }
 
         .col-8 {
-            padding: 10px;
+            padding: 15px;
         }
         .col-sm {
             padding: 10px
@@ -101,6 +101,23 @@
 
 
             padding: 13px
+        }
+
+        .mainCode code {
+            display: block;
+            text-align: left;
+        }
+
+        li {
+            font-size: 100%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+
+        .col8 h3 {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -121,6 +138,42 @@
             </div>
             <div class="col-8">
                 <div class="card">
+                    <h3>2006 AP Computer Science A FRQ</h3>
+                    <p>A set of classes is used to represent various items that are available for purchase. Items are either taxable or nontaxable. The purchase price of a taxable item is computed from its list price and its tax rate. The purchase price of a nontaxable item is simply its list price. Part of the class hierarchy is shown in the diagram below.</p>
+                    <p>The definitions of the <code>Item</code> interface and the <code>Taxable Item</code> class are shown below.</p>
+                    <pre><code class="mainCode">
+                        public interface Item {
+                            double purchasePrice();
+                        }
+
+                        public abstract class TaxableItem implements Item {
+                            private double taxRate;
+
+                            public abstract double getListPrice();
+
+                            public TaxableItem(double rate) { taxRate = rate; }
+
+                            // returns the price of the item including the tax
+                            public double purchasePrice() {
+                                /* to be implemented in part (a) */
+                            }
+                        }
+                    </code></pre>
+                    <ol type="a">
+                        <li>
+                            Write the <code>Taxable Item</code> method <code>purchasePrice</code>. The purchase price of a <code>TaxableItem</code> is the list price plus the tax on the item. The tax is computed by multiplying the list price by the tax rate. For example, if the tax rate is 0.10 (representing 10%), the purchase price of an item with a list price of $6.50 would be $7.15. <br>
+                            Complete method <code>purchasePrice</code> below.
+                            <pre><code class="mainCode">
+                                //returns the price of the item including the tax
+                                public double purchasePrice()
+                            </code></pre>
+                        </li>
+                        <li>
+                            Create the <code>Vehicle</code>, which extends the <code>TaxableItem</code> class. A vehicle has two parts to its list price: a dealer cost and a dealer markup. The list price of the vehicle is the sum of the dealer cost and the dealer markup. <br>
+                            For example, if a vehicle has a dealer cost of $20,000.00, a deal markup of $2,500.00, and a tax rate of 0.10, then the list price of the vehicle would be $22,500.00 and the purchase price (including tax) would be $24,750.00. If the dealer markup were changed to $1,000.00, then the list price of the vehicle would be $21,000.00 and the purchase price would be $23,100.00. <br>
+                            Your class should have a constructor that takes dealer cost, the dealer markup, and the tax rate as parameters. Provide any private instance variables needed and implement all necessary methods. Also provide a public method <code>changeMarkup</code>, which changes the dealer markup to the value of its parameter.
+                        </li>
+                    </ol>
                     <button id="topicBtn"></button>
                     <div id="clickCard" class="topicCard">
 
