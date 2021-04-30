@@ -33,5 +33,16 @@ public class AryanArrayLists {
         return (ArrayList<Object>) arrayIntoObjects;
     }
 
+    public String printArray(ArrayList<Object> arrayToSort) {
+        String finalArray = "";
+        for (int i = 0; i < arrayToSort.size(); i++) {
+            if (finalArray.trim() != "") {
+                finalArray += ", ";
+            }
+            finalArray += arrayToSort.get(i);
+        }
+        return finalArray;
+    }
+
 
 }
