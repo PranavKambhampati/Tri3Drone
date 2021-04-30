@@ -121,7 +121,7 @@ public class LabsController {
             largeArray[i]=Integer.parseInt(arrayToSort[i]);
         }
 
-        AryanSorts sortsLab = new AryanSorts(largeArray);
+        AryanSorts sortsLab = new AryanSorts(largeArray);;
          */
         AryanSorts sortsLab = new AryanSorts(num);
         model.addAttribute("bubbleSortAnswer", sortsLab.BubbleSortPrintedAnswer);
