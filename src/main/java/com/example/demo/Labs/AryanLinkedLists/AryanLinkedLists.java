@@ -21,6 +21,16 @@ public class AryanLinkedLists {
         return cities;
     }
 
+    // Override previous method if user just wants to add objects without specifying indices
+    public LinkedList<Object> addElementToLinkedList(Object object) {
+        LinkedList<Object> cities = new LinkedList<Object>();
+        cities.add(object);
+        return cities;
+    }
+
+
+
+
 
 
 }
