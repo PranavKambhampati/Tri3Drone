@@ -44,10 +44,13 @@ public class Cities extends AryanInheritance {
 
     public static AryanInheritance[] CityInfo() {
         return new AryanInheritance[] {
-                new Cities("San Francisco", "California", 874961),
-                new Cities("San Diego", "California", 1410000),
-                new Cities("New York City", "New York",8491000),
-                new Cities("Chicago","Illinois", 2710000)
+                new Cities("San Francisco", "USA", 874961),
+                new Cities("San Diego", "USA", 1410000),
+                new Cities("Mumbai", "India",20000000),
+                new Cities("London","United Kingdom", 9304000),
+                new Cities("Paris", "France",11017000),
+                new Cities("Barcelona", "Spain",5586000),
+                new Cities("Toronto", "Canada",6197000)
         };
     }
 
