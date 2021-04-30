@@ -28,6 +28,12 @@ public class AryanLinkedLists {
         return cities;
     }
 
+    public LinkedList<Object> deleteElementToLinkedList(Object object) {
+        LinkedList<Object> cities = new LinkedList<Object>();
+        cities.remove(object);
+        return cities;
+    }
+
 
 
 
