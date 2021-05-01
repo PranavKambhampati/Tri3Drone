@@ -13,8 +13,12 @@ public class ControllerSimple {
     @GetMapping("/PranavLL") //Actual mapping is /labs/PranavLL
     public String PranavLL(@RequestParam(name="array", required=false,  defaultValue="a,a,a,a,a") String num, Model model){
         PranavArrayList al = new PranavArrayList();
+        //LinkedListMaster ll = new LinkedListMaster();
+        SortList ll = new SortList();
         model.addAttribute("answer",al.answer);
+        model.addAttribute("llanswer",ll.answer);
         model.addAttribute("time",al.bubblesorttime);
+        model.addAttribute("lltime",ll.bubblesorttime);
         model.addAttribute("original",al.unsorted);
 
         return "labs/PranavLLLab";
