@@ -46,7 +46,19 @@ public class Student extends MasterClass{
                 new Student("John Smith", 15, "Freshman"),
                 new Student("Karen Greene", 22, "Undergraduate"),
                 new Student("Marian Brady", 20, "Undergraduate"),
-                new Student("Thomas Marsden", 19, "Senior")
+                new Student("Thomas Marsden", 19, "Senior"),
+                new Student("Wilma Lynna", 18, "Senior"),
+                new Student("Tamsyn Fisher", 16, "Junior"),
+                new Student("Esmeralda Lorna", 16, "Sophomore"),
+                new Student("Buddy Christie", 17, "Junior"),
+                new Student("Sloan Christen", 15, "Freshman"),
+                new Student("Briscoe Caren", 19, "Undergraduate"),
+                new Student("Kizzie Alfie", 20, "Undergraduate"),
+                new Student("Gretchen Norton", 17, "Junior"),
+                new Student("Theo Beryl", 18, "Senior"),
+                new Student("Hadyn Cyndi", 20, "Undergraduate"),
+                new Student("Betony Jordana", 16, "Freshman"),
+                new Student("Alex Lee", 22, "Undergraduate")
         };
     }
 }
