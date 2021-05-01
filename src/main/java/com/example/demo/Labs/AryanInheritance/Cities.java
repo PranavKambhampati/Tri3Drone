@@ -33,11 +33,12 @@ public class Cities extends AryanInheritance {
                 display += state;
                 break;
             case population:
-                display += population;
+                display += "00" + population;
+                display = display.substring(display.length()-2);
                 break;
             case title:
             default:
-                display += super.getName() + city;
+                display += super.getName() + ": " + city  + ", " + state + ", " + population;
         }
         return display;
     }
@@ -56,8 +57,8 @@ public class Cities extends AryanInheritance {
 
     public static void main(String[] args) {
         AryanInheritance[] cityInfo = CityInfo();
-        for (AryanInheritance c: cityInfo) {
-            System.out.println("" + c);
+            for (AryanInheritance c: cityInfo) {
+            System.out.println(" " + c);
         }
     }
 }

@@ -41,7 +41,7 @@ public class Student extends MasterClass{
         return new MasterClass[]{
                 new Student("Nakul Nandhakumar", 18, "Senior"),
                 new Student("Michael Hayes", 16, "Junior"),
-                new Student("Aryan Amberkar", 16, "Sophomore"),
+                new Student("Aryan Amberkar", 17, "Junior"),
                 new Student("Pranav Khambhampati", 17, "Junior"),
                 new Student("John Smith", 15, "Freshman"),
                 new Student("Karen Greene", 22, "Undergraduate"),

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.Labs.AryanLinkedLists.AryanArrayLists;
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.AryanSorts.AryanSorts;
 import com.example.demo.Labs.AryanSorts.AryanSortsObjects;
@@ -135,6 +136,48 @@ public class LabsController {
 
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsLab";
+    }
+
+    @GetMapping("/AryanArrayLists")
+    public String AryanArrayLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                    @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                    @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                    Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanArrayLists arrayLists = new AryanArrayLists(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", arrayLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", arrayLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", arrayLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanArrayLists";
+    }
+
+    @GetMapping("/AryanLinkedLists")
+    public String AryanLinkedLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                   @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                   @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                   Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanArrayLists arrayLists = new AryanArrayLists(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", arrayLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", arrayLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", arrayLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanLinkedLists";
     }
 
     @GetMapping("/AryanSortsStrings")
