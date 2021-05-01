@@ -33,6 +33,17 @@ public class LinkedListController {
 
     @PostMapping("/michaelLinkedList")
     public String userInsert(@RequestParam(name = "insertIndex") int index, Model model) {
+        this.linkedListData.insertAt(index, new Distance(99, "Scotty McLinkedListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
+
+        this.arrayListData.set(index, new Distance(99, "Scotty McListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
+
+        model.addAttribute("listData", this);
+
+        return "labs/michaelLinkedList";
+    }
+
+    @PostMapping("/michaelLinkedList")
+    public String userDelete(@RequestParam(name = "deleteIndex") int index, Model model) {
         this.linkedListData.deleteAt(index);
 
         this.arrayListData.remove(index);
