@@ -46,7 +46,31 @@ public class Car extends Generals {
                 new Car("ModelX", 1, "Black"),
                 new Car("Pista", 5, "Green"),
                 new Car("Cayman", 2, "Purple"),
-                new Car("Sienna", 25, "Rainbow")
+                new Car("Sienna", 25, "Rainbow"),
+                new Car("750S",9,"Orange"),
+                new Car("Camry",21,"Grey"),
+                new Car("Leaf",14,"Black"),
+                new Car("i8",39,"Copper"),
+                new Car("Artura",1,"Green"),
+                new Car("ModelY",14,"Green"),
+                new Car("Roadster",0,"Red"),
+                new Car("SilverLightning",3,"Silver"),
+                new Car("Agera",15,"Orange"),
+                new Car("Focus",3,"Magenta"),
+                new Car("Explorer",5,"Black"),
+                new Car("Cullinan",6,"Blue"),
+                new Car("Sonata",3,"Grey"),
+                new Car("Phantom",2,"Magnetic Grey"),
+                new Car("McQueen",1,"Red"),
+                new Car("Altima",2,"White"),
+                new Car("Divo",1,"Blue"),
+                new Car("Chiron",5,"Blue"),
+                new Car("Apple Car",0,"White"),
+                new Car("911",2,"Yellow"),
+                new Car("Sequoia",3,"Brown"),
+                new Car("Aventador",2,"Yellow"),
+                new Car("Urus",3,"Red"),
+                new Car("RamboLambo",90,"Camo")
         };
     }
 
