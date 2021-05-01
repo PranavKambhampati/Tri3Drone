@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -32,24 +33,18 @@ public class LinkedListController {
     }
 
     @PostMapping("/michaelLinkedList")
-    public String userInsert(@RequestParam(name = "insertIndex") int index, Model model) {
-        this.linkedListData.insertAt(index, new Distance(99, "Scotty McLinkedListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
+    public String userInsert(@RequestParam(name = "insertIndex") int indexInsert, @RequestParam(name = "deleteIndex") int indexDelete, Model model) {
+        if (indexInsert != -1) {
+            this.linkedListData.insertAt(indexInsert, new Distance(99, "Scotty McLinkedListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
+            this.arrayListData.set(indexInsert, new Distance(99, "Scotty McListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
 
-        this.arrayListData.set(index, new Distance(99, "Scotty McListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
-
-        model.addAttribute("listData", this);
-
-        return "labs/michaelLinkedList";
-    }
-
-    @PostMapping("/michaelLinkedList")
-    public String userDelete(@RequestParam(name = "deleteIndex") int index, Model model) {
-        this.linkedListData.deleteAt(index);
-
-        this.arrayListData.remove(index);
+        }
+        if (indexDelete != -1) {
+            this.linkedListData.deleteAt(indexDelete);
+            this.arrayListData.remove(indexDelete);
+        }
 
         model.addAttribute("listData", this);
-
         return "labs/michaelLinkedList";
     }
 
@@ -65,16 +60,25 @@ public class LinkedListController {
             }
             // maleNames.getData().get(i)
             if (i < 8) {
-                arrayListData.add(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
-                linkedListData.insert(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
+                int randomGrade = (int) ((Math.random() * (12 - 9)) + 9);
+                String randomSeedTime = String.valueOf((Math.random() * (150 - 115)) + 115);
+                String randomSplit = String.valueOf((Math.random() * (70 - 60)) + 60);
+                arrayListData.add(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "800 meters"));
+                linkedListData.insert(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "800 meters"));
 
             } else if (i < 16){
-                arrayListData.add(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
-                linkedListData.insert(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
+                int randomGrade = (int) ((Math.random() * (12 - 9)) + 9);
+                String randomSeedTime = String.valueOf((Math.random() * (330 - 285)) + 285);
+                String randomSplit = String.valueOf((Math.random() * (165 - 145)) + 165);
+                arrayListData.add(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "1600 meters"));
+                linkedListData.insert(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "1600 meters"));
 
             } else {
-                arrayListData.add(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (750 - 615)) + 615), String.valueOf((Math.random() * (360 - 300) + 300)), "3200 meters"));
-                linkedListData.insert(new Distance(i, males.names.get(i), (int) ((Math.random() * (12 - 9)) + 9), "male", school, String.valueOf((Math.random() * (750 - 615)) + 615), String.valueOf((Math.random() * (360 - 300) + 300)), "3200 meters"));
+                int randomGrade = (int) ((Math.random() * (12 - 9)) + 9);
+                String randomSeedTime = String.valueOf((Math.random() * (750 - 615)) + 615);
+                String randomSplit = String.valueOf((Math.random() * (360 - 300) + 300));
+                arrayListData.add(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "3200 meters"));
+                linkedListData.insert(new Distance(i, males.names.get(i), randomGrade, "male", school, randomSeedTime, randomSplit, "3200 meters"));
 
             }
         }
