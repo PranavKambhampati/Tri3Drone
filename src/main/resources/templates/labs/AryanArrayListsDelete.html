@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<title>Aryan's LinkedList Lab</title>
+<title>Aryan's ArrayList Delete Lab</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
@@ -55,9 +55,9 @@
 <body>
 <div class="container">
   <div class="content">
-    <h1>Aryan's LinkedList Lab</h1>
+    <h1>Aryan's ArrayList Delete Lab</h1>
     <div style="margin: 2%;">
-      <form id="arrayLists" action="/labs/AryanLinkedLists" method="GET" >
+      <form id="arrayLists" action="/labs/AryanArrayListsDelete" method="GET" >
         <label for="num">Type the city name:</label>
         <br><input name="num" id="num" type="text"> </br>
         <label for="num2">Type the country name:</label>
@@ -72,7 +72,6 @@
       <td th:text="'Unsorted Array ' + ${unsortedArray}"></td>
       <br><td th:text="'Sorted array: ' + ${bubbleSortAnswer}"></td> </br>
       <td th:text="'Time taken: ' + ${timeForBubble}"></td>
-      <h4>O(1) is complexity for adding node at beginning or end of linked list</h4>
 
     </div>
 

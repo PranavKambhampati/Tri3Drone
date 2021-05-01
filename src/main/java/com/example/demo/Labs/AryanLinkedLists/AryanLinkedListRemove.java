@@ -6,7 +6,7 @@ import java.util.*;
 import com.example.demo.Labs.AryanInheritance.Cities;
 import com.example.demo.Labs.AryanInheritance.LinkedLists;
 
-public class AryanLinkedLists {
+public class AryanLinkedListRemove {
 
     public LinkedList<Object> totalArray = this.addToLinkedList(Cities.CityInfo());
 
@@ -20,9 +20,9 @@ public class AryanLinkedLists {
 
     Duration r;
 
-    public AryanLinkedLists(String cityName, String country, int population) {
+    public AryanLinkedListRemove(String cityName, String country, int population) {
         Cities newCity = new Cities(cityName,country,population);
-        totalArray.add(newCity);
+        totalArray.remove(newCity);
 
         Collections.shuffle(totalArray);
         InitialBubbleSortObjectPrintedAnswer = printArray(totalArray);
@@ -32,8 +32,8 @@ public class AryanLinkedLists {
         Instant endCalc = Instant.now();
         r = Duration.between(startCalc, endCalc);
         timeForBubbleSorts = r.getNano();
-    }
 
+    }
 
     public LinkedList<Object> addToLinkedList(Object[] objects) {
         LinkedList<Object> cities = new LinkedList<Object>();

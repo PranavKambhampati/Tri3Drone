@@ -1,28 +1,36 @@
 package com.example.demo.Labs.AryanLinkedLists;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.*;
 
 import com.example.demo.Labs.AryanInheritance.Cities;
-import com.example.demo.Labs.AryanInheritance.LinkedLists;
 
-public class AryanLinkedLists {
+import java.time.Duration;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
 
-    public LinkedList<Object> totalArray = this.addToLinkedList(Cities.CityInfo());
+public class AryanArrayListDelete {
+    public ArrayList<Object> totalArray = this.addingArrayList(Cities.CityInfo());
 
-    public LinkedList<Object> BubbleSortObjectAnswer;
+    public ArrayList<Object> randomArrayListOrder;
+
+    public ArrayList<Object> BubbleSortObjectAnswer;
 
     public String BubbleSortObjectPrintedAnswer;
 
     public String InitialBubbleSortObjectPrintedAnswer;
 
+    public ArrayList<Object> InsertedArrayListElement;
+
+    public String fastestSort1;
+
     public int timeForBubbleSorts;
 
     Duration r;
+    Duration t;
 
-    public AryanLinkedLists(String cityName, String country, int population) {
+    public AryanArrayListDelete (String cityName, String country, int population) {
+
         Cities newCity = new Cities(cityName,country,population);
-        totalArray.add(newCity);
+        totalArray.remove(newCity);
 
         Collections.shuffle(totalArray);
         InitialBubbleSortObjectPrintedAnswer = printArray(totalArray);
@@ -32,42 +40,26 @@ public class AryanLinkedLists {
         Instant endCalc = Instant.now();
         r = Duration.between(startCalc, endCalc);
         timeForBubbleSorts = r.getNano();
+
+        Instant startCalc2 = Instant.now();
+
     }
 
 
-    public LinkedList<Object> addToLinkedList(Object[] objects) {
-        LinkedList<Object> cities = new LinkedList<Object>();
+    public ArrayList<Object> addingArrayList (Object[] objects) {
+        ArrayList objects1 = new ArrayList<Object>();
         for (Object t: objects) {
-            cities.add(t);
+            objects1.add(t);
         }
-        return cities;
-    }
-/*
-    public LinkedList<Object> addElementToLinkedList(Object object, int index) {
-        LinkedList<Object> cities = new LinkedList<Object>();
-        cities.add(index,object);
-        return cities;
+        return objects1;
     }
 
- */
 
-    // Override previous method if user just wants to add objects without specifying indices
-    public LinkedList<Object> addElementToLinkedList(Object object) {
-        LinkedList<Object> cities = new LinkedList<Object>();
-        cities.add(object);
-        return cities;
-    }
-
-    public LinkedList<Object> deleteElementToLinkedList(Object object) {
-        LinkedList<Object> cities = new LinkedList<Object>();
-        cities.remove(object);
-        return cities;
-    }
-
-    public LinkedList<Object> BubbleSort (LinkedList<Object> objects) {
+    public ArrayList<Object> BubbleSort (ArrayList<Object> objects) {
         int length = objects.size();
         for (int i = 0; i < length - 1; i++) {
             for (int k = 0; k < length - i - 1; k++) {
+
                 if (objects.get(k).toString().compareTo(objects.get(k+1).toString()) > 0) {
                     Object temporaryIndex = objects.get(k);
                     objects.set(k, objects.get(k+1));
@@ -78,7 +70,16 @@ public class AryanLinkedLists {
         return objects;
     }
 
-    public String printArray(LinkedList<Object> arrayToSort) {
+
+
+
+    public ArrayList<Object> deleteFromArrayList(Cities c) {
+        ArrayList objects1 = new ArrayList<Object>();
+        objects1.remove(c);
+        return BubbleSort(objects1);
+    }
+
+    public String printArray(ArrayList<Object> arrayToSort) {
         String finalArray = "";
         for (int i = 0; i < arrayToSort.size(); i++) {
             if (finalArray.trim() != "") {
@@ -89,10 +90,14 @@ public class AryanLinkedLists {
         return finalArray;
     }
 
+    /*
+    public static void main(String[] args) {
+        AryanArrayLists hi = new AryanArrayLists();
+        ArrayList<Object> objTest = hi.addingArrayList(Cities.CityInfo());
+        objTest = hi.BubbleSort(objTest);
+        System.out.println(hi.printArray(objTest));
+    }
+    // Testing Purposes
 
-
-
-
-
-
+     */
 }
