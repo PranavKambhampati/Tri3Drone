@@ -1,6 +1,13 @@
 package com.example.demo.Labs.michael.linkedListsModel;
 
 import com.example.demo.Labs.michael.trackModel.Distance;
+/**
+    LinkedList implementation references
+    #1: https://www.youtube.com/watch?v=SMIq13-FZSE
+    #2: https://www.youtube.com/watch?v=AeqXFjCUcQM
+    #3: https://www.youtube.com/watch?v=tZxPqhkRLiw
+ */
+
 
 public class MikeLinkedList {
     NodePtr head;
@@ -47,6 +54,22 @@ public class MikeLinkedList {
             }
             node.setNext(nodeIterable.getNext()); // sets the new node candidate ptr to the next item in the LinkedList
             nodeIterable.setNext(node); // closes loop of insertion by setting the previous node of the selected insertion index to point to the new node inserted (which is now also pointing to the next node)
+        }
+    }
+
+    public void deleteAt(int index) { // access ptr to element before the specified index and change the ptr to the next next node
+        if (index == 0) {
+            this.head = head.getNext(); // sets head to the next node to erase reference to the original head node
+        } else {
+            NodePtr nodeIterable = head;
+            NodePtr tempAccessNode = null; // node created just to get the "next next" node to skip the ptrs over the specified index
+            for (int i = 0; i < index - 1; i++) {
+                nodeIterable = nodeIterable.getNext();
+            }
+            tempAccessNode = nodeIterable.getNext();
+            nodeIterable.setNext(tempAccessNode.getNext()); // next of next function works because the tempAccessNode is a reference inside of the iterable LinkedList
+            tempAccessNode = null; // deleted from memory on the next access
+
         }
     }
 
