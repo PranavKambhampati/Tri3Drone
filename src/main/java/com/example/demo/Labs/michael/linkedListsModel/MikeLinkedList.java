@@ -1,6 +1,8 @@
 package com.example.demo.Labs.michael.linkedListsModel;
 
 import com.example.demo.Labs.michael.trackModel.Distance;
+import org.w3c.dom.Node;
+
 /**
     LinkedList implementation references
     #1: https://www.youtube.com/watch?v=SMIq13-FZSE
@@ -11,6 +13,7 @@ import com.example.demo.Labs.michael.trackModel.Distance;
 
 public class MikeLinkedList {
     NodePtr head;
+    int size;
 
     public void insert(Distance data) {
         /* new candidate node */
@@ -27,6 +30,7 @@ public class MikeLinkedList {
             }
             nodeIterable.setNext(node); // assigns last node ptr to new piece of data
         }
+        size += 1;
     }
 
     public void insertBeginning(Distance data) {
@@ -37,6 +41,7 @@ public class MikeLinkedList {
 
         node.setNext(this.head); // changes ptr to current head which is connected to the rest of the LinkedList
         this.head = node; // node with the correct ptr to the old head is set as the new head which successfully inserts the node at the start
+        size += 1;
     }
 
     public void insertAt(int index, Distance data) {
@@ -55,6 +60,7 @@ public class MikeLinkedList {
             node.setNext(nodeIterable.getNext()); // sets the new node candidate ptr to the next item in the LinkedList
             nodeIterable.setNext(node); // closes loop of insertion by setting the previous node of the selected insertion index to point to the new node inserted (which is now also pointing to the next node)
         }
+        size += 1;
     }
 
     public void deleteAt(int index) { // access ptr to element before the specified index and change the ptr to the next next node
@@ -71,23 +77,60 @@ public class MikeLinkedList {
             tempAccessNode = null; // deleted from memory on the next access
 
         }
+        size -= 1;
     }
+
+    public void selectionSort() {
+        if (this.head.getNext() != null) {
+            NodePtr temp = this.head;
+
+            // Traverse the List
+            while (temp.getNext() != null) {
+                NodePtr min = temp;
+                NodePtr r = temp.getNext();
+
+                // Traverse the unsorted sublist
+                while (r.getNext() != null) {
+                    if (min.getData().compareTo(r.getData()) < 0) {
+                        min = r;
+                    }
+
+                    r = r.getNext();
+                }
+
+                // Swap Data
+                Distance x = temp.getData();
+                temp.setData(min.getData()); ;
+                min.setData(x);
+                temp = temp.getNext();
+            }
+        }
+    }
+
+    public void getPrettyData() {}
 
     public void print() {
         NodePtr node = head; // beginning data and ptr
 
-        while(node.getNext() != null) {
-            System.out.println(node.getData());
+        while (node.getNext() != null) {
+            System.out.print(node.getData().getId() + " " + node.getData().getName() + " " + node.getData().getSeedTime());
             node = node.getNext();
+            System.out.println();
         }
-        System.out.println(node.getData());
+        System.out.print(node.getData().getId() + " " + node.getData().getName() + " " + node.getData().getSeedTime());
+        System.out.println();
     }
 
     public static void main(String[] args) {
         MikeLinkedList list = new MikeLinkedList();
+        list.insert(new Distance(0, "George Gatz", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
         list.insert(new Distance(0, "Steve Rogers", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
         list.insert(new Distance(0, "Christopher Bucacan", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
+        list.insert(new Distance(0, "Jacob Gareth", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
 
+        list.print();
+        System.out.println();
+        list.selectionSort();
         list.print();
     }
 }
