@@ -107,7 +107,19 @@ public class MikeLinkedList {
         }
     }
 
-    public void getPrettyData() {}
+    public String getPrettyData() {
+        String formattedString = "";
+
+        NodePtr node = head;
+
+        while (node.getNext() != null) {
+            formattedString += node.getData().getId() + " " + node.getData().getName() + " " + node.getData().getSeedTime() + ", ";
+            node = node.getNext();
+        }
+        formattedString += node.getData().getId() + " " + node.getData().getName() + " " + node.getData().getSeedTime() + ", ";
+
+        return formattedString;
+    }
 
     public void print() {
         NodePtr node = head; // beginning data and ptr
