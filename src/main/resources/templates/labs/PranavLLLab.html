@@ -61,7 +61,7 @@
 <body>
 
  <div class="container">
-     <h1>Pranav's Object Sorts Lab</h1>
+     <h1>Pranav's LinkedList Lab</h1>
      <div style="margin: 2%;">
          <form id="sorts" action="/labs/PranavLL" method="GET" >
              <button>Sort!</button>
@@ -71,34 +71,30 @@
          <td th:text="'Original ArrayList: ' + ${original}"></td>
          <h1></h1>
          <h1> ................................................ </h1>
-         <td th:text="'BubbleSort Sorted ArrayList: ' + ${answer}"></td>
+         <h4><td th:text="'BubbleSort Sorted ArrayList: ' + ${answer}"></td></h4>
          <br><td th:text="'BubbleSort Time: ' + ${time}"></td> </br>
-         <h4>Worst case: O(n*n) = 25 operations</h4>
+         <p>Worst case for Sort: O(n*n) = 30*30 operations</p>
          <h1> </h1>
          <h1> ................................................ </h1>
-         <td th:text="'BubbleSort Sorted LinkedList: ' + ${llanswer}"></td>
+         <h4><td th:text="'BubbleSort Sorted LinkedList: ' + ${llanswer}"></td></h4>
          <br><td th:text="'BubbleSort Time: ' + ${lltime}"></td> </br>
-         <h4>Worst case: O(n*n) = 25 operations</h4>
+         <p>Worst case for Sort: O(n*n) = 30*30 operations</p>
+         <h1> ................................................ </h1>
+         <h4>Analysis</h4>
+         <p>If you want to insert a node at the beginning or at the end of the LinkedList, the complexity will be O(1) because at these positions, new references are easy to create to add nodes to the list. </p>
+         <p>To insert in an arbitrary place, going linearly is best option, so one would have to go through (n+1)/2 nodes. To insert the node, complexity is O(n) to reach the element and O(1) to insert it because the element just needs to be linked with the next and previous nodes.</p>
+         <p>Similarly, to delete a node, O(n) is the complexity to find the node and O(1) is the complexity to delete the node.</p>
 
+         <p>In ArrayLists, finding the point of insertion/deletion is O(1) and performing the actual insertion/deletion is O(n).</p>
+
+         <p>For the sort, the worst case scenario is O(n*n) because BubbleSort is used to sort the array of unsorted objects(cars). Since there are 30 objects that need to be sorted, the worst case time complexity is O(30*30).</p>
 
 
      </div>
-     <h1></h1>
-     <h1></h1>
+
 
      </div>
 
-
-
-
-    <!-- Table Style -->
-    <style>
-        table, td, th {
-            border: 1px solid;
-        }
-        td, th {
-            text-align:left;
-        }
-    </style>
 </body>
+
 </html>

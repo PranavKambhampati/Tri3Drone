@@ -56,6 +56,32 @@ public class SortList {
         }
     }
 
+    void deleteNode(int key)
+    {
+        // Store head node
+        Node temp = head, prev = null;
+
+        // If head node itself holds the key to be deleted
+        if (temp != null && temp.data.equals(key)) {
+            head = temp.next; // Changed head
+            return;
+        }
+
+        // Search for the key to be deleted, keep track of
+        // the previous node as we need to change temp.next
+        while (temp != null && temp.data.equals(key)) {
+            prev = temp;
+            temp = temp.next;
+        }
+
+        // If key was not present in linked list
+        if (temp == null)
+            return;
+
+        // Unlink the node from linked list
+        prev.next = temp.next;
+    }
+
     public void sortList(){ //Method to sort LinkedList by using BubbleSort
         Node current = head, index = null;
 
