@@ -33,28 +33,32 @@ public class Cities extends AryanInheritance {
                 display += state;
                 break;
             case population:
-                display += population;
+                display += "00" + population;
+                display = display.substring(display.length()-2);
                 break;
             case title:
             default:
-                display += super.getName() + city;
+                display += super.getName() + ": " + city  + ", " + state + ", " + population;
         }
         return display;
     }
 
     public static AryanInheritance[] CityInfo() {
         return new AryanInheritance[] {
-                new Cities("San Francisco", "California", 874961),
-                new Cities("San Diego", "California", 1410000),
-                new Cities("New York City", "New York",8491000),
-                new Cities("Chicago","Illinois", 2710000)
+                new Cities("San Francisco", "USA", 874961),
+                new Cities("San Diego", "USA", 1410000),
+                new Cities("Mumbai", "India",20000000),
+                new Cities("London","United Kingdom", 9304000),
+                new Cities("Paris", "France",11017000),
+                new Cities("Barcelona", "Spain",5586000),
+                new Cities("Toronto", "Canada",6197000)
         };
     }
 
     public static void main(String[] args) {
         AryanInheritance[] cityInfo = CityInfo();
-        for (AryanInheritance c: cityInfo) {
-            System.out.println("" + c);
+            for (AryanInheritance c: cityInfo) {
+            System.out.println(" " + c);
         }
     }
 }

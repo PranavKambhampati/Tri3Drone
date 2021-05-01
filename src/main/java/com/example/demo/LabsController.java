@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.Labs.AryanLinkedLists.AryanArrayListDelete;
+import com.example.demo.Labs.AryanLinkedLists.AryanArrayLists;
+import com.example.demo.Labs.AryanLinkedLists.AryanLinkedListRemove;
+import com.example.demo.Labs.AryanLinkedLists.AryanLinkedLists;
 import com.example.demo.Labs.AryanRecursion;
 import com.example.demo.Labs.AryanSorts.AryanSorts;
 import com.example.demo.Labs.AryanSorts.AryanSortsObjects;
@@ -121,7 +125,7 @@ public class LabsController {
             largeArray[i]=Integer.parseInt(arrayToSort[i]);
         }
 
-        AryanSorts sortsLab = new AryanSorts(largeArray);
+        AryanSorts sortsLab = new AryanSorts(largeArray);;
          */
         AryanSorts sortsLab = new AryanSorts(num);
         model.addAttribute("bubbleSortAnswer", sortsLab.BubbleSortPrintedAnswer);
@@ -135,6 +139,90 @@ public class LabsController {
 
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsLab";
+    }
+
+    @GetMapping("/AryanArrayLists")
+    public String AryanArrayLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                    @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                    @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                    Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanArrayLists arrayLists = new AryanArrayLists(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", arrayLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", arrayLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", arrayLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanArrayLists";
+    }
+
+    @GetMapping("/AryanArrayListsDelete")
+    public String AryanArrayListsDelete (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                   @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                   @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                   Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanArrayListDelete arrayLists = new AryanArrayListDelete(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", arrayLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", arrayLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", arrayLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanArrayListsDelete";
+    }
+
+    @GetMapping("/AryanLinkedLists")
+    public String AryanLinkedLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                   @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                   @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                   Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanLinkedLists LinkedLists = new AryanLinkedLists(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", LinkedLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", LinkedLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", LinkedLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanLinkedLists";
+    }
+
+    @GetMapping("/AryanLinkedListsRemove")
+    public String AryanLinkedListsRemove (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
+                                          @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
+                                          @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+                                          Model model) {
+        int newPopulation = 0;
+        if (num3.trim()!="") {
+            newPopulation = Integer.parseInt(num3);
+        }
+        AryanLinkedListRemove LinkedLists = new AryanLinkedListRemove(num, num2, newPopulation);
+        //model.addAttribute("bubbleSortAnswer", num);
+        //model.addAttribute("timeForBubble", num2);
+        //model.addAttribute("unsortedArray", num3);
+        model.addAttribute("bubbleSortAnswer", LinkedLists.BubbleSortObjectPrintedAnswer);
+        model.addAttribute("timeForBubble", LinkedLists.timeForBubbleSorts);
+        model.addAttribute("unsortedArray", LinkedLists.InitialBubbleSortObjectPrintedAnswer);
+
+        model.addAttribute("totalArrays", num);
+        return "labs/AryanLinkedListsRemove";
     }
 
     @GetMapping("/AryanSortsStrings")

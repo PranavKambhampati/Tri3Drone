@@ -71,8 +71,6 @@ public class AryanSortsObjects {
 
     public Object[] BubbleSort (Object[] objects) {
             int length = objects.length;
-
-
             for (int i = 0; i < length - 1; i++) {
                 for (int k = 0; k < length - i - 1; k++) {
 
