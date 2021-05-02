@@ -114,12 +114,12 @@ public class MikeLinkedList {
         if (this.head.getNext() != null) {
             NodePtr temp = this.head;
 
-            // Traverse the List
+            // goes through entire list
             while (temp.getNext() != null) {
                 NodePtr min = temp;
                 NodePtr r = temp.getNext();
 
-                // Traverse the unsorted sublist
+                // cycles through sublist
                 while (r.getNext() != null) {
                     if (min.getData().compareTo(r.getData()) < 0) {
                         min = r;
@@ -128,10 +128,9 @@ public class MikeLinkedList {
                     r = r.getNext();
                 }
 
-                // Swap Data
-                Distance x = temp.getData();
+                Distance newMinData = temp.getData();
                 temp.setData(min.getData()); ;
-                min.setData(x);
+                min.setData(newMinData);
                 temp = temp.getNext();
             }
         }
