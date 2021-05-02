@@ -2,6 +2,7 @@ package com.example.demo.Labs.michael.trackModel;
 
 import com.example.demo.Labs.michael.trackModel.extras.AthleteNames;
 import com.example.demo.Labs.michael.trackModel.extras.CsvExtractor;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.Basic;
@@ -133,5 +134,13 @@ public class Distance extends Athlete {
      */
     public String getAllInstanceData() {
         return this.getId() + ", " + this.getName() + ", " + this.getGrade() + ", " +  this.getSchool() + ", " + this.getEvent() + ", " + this.getSeedTime();
+    }
+
+    public int compareTo(Distance otherAthlete) {
+        if (this.getName().compareTo(otherAthlete.getName()) < 0) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }
