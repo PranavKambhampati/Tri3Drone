@@ -1,5 +1,6 @@
 package com.example.demo.Labs.michael;
 
+import com.example.demo.Labs.michael.linkedListsModel.MikeArrayList;
 import com.example.demo.Labs.michael.linkedListsModel.MikeLinkedList;
 import com.example.demo.Labs.michael.trackModel.Distance;
 import com.example.demo.Labs.michael.trackModel.extras.AthleteNames;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,13 @@ import java.util.List;
 @Setter
 public class LinkedListController {
     List<Distance> arrayListData = new ArrayList<>();
+    List<Distance> arrayListDataSorted = new ArrayList<>();
     MikeLinkedList linkedListData = new MikeLinkedList();
+    MikeLinkedList linkedListDataSorted = new MikeLinkedList();
+
+    /* Time analysis */
+    Duration sortTimeLL;
+    Duration sortTimeAL;
 
     @GetMapping("/michaelLinkedList")
     public String defaultDisplay(Model model) {
@@ -33,7 +42,7 @@ public class LinkedListController {
     }
 
     @PostMapping("/michaelLinkedList")
-    public String userInsert(@RequestParam(name = "insertIndex") int indexInsert, @RequestParam(name = "deleteIndex") int indexDelete, Model model) {
+    public String userInsert(@RequestParam(name = "insertIndex", defaultValue = "-1") int indexInsert, @RequestParam(name = "deleteIndex", defaultValue = "-1") int indexDelete, Model model) {
         if (indexInsert != -1) {
             this.linkedListData.insertAt(indexInsert, new Distance(99, "Scotty McLinkedListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
             this.arrayListData.set(indexInsert, new Distance(99, "Scotty McListInsert", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (330 - 285)) + 285), String.valueOf((Math.random() * (165 - 145)) + 165), "1600 meters"));
@@ -43,6 +52,17 @@ public class LinkedListController {
             this.linkedListData.deleteAt(indexDelete);
             this.arrayListData.remove(indexDelete);
         }
+
+        Instant alStart = Instant.now();
+        this.arrayListSelectionSort();
+        Instant alEnd = Instant.now();
+        sortTimeAL = Duration.between(alStart, alEnd);
+
+        Instant llStart = Instant.now();
+        this.linkedListDataSorted = this.linkedListData;
+        this.arrayListSelectionSort();
+        Instant llEnd = Instant.now();
+        sortTimeLL = Duration.between(llStart, llEnd);
 
         model.addAttribute("listData", this);
         return "labs/michaelLinkedList";
@@ -84,21 +104,27 @@ public class LinkedListController {
         }
     }
 
-    public void arrayListSelection() {
-        for (int i = 0; i < arrayListData.size(); i++) {
+    public void arrayListSelectionSort() {
+        this.arrayListDataSorted = this.arrayListData;
+        for (int i = 0; i < arrayListDataSorted.size(); i++) {
 
             int firstIndex = i;
-            for (int j = i + 1; j < arrayListData.size(); j++) {
-                if (arrayListData.get(j).compareTo(arrayListData.get(firstIndex)) > 0){
+            for (int j = i + 1; j < arrayListDataSorted.size(); j++) {
+                if (arrayListDataSorted.get(j).compareTo(arrayListDataSorted.get(firstIndex)) > 0){
                     firstIndex = j;
                 }
             }
 
-            Distance temp = arrayListData.get(firstIndex);
-            arrayListData.set(firstIndex, arrayListData.get(i));
-            arrayListData.set(i, temp);
+            Distance temp = arrayListDataSorted.get(firstIndex);
+            arrayListDataSorted.set(firstIndex, arrayListDataSorted.get(i));
+            arrayListDataSorted.set(i, temp);
         }
     }
+
+    public int getSortTimeALFormatted(){ return this.sortTimeAL.getNano(); }
+
+    public int getSortTimeLLFormatted(){ return this.sortTimeLL.getNano(); }
+
 
     public static void main(String[] args) {
         List<Distance> list = new ArrayList<>();

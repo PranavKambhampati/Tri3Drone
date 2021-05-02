@@ -15,6 +15,10 @@ public class MikeLinkedList {
     NodePtr head;
     int size;
 
+    /**
+     * Insert at tail
+     * @param data
+     */
     public void insert(Distance data) {
         /* new candidate node */
         NodePtr node = new NodePtr();
@@ -63,6 +67,12 @@ public class MikeLinkedList {
         size += 1;
     }
 
+    public void insertMiddle(Distance data) {
+        int index = (int) 0.5 * this.size;
+
+        insertAt(index, data);
+    }
+
     public void deleteAt(int index) { // access ptr to element before the specified index and change the ptr to the next next node
         if (index == 0) {
             this.head = head.getNext(); // sets head to the next node to erase reference to the original head node
@@ -78,6 +88,26 @@ public class MikeLinkedList {
 
         }
         size -= 1;
+    }
+
+    public void deleteHead() {
+        this.head = head.getNext();
+    }
+
+    public void deleteMiddle() {
+        int index = (int) (0.5 * size);
+
+        this.deleteAt(index);
+    }
+
+    public void deleteTail() {
+        NodePtr nodeIterable = head;
+        NodePtr nodePrevious = new NodePtr();
+        while (nodeIterable.getNext() != null) { // traverses through the linked list until a null value is found since the next pointer will reference the next piece of data
+            nodePrevious = nodeIterable;
+            nodeIterable = nodeIterable.getNext(); // actual "jumping" via accessing next pointers -> n = next piece of data
+        }
+        nodePrevious.setNext(null);
     }
 
     public void selectionSort() {
@@ -141,8 +171,18 @@ public class MikeLinkedList {
         list.insert(new Distance(0, "Jacob Gareth", (int) ((Math.random() * (12 - 9)) + 9), "male", "Del Norte", String.valueOf((Math.random() * (150 - 115)) + 115), String.valueOf((Math.random() * (70 - 60)) + 60), "800 meters"));
 
         list.print();
+        list.deleteMiddle();
         System.out.println();
-        list.selectionSort();
         list.print();
+        System.out.println();
+        list.deleteTail();
+        list.print();
+        System.out.println();
+        list.deleteHead();
+        list.print();
+        System.out.println();
+        list.deleteAt(0);
+        list.print();
+        System.out.println();
     }
 }

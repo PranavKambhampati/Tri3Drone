@@ -144,14 +144,46 @@
                     <img src="/linked_list-insert.svg" height="75%" width="auto">
                     <form class="insertion" method="post" action="/michaelLinkedList">
                         <input type="number" id="insertIndex" name="insertIndex" placeholder="Index for insertion"/>
+                        <p>Look for Scotty McListInsert</p>
                         <!--<button class="submit">Insert</button>-->
                     <h2> Delete Data- O(n) operation</h2>
                     <img src="/linked_list-delete.svg" height="75%" width="auto">
                         <input type="number" id="deleteIndex" name="deleteIndex" placeholder="Index for deletion"/>
-                        <button class="submit">Execute Insert and Delete</button>
+                        <button class="submit">Execute Insert, Delete, and Sort</button>
                     </form>
 
                     <p> Selection Sort</p>
+                    <table class="results">
+                        <p>Sorted ArrayList</p>
+                        <p th:text="Time + ${listData.getSortTimeAL()}"></p>
+                        <tr class="header">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>School</th>
+                            <th>Seed Time</th>
+                            <th>Event</th>
+                        </tr>
+                        <tr th:each="arrayList : ${listData.getArrayListDataSorted()}">
+                            <td th:text="${arrayList.getId()}"></td>
+                            <td th:text="${arrayList.getName()}"></td>
+                            <td th:text="${arrayList.getGrade()}"></td>
+                            <td th:text="${arrayList.getSchool()}"></td>
+                            <td th:text="${arrayList.getSeedTime()}"></td>
+                            <td th:text="${arrayList.getEvent()}"></td>
+                        </tr>
+                    </table>
+
+                    <table class="results">
+                        <p>Sorted Linked List</p>
+                        <p th:text="Time + ${listData.getSortTimeLL()}"></p>
+                        <tr class="header">
+                            <th>Results</th>
+                        </tr>
+                        <tr>
+                            <td th:text="${listData.getLinkedListDataSorted().getPrettyData()}"></td>
+                        </tr>
+                    </table>
                     <div/>
 
                 </div>
