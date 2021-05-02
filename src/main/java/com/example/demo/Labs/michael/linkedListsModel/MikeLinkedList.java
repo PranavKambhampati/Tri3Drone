@@ -181,8 +181,6 @@ public class MikeLinkedList {
         list.deleteHead();
         list.print();
         System.out.println();
-        list.deleteAt(0);
         list.print();
-        System.out.println();
     }
 }
