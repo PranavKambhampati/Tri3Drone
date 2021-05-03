@@ -103,6 +103,16 @@
             padding: 13px
         }
 
+        #spacer1 {
+            height: 375px;
+            background: none;
+        }
+
+        #spacer2 {
+            height: 150px;
+            background: none;
+        }
+
         .mainCode code {
             display: block;
             text-align: left;
@@ -133,10 +143,26 @@
     <div class="everything">
         <div class="row">
             <div class="col-sm">
-                <div class="card">
-                    <div class="topicCard">
-
+                    <div class="card">
+                        <p>In this example, the Item interface is the most general class. No matter if the items taxed or not, it will always have a purchase price.</p>
                     </div>
+                <div class="card" id="spacer1">
+
+                </div>
+                    <div class="card">
+                        <p><code>public TaxableItem(double rate)</code>: Default constructor of TaxableItem</p>
+                    </div>
+                    <div class="card">
+                        <p><code>public double purchasePrice()</code>: The method from the interface is defined to be implemented here</p>
+                    </div>
+                <div class="card" id="spacer2">
+
+                </div>
+                <div class="card">
+                    <p>Purchase price = list price x (1 + tax rate)<br>List price is obtained from the abstract getter getListPrice and the tax rate is obtained from the instance variable taxRate of TaxableItem.</p>
+                </div>
+                <div class="card">
+                    <p>Remember a super call in the constructor must always be the first line</p>
                 </div>
             </div>
             <div class="col-8">
@@ -178,21 +204,30 @@
                             Your class should have a constructor that takes dealer cost, the dealer markup, and the tax rate as parameters. Provide any private instance variables needed and implement all necessary methods. Also provide a public method <code>changeMarkup</code>, which changes the dealer markup to the value of its parameter.
                         </li>
                     </ol>
-                    <button id="topicBtn"></button>
-                    <div id="clickCard" class="topicCard">
-
-                    </div>
+                    <a href="/michaelLinkedList"><button>Answers</button></a>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="card">
-                    Test
+                    <a href="https://www.guru99.com/interface-vs-abstract-class-java.html#:~:text=An%20abstract%20class%20permits%20you,class%20can%20implement%20multiple%20interfaces.">Interface vs. Abstract Classes</a>
+                    <p>Interfaces consist of many methods with no implementations that can be implemented into another class. These classes also do not have instance variables, unless they are statics.</p>
+                </div>
+                <div class="card">
+                    <p>An abstract class can have instance variables as well as abstract methods (unimplemented) and implemented methods.</p>
+                </div>
+                <div class="card">
+                    <p>An abstract class can have instance variables as well as abstract methods (unimplemented) and implemented methods.</p>
+                </div>
+                <div class="card">
+                    <p>Item interface: In a more complex interface, many different unimplemented methods would be listed here.</p>
+                </div>
+                <div class="card">
+                    <p>Why is <code>getListPrice()</code> abstract? <br> In the class hierarchy above, a child of TaxableItem appears to be a vehicle. The vehicle use is just an example of a product and since many different products have different list prices, the getListPrice method is abstract. The list price can now be obtained from the child class (in this case Vehicle).</p>
+                </div>
+                <div class="card">
+                    <p><code>changeMarkup()</code>: This method is a getter that updates the instance variable of Vehicle, dealer markup (us this.variable name for clarity)</p>
                 </div>
             </div>
-        </div>
-        <button id="topicCardBtn"></button>
-        <div class="topicCard">
-
         </div>
     </div>
 </div>
