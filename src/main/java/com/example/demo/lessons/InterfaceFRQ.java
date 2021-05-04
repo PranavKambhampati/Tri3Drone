@@ -10,12 +10,12 @@ public class InterfaceFRQ {
 
     @GetMapping("/interface-abstraction-FRQ")
     public String InterfaceLesson() {
-        return "/lessons/michaelInterface";
+        return "lessons/michaelInterface";
     }
 
 
     @GetMapping("/interface-abstraction-FRQ/answers")
     public String interfaceFRQAnswers() {
-        return "/lessons/michaelInterface-answers";
+        return "lessons/michaelInterface-answers";
     }
 }
