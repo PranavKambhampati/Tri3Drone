@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 <head>
     <title>Interface and Abstract Class FRQ</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>-->
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
@@ -16,47 +17,6 @@
         .everything {
             padding: 25px;
         }
-        .containerL{
-            position: relative;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            top: 25px;
-            background: #eeeeee;
-            border-radius: 10px;
-            min-height: 75px;
-            width: auto;
-            box-shadow: 10px 10px 50px 10px #888888;
-        }
-        .containerM {
-            position: relative;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            top: 25px;
-            background: #eeeeee;
-            border-radius: 10px;
-            min-height: 75px;
-            max-width: 1000px;
-            box-shadow: 10px 10px 50px 10px #888888;
-        }
-
-        containerR {
-            position: relative;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            top: 25px;
-            background: #eeeeee;
-            border-radius: 10px;
-            min-height: 75px;
-            width: auto;
-            box-shadow: 10px 10px 50px 10px #888888;
-        }
-
-        .containerM .content {
-            padding: 20px;
-        }
 
         h1 {
             font-weight: 600;
@@ -66,10 +26,6 @@
             font-size: 125%;
         }
 
-        .containerM .content {
-            display: inline;
-        }
-
         footer{
             text-align: center;
 
@@ -77,12 +33,6 @@
 
         .containerM p {
             font-size: 90%;
-        }
-
-        .topicCard {
-            background: red;
-            width: auto;
-            height: 500px;
         }
 
         .col-8 {
@@ -131,6 +81,21 @@
         }
         .col8 h3 {
             font-weight: bold;
+        }
+
+        button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
         }
     </style>
 </head>
@@ -204,7 +169,7 @@
                             Your class should have a constructor that takes dealer cost, the dealer markup, and the tax rate as parameters. Provide any private instance variables needed and implement all necessary methods. Also provide a public method <code>changeMarkup</code>, which changes the dealer markup to the value of its parameter.
                         </li>
                     </ol>
-                    <a href="/michaelLinkedList"><button>Answers</button></a>
+                    <a href="/ap-lessons/interface-abstraction-FRQ/answers"><button>Answers</button></a>
                 </div>
             </div>
             <div class="col-sm">
@@ -231,11 +196,11 @@
         </div>
     </div>
 </div>
-<script>
+<!--<script>
     $(".topicCard").click(function(){
         let duration = 220;
         $("#clickCard").fadeOut(duration);
     });
-</script>
+</script>-->
 </body>
 </html>
