@@ -14,6 +14,10 @@ public class Principal extends Administrator {
         this.slogan = "One flock, one family.";
     }
 
+    public String getSlogan() {
+        return this.slogan;
+    }
+
     public void setSlogan(String slogan) {
         this.slogan = slogan;
     }

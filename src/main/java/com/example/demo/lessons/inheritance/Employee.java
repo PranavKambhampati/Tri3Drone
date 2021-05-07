@@ -9,6 +9,14 @@ public class Employee {
         this.age = age;
     }
 
+    /**
+     * Returns name and age
+     * @return
+     */
+    public String getInfo() {
+        return this.name + this.age;
+    }
+
     public String displayOccupation() {
         return "No occupation has been assigned";
     }

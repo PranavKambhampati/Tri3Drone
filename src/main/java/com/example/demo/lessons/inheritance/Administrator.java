@@ -8,6 +8,10 @@ public class Administrator extends Employee{
         this.scope = scope;
     }
 
+    public String getScope() {
+        return this.scope;
+    }
+
     @Override
     public String displayOccupation() {
         return "Administrator";

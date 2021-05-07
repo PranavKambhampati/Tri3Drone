@@ -13,6 +13,15 @@ public class Teacher extends Employee {
         this.college = "Unknown";
     }
 
+    public String getSubject() {
+        return this.subject;
+    }
+
+    @Override
+    public String displayOccupation() {
+        return "Teacher";
+    }
+
     /* Overloaded method addExperience:
        Two implementations with the same name, each with
        different parameters
@@ -24,10 +33,5 @@ public class Teacher extends Employee {
     public void addExperience(int tenure, String college) { // Overload 2
         this.tenure = tenure;
         this.college = college;
-    }
-
-    @Override
-    public String displayOccupation() {
-        return "Teacher";
     }
 }

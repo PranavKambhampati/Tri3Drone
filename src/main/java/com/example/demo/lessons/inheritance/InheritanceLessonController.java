@@ -23,11 +23,18 @@ public class InheritanceLessonController {
 
     private ConstructorType constructorKey;
 
+    public enum MethodType {rootMethod, getInfo, displayOccupation, getSubject, getScope, getBinaryCode, getSlogan}
+    public static MethodType methodMasterKey;
+
+    private MethodType methodKey;
+
     @GetMapping("/inheritance-mixed-type-demo")
     public String defaultView(Model model) {
 
         this.declarativeKey = DeclarativeType.Employee;
         this.constructorKey = ConstructorType.Employee;
+
+        this.methodKey = MethodType.rootMethod;
 
         model.addAttribute("allInheritanceData", this);
         return "lessons/michaelMixedTypes";

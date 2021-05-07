@@ -134,6 +134,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>Method Call</label>
+                            <div th:each="option : ${T(com.example.demo.lessons.inheritance.InheritanceLessonController.MethodType).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{methodKey}" th:value="${option}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('methodKey')}" th:text="${option}">option</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </form>
             </div>
         </div>
