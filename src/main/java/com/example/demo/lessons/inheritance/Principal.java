@@ -1,4 +1,4 @@
-package com.example.demo.lessons.inhertiance;
+package com.example.demo.lessons.inheritance;
 
 public class Principal extends Administrator {
     private String slogan;

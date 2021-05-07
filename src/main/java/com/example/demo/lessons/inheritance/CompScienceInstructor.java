@@ -1,4 +1,4 @@
-package com.example.demo.lessons.inhertiance;
+package com.example.demo.lessons.inheritance;
 
 public class CompScienceInstructor extends Teacher{
     private long binaryCode;
