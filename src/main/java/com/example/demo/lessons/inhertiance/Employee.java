@@ -21,6 +21,8 @@ public class Employee {
         Teacher t1 = new Teacher("chris", 28, "English");
         t1.rootMethod();
 
+        Employee e1  = new Employee("steve", 30);
+
         Teacher t2 = new CompScienceInstructor("jake", 42, 01000011);
     }
 }
