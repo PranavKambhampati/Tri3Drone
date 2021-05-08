@@ -4,131 +4,132 @@
     <title>Interface and Abstract Class FRQ</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+
+        .everything {
+            padding: 25px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .containerM p {
+            font-size: 90%;
+        }
+
+        .col-8 {
+            padding: 15px;
+        }
+        .col-sm {
+            padding: 10px
+        }
+
+        .card {
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+
+            padding: 13px
+        }
+
+        .layer {
+            background: #eeeeee;
+            z-index: 1;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+        }
+
+        .cardS {
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+
+            z-index: -1;
+
+            /*color: #eeeeee;*/
+
+            padding: 13px
+        }
+
+        #spacer1 {
+            height: 375px;
+            background: none;
+        }
+
+        #spacer2 {
+            height: 150px;
+            background: none;
+        }
+
+        .mainCode code {
+            display: block;
+            text-align: left;
+        }
+
+        li {
+            font-size: 100%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+
+        img {
+            align-content: center;
+        }
+        .col8 h3 {
+            font-weight: bold;
+        }
+
+        button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+    </style>
 </head>
 <script>
     console.log("test");
 </script>
 <body>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: #d6d6d6;
-    }
-
-    .everything {
-        padding: 25px;
-    }
-
-    h1 {
-        font-weight: 600;
-    }
-
-    p {
-        font-size: 125%;
-    }
-
-    footer{
-        text-align: center;
-
-    }
-
-    .containerM p {
-        font-size: 90%;
-    }
-
-    .col-8 {
-        padding: 15px;
-    }
-    .col-sm {
-        padding: 10px
-    }
-
-    .card {
-        background: #eeeeee;
-        border-radius: 10px;
-        min-height: 75px;
-        width: auto;
-        box-shadow: 10px 10px 50px 10px #888888;
-
-        padding: 13px
-    }
-
-    .layer {
-        background: #eeeeee;
-        z-index: 1;
-        border-radius: 10px;
-        min-height: 75px;
-        width: auto;
-    }
-
-    .cardS {
-        background: #eeeeee;
-        border-radius: 10px;
-        min-height: 75px;
-        width: auto;
-        box-shadow: 10px 10px 50px 10px #888888;
-
-        z-index: -1;
-
-        /*color: #eeeeee;*/
-
-        padding: 13px
-    }
-
-    #spacer1 {
-        height: 375px;
-        background: none;
-    }
-
-    #spacer2 {
-        height: 150px;
-        background: none;
-    }
-
-    .mainCode code {
-        display: block;
-        text-align: left;
-    }
-
-    li {
-        font-size: 100%;
-    }
-
-    p {
-        font-size: 100%;
-    }
-
-    img {
-        align-content: center;
-    }
-    .col8 h3 {
-        font-weight: bold;
-    }
-
-    button {
-        border-radius: 10px;
-        color: white;
-        background: #3ba0ff;
-        border: #2d6dff;
-        padding: 5px;
-
-        font-size: 101%;
-    }
-
-    button:hover {
-        background: #2d7dc3;
-        border: #2d6dff;
-    }
-</style>
 </div><div layout:fragment="content" th:remove="tag">
     <div class="everything">
         <div class="row">
             <div class="col-sm">
                 <div class="layer">
                     <div class="cardS">
-                        <p>In this example TEST, the Item interface is the most general class. No matter if the items taxed or not, it will always have a purchase price.</p>
+                        <p>In this example, the Item interface is the most general class. No matter if the items taxed or not, it will always have a purchase price.</p>
                     </div>
                 </div>
                 <div class="card" id="spacer1">
