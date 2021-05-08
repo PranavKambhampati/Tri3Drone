@@ -1,4 +1,4 @@
-package com.example.demo.lessons;
+package com.example.demo.lessons.interfaces;
 
 public class Vehicle extends TaxableItem{
     private double dealerCost; // needs to be an instance variable due to taking value as a parameter

@@ -1,4 +1,4 @@
-package com.example.demo.lessons;
+package com.example.demo.lessons.interfaces;
 
 public abstract class TaxableItem {
     private double taxRate;
