@@ -108,7 +108,9 @@
         <div class="content">
             <div class="dataEntry">
                 <h1>Mixed Type Object Instantiation</h1>
-                <form id="userSelection" action="/ap-lessons/michaelMixedTypes" th:object="${allInheritanceData}" method="POST" >
+                <p>Inheritance Tree</p>
+                <img src="/Employee-InheritanceTree.svg">
+                <form id="userSelection" action="/ap-lessons/inheritance-mixed-type-demo" th:object="${allInheritanceData}" method="post" >
                     <div class="col-md-4">
 
                         <div class="form-group">
@@ -148,7 +150,12 @@
                         </div>
                     </div>
 
+                    <button>Create object and access method</button>
+
                 </form>
+
+                <h3>Results</h3>
+                <p th:text="${allInheritanceData.getFormattedResult()}"></p>
             </div>
         </div>
 

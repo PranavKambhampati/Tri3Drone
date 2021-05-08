@@ -14,7 +14,7 @@ public class Employee {
      * @return
      */
     public String getInfo() {
-        return this.name + this.age;
+        return this.name + " " + this.age;
     }
 
     public String displayOccupation() {
