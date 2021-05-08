@@ -79,6 +79,51 @@ public class InheritanceLessonController<T> {
     }
 
     private void checkObjectValidity() {
+        if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee)) {
+            if ((this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
+                Employee ee1 = new Employee("Terrell", 23);
+                this.setEmployee((T) ee1);
+                switch (this.methodKey) {
+                    case getInfo:
+                        this.formattedResult = ee1.getInfo();
+                        break;
+                    case displayOccupation:
+                        this.formattedResult = ee1.displayOccupation();
+                        break;
+                    case rootMethod:
+                        this.formattedResult = ee1.rootMethod();
+                        break;
+                    default:
+                        this.formattedResult = "Unknown error in radio assignments";
+                }
+            } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
+                this.formattedResult = "The selected method is not accessible to Employee e = new Employee();";
+            }
+        } else if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Teacher)) {
+            if ((this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject))) {
+                Employee et1 = new Teacher("Terrell", 23, "Computer Science");
+                this.setEmployee((T) et1);
+                switch (this.methodKey) {
+                    case getInfo:
+                        this.formattedResult = et1.getInfo();
+                        break;
+                    case displayOccupation:
+                        this.formattedResult = et1.displayOccupation();
+                        break;
+                    case rootMethod:
+                        this.formattedResult = et1.rootMethod();
+                        break;
+                    case getSubject:
+                        this.formattedResult = ((Teacher) et1).getSubject();
+                        break;
+                    default:
+                        this.formattedResult = "Unknown error in radio assignments";
+                }
+            } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Teacher)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject))) {
+                this.formattedResult = "The selected method is not accessible to Employee e = new Teacher();";
+            }
+        }
+        /*
         if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee) && (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
             Employee ee1 = new Employee("Terrell", 23);
             this.setEmployee((T) ee1);
@@ -96,8 +141,31 @@ public class InheritanceLessonController<T> {
                     this.formattedResult = "Unknown error in radio assignments";
             }
         } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
-            this.formattedResult = "The selected method is not accessible to Employee e = new Employee()";
+            this.formattedResult = "The selected method is not accessible to Employee e = new Employee();";
         }
+
+        if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Teacher) && (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject))) {
+            Employee et1 = new Teacher("Terrell", 23, "Computer Science");
+            this.setEmployee((T) et1);
+            switch (this.methodKey) {
+                case getInfo:
+                    this.formattedResult = et1.getInfo();
+                    break;
+                case displayOccupation:
+                    this.formattedResult = et1.displayOccupation();
+                    break;
+                case rootMethod:
+                    this.formattedResult = et1.rootMethod();
+                    break;
+                case getSubject:
+                    this.formattedResult = ((Teacher) et1).getSubject();
+                    break;
+                default:
+                    this.formattedResult = "Unknown error in radio assignments";
+            }
+        } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Teacher)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject))) {
+            this.formattedResult = "The selected method is not accessible to Employee e = new Teacher();";
+        }*/
 
     }
 }
