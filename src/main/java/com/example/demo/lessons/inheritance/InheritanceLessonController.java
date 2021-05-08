@@ -80,15 +80,23 @@ public class InheritanceLessonController<T> {
 
     private void checkObjectValidity() {
         if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee) && (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
+            Employee ee1 = new Employee("Terrell", 23);
+            this.setEmployee((T) ee1);
             switch (this.methodKey) {
                 case getInfo:
-                    Employee e1 = new Employee("Terrell", 23);
-                    this.setEmployee((T) e1);
-                    this.formattedResult = e1.getInfo();
+                    this.formattedResult = ee1.getInfo();
+                    break;
+                case displayOccupation:
+                    this.formattedResult = ee1.displayOccupation();
+                    break;
+                case rootMethod:
+                    this.formattedResult = ee1.rootMethod();
                     break;
                 default:
-
+                    this.formattedResult = "Unknown error in radio assignments";
             }
+        } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Employee)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod))) {
+            this.formattedResult = "The selected method is not accessible to Employee e = new Employee()";
         }
 
     }
