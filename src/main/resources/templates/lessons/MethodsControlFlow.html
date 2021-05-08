@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+  <title>Methods and Control Structures FRQ</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #d6d6d6;
+    }
+
+    .everything {
+      padding: 25px;
+    }
+
+    h1 {
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 125%;
+    }
+
+    footer{
+      text-align: center;
+
+    }
+
+    .containerM p {
+      font-size: 90%;
+    }
+
+    .col-8 {
+      padding: 15px;
+    }
+    .col-sm {
+      padding: 10px
+    }
+
+    .card {
+      background: #eeeeee;
+      border-radius: 10px;
+      min-height: 75px;
+      width: auto;
+      box-shadow: 10px 10px 50px 10px #888888;
+
+
+      padding: 13px
+    }
+
+    #spacer1 {
+      height: 375px;
+      background: none;
+    }
+
+    #spacer2 {
+      height: 150px;
+      background: none;
+    }
+
+    .mainCode code {
+      display: block;
+      text-align: left;
+    }
+
+    li {
+      font-size: 100%;
+    }
+
+    p {
+      font-size: 100%;
+    }
+
+    img {
+      align-content: center;
+    }
+    .col8 h3 {
+      font-weight: bold;
+    }
+
+    button {
+      border-radius: 10px;
+      color: white;
+      background: #3ba0ff;
+      border: #2d6dff;
+      padding: 5px;
+
+      font-size: 101%;
+    }
+
+    button:hover {
+      background: #2d7dc3;
+      border: #2d6dff;
+    }
+  </style>
+</div>
+<style>
+
+</style>
+<body>
+</div><div layout:fragment="content" th:remove="tag">
+  <div class="everything">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card">
+          <p>This question pertains to a calendar, specifically the user has to implement certain methods to obtain information about a specific calendar year. </p>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="card">
+          <h3>2019 AP Computer Science A FRQ #1 </h3>
+          <p>The APCalendar class contains methods used to calculate information about a calendar. You will write two methods of the class. </p>
+          <img width="75%" height="auto" src="/2019FRQ.png">
+          <ol type="a">
+            <li>
+              Write the static method <code>numberOfLeapYears</code>, which returns the number of leap years between
+              year1 and year2, inclusive. In order to calculate this value, a helper method is provided for you.
+              <code>isLeapYear(year)</code> returns true if year is a leap year and false otherwise.
+              Complete method <code>numberOfLeapYears</code> below. You must use <code>isLeapYear</code> appropriately to
+              receive full credit.
+              <code>
+              <br> /** Returns the number of leap years between year1 and year2, inclusive.</br>
+              <br>* Precondition: 0 <= year1 <= year2</br>
+              <br>*/</br>
+                <br><code>public static int numberOfLeapYears(int year1, int year2)</code></br>
+                </code>
+            </li>
+            <li>
+
+              <br></br>
+              Write the static method <code>dayOfWeek</code>, which returns the integer value representing the day of the week for
+              the given date (month, day, year), where 0 denotes Sunday, 1 denotes Monday, ..., and 6
+              denotes Saturday. For example, 2019 began on a Tuesday, and January 5 is the fifth day of 2019. As a result,
+              January 5, 2019, fell on a Saturday, and the method call <code>dayOfWeek(1, 5, 2019)</code>
+              returns 6.
+              <br>As another example, January 10 is the tenth day of 2019. As a result, January 10, 2019, fell on a Thursday,
+              and the method call <code>dayOfWeek(1, 10, 2019)</code> returns 4. </br>
+              <br>In order to calculate this value, two helper methods are provided for you. </br>
+              <br>• <code>firstDayOfYear(year)</code> returns the integer value representing the day of the week for the first
+              day of year, where 0 denotes Sunday, 1 denotes Monday, ..., and 6 denotes Saturday. For
+              example, since 2019 began on a Tuesday, firstDayOfYear(2019) returns 2. </br>
+              <br>• <code>dayOfYear(month, day, year)</code> returns n, where month, day, and year specify the
+              nth day of the year. For the first day of the year, January 1 (month = 1, day = 1), the value
+              1 is returned. This method accounts for whether year is a leap year. For example,
+              <code>dayOfYear(3, 1, 2017)</code> returns 60, since 2017 is not a leap year, while
+              <code>dayOfYear(3, 1, 2016)</code> returns 61, since 2016 is a leap year. </br>
+            </li>
+          </ol>
+          <a href="/ap-lessons/MethodsFRQSolutions"><button>Answers</button></a>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card">
+          <p><code>private static boolean isLeapYear(int year)</code> is a helper method provided to you. The purpose of this method is to return a boolean indicting if the year passed into the parameter is a leap year.</p>
+        </div>
+        <div class="card">
+          <p><code>private static int firstDayOfYear(int year)</code> is a helper method provided to you. The purpose of this method is to return an integer "n", which represents the day of the week that the first day of the year falls on. A value of 0 would indicate Sunday, 6 would be Saturday. </p>
+        </div>
+        <div class="card">
+          <p><code>private static int dayOfYear(int month, int day, int year)</code> is another helper method provided to you. The purpose of this method is to return the day of the year for the parameters passed in. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

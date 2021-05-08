@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Michael Recursion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <div class="dataEntry">
+                <h1>Michael's Linked List Lab</h1>
+
+                <div/>
+                <div class="resultTable">
+                    <table class="results">
+                        <p>Unsorted ArrayList</p>
+                        <tr class="header">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>School</th>
+                            <th>Seed Time</th>
+                            <th>Event</th>
+                        </tr>
+                        <tr th:each="arrayList : ${listData.getArrayListData()}">
+                            <td th:text="${arrayList.getId()}"></td>
+                            <td th:text="${arrayList.getName()}"></td>
+                            <td th:text="${arrayList.getGrade()}"></td>
+                            <td th:text="${arrayList.getSchool()}"></td>
+                            <td th:text="${arrayList.getSeedTime()}"></td>
+                            <td th:text="${arrayList.getEvent()}"></td>
+                        </tr>
+                    </table>
+
+                    <table class="results">
+                        <p>Unsorted Linked List</p>
+                        <tr class="header">
+                            <th>Results</th>
+                        </tr>
+                        <tr>
+                            <td th:text="${listData.getLinkedListData().getPrettyData()}"></td>
+                        </tr>
+                    </table>
+                    <h2>Insert Data- O(n) operation</h2>
+                    <img src="/linked_list-insert.svg" height="75%" width="auto">
+                    <form class="insertion" method="post" action="/michaelLinkedList">
+                        <input type="number" id="insertIndex" name="insertIndex" placeholder="Index for insertion"/>
+                        <p>Look for Scotty McListInsert</p>
+                        <!--<button class="submit">Insert</button>-->
+                    <h2> Delete Data- O(n) operation</h2>
+                    <img src="/linked_list-delete.svg" height="75%" width="auto">
+                        <input type="number" id="deleteIndex" name="deleteIndex" placeholder="Index for deletion"/>
+                        <button class="submit">Execute Insert, Delete, and Sort</button>
+                    </form>
+
+                    <p> Selection Sort</p>
+                    <table class="results">
+                        <p>Sorted ArrayList</p>
+                        <p th:text="Time + ${listData.getSortTimeAL()}"></p>
+                        <tr class="header">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>School</th>
+                            <th>Seed Time</th>
+                            <th>Event</th>
+                        </tr>
+                        <tr th:each="arrayList : ${listData.getArrayListDataSorted()}">
+                            <td th:text="${arrayList.getId()}"></td>
+                            <td th:text="${arrayList.getName()}"></td>
+                            <td th:text="${arrayList.getGrade()}"></td>
+                            <td th:text="${arrayList.getSchool()}"></td>
+                            <td th:text="${arrayList.getSeedTime()}"></td>
+                            <td th:text="${arrayList.getEvent()}"></td>
+                        </tr>
+                    </table>
+
+                    <table class="results">
+                        <p>Sorted Linked List</p>
+                        <p th:text="Time + ${listData.getSortTimeLL()}"></p>
+                        <tr class="header">
+                            <th>Results</th>
+                        </tr>
+                        <tr>
+                            <td th:text="${listData.getLinkedListDataSorted().getPrettyData()}"></td>
+                        </tr>
+                    </table>
+                    <h1>Analysis</h1>
+                    <p>Linked List sort is at minimum is an entire extra zeroth place ahead of the normal ArrayList sort due to the Linked List pointer iterability.</p>
+                    <p>Insert: head - O(1), middle- O(n), tail- O(n)</p>
+                    <p>Delete: head- O(n), middle- O(n), tail- O(n)</p>
+                    <div/>
+
+                </div>
+            </div>
+        </div></div>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
     <!-- Feature button -->
-    <a class="navbar-brand" href="/pbl">Drone</a>
+    <a class="navbar-brand" href="#">Drone</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,6 +13,15 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/ap-lessons/lessons">AP Lessons</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AP Lessons
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/ap-lessons/interface-abstraction-FRQ">Interfaces and Abstract Classes</a>
+                    <a class="dropdown-item" href="/ap-lessons/MethodsFRQ">Methods and Control Flow</a>
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,6 +42,8 @@
                     <a class="dropdown-item" href="/labs/MichaelRecursion">Recursion</a>
                     <a class="dropdown-item" href="/michaelInheritance">Inheritance</a>
                     <a class="dropdown-item" href="/michaelSorts">Sorts</a>
+                    <a class="dropdown-item" href="/michaelLinkedList">Linked List</a>
+
                 </div>
             </li>
             <li class="nav-item dropdown">
