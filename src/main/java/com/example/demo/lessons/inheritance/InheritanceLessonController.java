@@ -150,6 +150,58 @@ public class InheritanceLessonController<T> {
                 } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Administrator)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getScope))) {
                     this.formattedResult = "The selected method is not accessible to Employee e = new Teacher();";
                 }
+            } else if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.CompScienceInstructor)) {
+                if ((this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject)|| this.methodKey.equals(MethodType.getBinaryCode))) {
+                    Employee ec1 = new CompScienceInstructor("Terrell", 23,01000011);
+                    this.setEmployee((T) ec1);
+                    switch (this.methodKey) {
+                        case getInfo:
+                            this.formattedResult = ec1.getInfo();
+                            break;
+                        case displayOccupation:
+                            this.formattedResult = ec1.displayOccupation();
+                            break;
+                        case rootMethod:
+                            this.formattedResult = ec1.rootMethod();
+                            break;
+                        case getSubject:
+                            this.formattedResult = ((CompScienceInstructor) ec1).getSubject();
+                            break;
+                        case getBinaryCode:
+                            this.formattedResult = Float.toString(((CompScienceInstructor) ec1).getBinaryCode());
+                            break;
+                        default:
+                            this.formattedResult = "Unknown error in radio assignments";
+                    }
+                } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Administrator)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getSubject) || this.methodKey.equals(MethodType.getBinaryCode))) {
+                    this.formattedResult = "The selected method is not accessible to Employee e = new CompScienceInstructor();";
+                }
+            } else if (this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Principal)) {
+                if ((this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getScope)|| this.methodKey.equals(MethodType.getSlogan))) {
+                    Employee ep1 = new Principal("Terrell", 23, "One flock, one family");
+                    this.setEmployee((T) ep1);
+                    switch (this.methodKey) {
+                        case getInfo:
+                            this.formattedResult = ep1.getInfo();
+                            break;
+                        case displayOccupation:
+                            this.formattedResult = ep1.displayOccupation();
+                            break;
+                        case rootMethod:
+                            this.formattedResult = ep1.rootMethod();
+                            break;
+                        case getScope:
+                            this.formattedResult = ((Principal) ep1).getScope();
+                            break;
+                        case getSlogan:
+                            this.formattedResult = ((Principal) ep1).getSlogan();
+                            break;
+                        default:
+                            this.formattedResult = "Unknown error in radio assignments";
+                    }
+                } else if ((this.declarativeKey.equals(DeclarativeType.Employee) && this.constructorKey.equals(ConstructorType.Administrator)) != (this.methodKey.equals(MethodType.getInfo) || this.methodKey.equals(MethodType.displayOccupation) || this.methodKey.equals(MethodType.rootMethod) || this.methodKey.equals(MethodType.getScope) || this.methodKey.equals(MethodType.getSlogan))) {
+                    this.formattedResult = "The selected method is not accessible to Employee e = new Principal();";
+                }
             }
         }
 
