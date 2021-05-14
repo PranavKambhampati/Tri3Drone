@@ -31,7 +31,7 @@ public class Student extends MasterClass{
                 break;
             case title:
             default:
-                output += super.getType() + ": " + this.name  + ", " + this.age + ", " + this.year;
+                output += this.name;
         }
         return output;
 
