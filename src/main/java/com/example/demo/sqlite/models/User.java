@@ -3,10 +3,7 @@ package com.example.demo.sqlite.models;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 //import javax.validation.constraints.Max;
 //import javax.validation.constraints.Min;
 //import javax.validation.constraints.Size;
@@ -31,9 +28,7 @@ public class User {
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
 
-    // Age is restricted
-    @NonNull
-    @Min(0) @Max(122)
-    private Integer age;
+    @Column(nullable = true, name = "email")
+    private String email;
 
 }
