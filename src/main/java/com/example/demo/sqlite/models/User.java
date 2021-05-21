@@ -1,3 +1,5 @@
+package com.example.demo.sqlite.models;
+
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
