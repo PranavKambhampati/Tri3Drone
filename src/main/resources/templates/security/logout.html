@@ -32,7 +32,6 @@
 
 <div class="form">
     <form name="logout_form" th:action="@{/logout}" method="post">
-        <input name="_csrf" type="hidden" th:value="${_csrf.token}">
         <button type="submit" name="logout_button">Do you REALLY want to Logout???? (if you do, click me)</button>
     </form>
 </div>
