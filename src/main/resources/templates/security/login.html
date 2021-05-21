@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/student-info.css">
+    <style>
+        h1 {
+            text-align: center;
+            vertical-align: top;
+            font-size: x-large;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 600;
+            margin-bottom: 50px;
+            margin-top: 0;
+        }
+
+        input[type=text], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        input[type=password], select {
+            width: 150%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        label{
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        button[type=submit] {
+            position: relative;
+            width: 125%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 20px;
+            margin-bottom: 0;
+            margin-top: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            left: auto;
+        }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .form {
+            position: relative;
+            border-radius: 20px;
+            background-color: #f2f2f2;
+            padding: 125px 250px;
+            left: 275px;
+            top: 25px;
+            float: left;
+        }
+
+        .form .alert-error{
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            font-size: small;
+            color: #ff0200;
+        }
+
+        .form .alert-success{
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            font-size: small;
+            color: #ff0200;
+        }
+
+        a.link {
+            position: relative;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            left: 400px;
+            top: 25px;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+        }
+
+        a.link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form">
+    <form name="form" th:action="@{/login}" method="post">
+
+        <table>
+            <tr>
+                <h1>
+                    LOG IN
+                </h1>
+            </tr>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username" placeholder="Username..."/></td>
+            </tr>
+
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" placeholder="Password..."/></td>
+            </tr>
+            <tr>
+                <td><label for="remember-me">Remember Me: </label><input type="checkbox" id="remember-me" name="remember-me" class="form-control"></td>
+            </tr>
+        </table>
+        <input name="_csrf" type="hidden" th:value="${_csrf.token}">
+        <button type="submit" id="submit" name="submit">Submit</button>
+        <div th:if="${param.error}" class="alert-error">
+            Invalid Username and Password.
+        </div>
+
+        <div th:if="${param.logout}" class="alert-success">
+            You have been logged out.
+        </div>
+    </form>
+
+</div>
+<a class="link" href="">SIGN UP</a>
+</body>
+</html>
