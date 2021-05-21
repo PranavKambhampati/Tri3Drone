@@ -9,11 +9,11 @@ public class TemplateController {
 
     @GetMapping("/login")
     public String getLoginView() {
-        return "security/login";
+        return "/security/login";
     }
 
     @GetMapping("/logout")
     public String getLogoutView() {
-        return "security/logout";
+        return "/security/logout";
     }
 }
