@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pranav Inheritence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #cd5353;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+
+        .contact{
+            top: 90%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+        <!-- Title -->
+        <div class="col-12" style="text-align: center;">
+            <h1><strong>Inheritence MiniLab</strong></h1>
+        </div>
+        <!-- Form and Action -->
+        <div class="jumbotron text-center row">
+            <!-- Input -->
+            <div class="col-md-6">
+                <h3>Select options to filter and sort</h3>
+                <form id="inheritenceForm" action="/pi" th:object="${ctl}" method="POST" >
+                    <div class="jumbotron text-left row">
+                        <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                            <input type="checkbox" id="planet" name="planet" value="1" th:checked="${ctl.isPlanet()}">
+                            <label for="planet">Planets</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.PranavInheritence.Planet.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{planetKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('planetKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="checkbox" id="car" name="car" value="1" th:checked="${ctl.isCar()}">
+                            <label for="car">Cars</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.PranavInheritence.Car.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{carKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('carKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button>Go!</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Filtered Summary</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Size</th>
+                        <th scope="col">First Row</th>
+                        <th scope="col">Last Row</th>
+                    </tr>
+                    <tr>
+                        <!-- Circle Queue Highlight data (summary)  -->
+                        <td th:text="${ctl.getCount()}"></td>
+                        <td th:text="${ctl.getQueue().getFirst()}"></td>
+                        <td th:text="${ctl.getQueue().getLast()}"></td>
+                    </tr>
+                </table>
+                <br><h3>Data Details</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Rows</th>
+                    </tr>
+                    <!-- Circle Detail data (rows) -->
+                    <tr th:each="line: ${ctl.getCQList()}">
+                        <td th:text="${line}" ></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Table Style -->
+    <style>
+        table, td, th {
+            border: 1px solid;
+        }
+        td, th {
+            text-align:left;
+        }
+    </style>
+</div>
+</body>
+</html>

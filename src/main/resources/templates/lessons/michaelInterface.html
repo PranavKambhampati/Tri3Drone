@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<head>
+    <title>Interface and Abstract Class FRQ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+
+        .everything {
+            padding: 25px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .containerM p {
+            font-size: 90%;
+        }
+
+        .col-8 {
+            padding: 15px;
+        }
+        .col-sm {
+            padding: 10px
+        }
+
+        .card {
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+
+            padding: 13px
+        }
+
+        .layer {
+            background: #eeeeee;
+            z-index: 1;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+        }
+
+        .cardS {
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            width: auto;
+            box-shadow: 10px 10px 50px 10px #888888;
+
+            z-index: -1;
+
+            /*color: #eeeeee;*/
+
+            padding: 13px
+        }
+
+        #spacer1 {
+            height: 375px;
+            background: none;
+        }
+
+        #spacer2 {
+            height: 150px;
+            background: none;
+        }
+
+        .mainCode code {
+            display: block;
+            text-align: left;
+        }
+
+        li {
+            font-size: 100%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+
+        img {
+            align-content: center;
+        }
+        .col8 h3 {
+            font-weight: bold;
+        }
+
+        button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+    </style>
+</head>
+<script>
+    console.log("test");
+</script>
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="everything">
+        <div class="row">
+            <div class="col-sm">
+                <div class="layer">
+                    <div class="cardS">
+                        <p>In this example, the Item interface is the most general class. No matter if the items taxed or not, it will always have a purchase price.</p>
+                    </div>
+                </div>
+                <div class="card" id="spacer1">
+
+                </div>
+                    <div id="left_one" class="cardS">
+                        <p><code>public TaxableItem(double rate)</code>: Default constructor of TaxableItem</p>
+                    </div>
+                    <div class="cardS">
+                        <p><code>public double purchasePrice()</code>: The method from the interface is defined to be implemented here</p>
+                    </div>
+                <div class="card" id="spacer2">
+
+                </div>
+                <div class="cardS">
+                    <p>Purchase price = list price x (1 + tax rate)<br>List price is obtained from the abstract getter getListPrice and the tax rate is obtained from the instance variable taxRate of TaxableItem.</p>
+                </div>
+                <div class="cardS">
+                    <p>Remember a super call in the constructor must always be the first line</p>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="card">
+                    <h3>2006 AP Computer Science A FRQ</h3>
+                    <p>A set of classes is used to represent various items that are available for purchase. Items are either taxable or nontaxable. The purchase price of a taxable item is computed from its list price and its tax rate. The purchase price of a nontaxable item is simply its list price. Part of the class hierarchy is shown in the diagram below.</p>
+                    <img width="75%" height="auto" src="/2006_frq_diagram.png">
+                    <p>The definitions of the <code>Item</code> interface and the <code>Taxable Item</code> class are shown below.</p>
+                    <pre><code class="mainCode">
+                        public interface Item {
+                            double purchasePrice();
+                        }
+
+                        public abstract class TaxableItem implements Item {
+                            private double taxRate;
+
+                            public abstract double getListPrice();
+
+                            public TaxableItem(double rate) { taxRate = rate; }
+
+                            // returns the price of the item including the tax
+                            public double purchasePrice() {
+                                /* to be implemented in part (a) */
+                            }
+                        }
+                    </code></pre>
+                    <ol type="a">
+                        <li>
+                            Write the <code>Taxable Item</code> method <code>purchasePrice</code>. The purchase price of a <code>TaxableItem</code> is the list price plus the tax on the item. The tax is computed by multiplying the list price by the tax rate. For example, if the tax rate is 0.10 (representing 10%), the purchase price of an item with a list price of $6.50 would be $7.15. <br>
+                            Complete method <code>purchasePrice</code> below.
+                            <pre><code class="mainCode">
+                                //returns the price of the item including the tax
+                                public double purchasePrice()
+                            </code></pre>
+                        </li>
+                        <li>
+                            Create the <code>Vehicle</code>, which extends the <code>TaxableItem</code> class. A vehicle has two parts to its list price: a dealer cost and a dealer markup. The list price of the vehicle is the sum of the dealer cost and the dealer markup. <br>
+                            For example, if a vehicle has a dealer cost of $20,000.00, a deal markup of $2,500.00, and a tax rate of 0.10, then the list price of the vehicle would be $22,500.00 and the purchase price (including tax) would be $24,750.00. If the dealer markup were changed to $1,000.00, then the list price of the vehicle would be $21,000.00 and the purchase price would be $23,100.00. <br>
+                            Your class should have a constructor that takes dealer cost, the dealer markup, and the tax rate as parameters. Provide any private instance variables needed and implement all necessary methods. Also provide a public method <code>changeMarkup</code>, which changes the dealer markup to the value of its parameter.
+                        </li>
+                    </ol>
+                    <a href="/ap-lessons/interface-abstraction-FRQ/answers"><button>Answers</button></a>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="cardS">
+                    <a href="https://www.guru99.com/interface-vs-abstract-class-java.html#:~:text=An%20abstract%20class%20permits%20you,class%20can%20implement%20multiple%20interfaces.">Interface vs. Abstract Classes</a>
+                    <p>Interfaces consist of many methods with no implementations that can be implemented into another class. These classes also do not have instance variables, unless they are statics.</p>
+                </div>
+                <div class="cardS">
+                    <p>An abstract class can have instance variables as well as abstract methods (unimplemented) and implemented methods.</p>
+                </div>
+                <div class="cardS">
+                    <p>An abstract class can have instance variables as well as abstract methods (unimplemented) and implemented methods.</p>
+                </div>
+                <div class="cardS">
+                    <p>Item interface: In a more complex interface, many different unimplemented methods would be listed here.</p>
+                </div>
+                <div class="cardS">
+                    <p>Why is <code>getListPrice()</code> abstract? <br> In the class hierarchy above, a child of TaxableItem appears to be a vehicle. The vehicle use is just an example of a product and since many different products have different list prices, the getListPrice method is abstract. The list price can now be obtained from the child class (in this case Vehicle).</p>
+                </div>
+                <div class="cardS">
+                    <p><code>changeMarkup()</code>: This method is a getter that updates the instance variable of Vehicle, dealer markup (us this.variable name for clarity)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>
+    $(".topicCard").click(function(){
+        let duration = 220;
+        $("#clickCard").fadeOut(duration);
+    });
+</script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--<script>
+    console.log("test");
+    $('#left_one').click(function (){
+        $('#left_one').css({
+            'background-color': '#eeeeee'
+        });
+    });
+    $(document).ready(function (){
+
+    });
+</script>-->
+</body>
+</html>

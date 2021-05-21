@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Michael Inheritance</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <div class="dataEntry">
+                <h1>Mixed Type Object Instantiation</h1>
+                <p>Inheritance Tree</p>
+                <img src="/Employee-InheritanceTree.svg">
+                <p>Class Implementations</p>
+                <code>Employee.java</code>
+                <script src="https://gist.github.com/mhayescs19/7f6906492fda2ee4ba8f8d08dbfaec43.js"></script>
+                <code>Teacher.java</code>
+                <script src="https://gist.github.com/mhayescs19/cc3d7e935b6f2ba560bd1188e288fcf3.js"></script>
+                <code>CompScienceInstructor.java</code>
+                <script src="https://gist.github.com/mhayescs19/d2eae1be8c6ee94e9d69655568fb8f4d.js"></script>
+                <code>Administrator.java</code>
+                <script src="https://gist.github.com/mhayescs19/28af5772a98fa71a1d8ad3ccbe9009e0.js"></script>
+                <code>Principal.java</code>
+                <script src="https://gist.github.com/mhayescs19/44126844e0725729a6d4891073549302.js"></script>
+                <form id="userSelection" action="/ap-lessons/inheritance-mixed-type-demo" th:object="${allInheritanceData}" method="post" >
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>Declarative Type</label>
+                            <div th:each="option : ${T(com.example.demo.lessons.inheritance.InheritanceLessonController.DeclarativeType).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{declarativeKey}" th:value="${option}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('declarativeKey')}" th:text="${option}">option</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>Constructor Type</label>
+                            <div th:each="option : ${T(com.example.demo.lessons.inheritance.InheritanceLessonController.DeclarativeType).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{constructorKey}" th:value="${option}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('constructorKey')}" th:text="${option}">option</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>Method Call</label>
+                            <div th:each="option : ${T(com.example.demo.lessons.inheritance.InheritanceLessonController.MethodType).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{methodKey}" th:value="${option}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('methodKey')}" th:text="${option}">option</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button>Create object and access method</button>
+
+                </form>
+
+                <h3>Results</h3>
+                <p th:text="${allInheritanceData.getFormattedResult()}"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

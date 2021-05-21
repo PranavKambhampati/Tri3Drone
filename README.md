@@ -1,11 +1,14 @@
 # Tri3Drone
-[p1-Drone Deployed Website](https://p1droneapp.herokuapp.com/): We will be transferring our deployment to AWS next week. Had to use Heroku due to technical difficulties with JAR.
+# [p1-Drone Deployed Website](http://ec2-34-217-90-30.us-west-2.compute.amazonaws.com/) on AWS EC2
 
 [p1-Drone Project Idea](https://docs.google.com/document/d/1XclmN6p6ZTHF3Li8fR3im8bIHbzxoyLGvw0yj-aHqR4/edit?usp=sharing)
 
 [p1-Drone GitHub Repo](https://github.com/aryan114/Tri3Drone)
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
+
+## Mini Review #1 Submission:
+* [Binary Self Grade Link](https://docs.google.com/document/d/1JxNWZn2bUWhOfovqLVBmIACtPDtluWY6KuZ3SPmGEuw/edit)
 
 ## End Sprint #1 Submission (10/10):
 * On Project Board, we have smart goals listed for each ticket as check-offs. Descriptions for each ticket is provided below binary grading.

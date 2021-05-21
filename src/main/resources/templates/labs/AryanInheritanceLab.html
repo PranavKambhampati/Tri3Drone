@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Aryan's Inheritance Lab</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content li a {
+            color: #4769ae;
+            display: block;
+        }
+
+        .container .content .labButton {
+            background: #72bdc8;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .content .labButton p {
+            color: white;
+            padding: 5px;
+        }
+
+        .contact{
+            top: 90%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+        <!-- Title -->
+        <div class="col-12" style="text-align: center;">
+            <h1><strong>Aryan's Inheritance Lab</strong></h1>
+        </div>
+        <div class="jumbotron text-center row">
+            <div class="col-md-6">
+                <h3>Select options to filter and sort</h3>
+                <form id="fibForm" action="/AryanInheritance" th:object="${ctl}" method="POST" >
+                    <div class="jumbotron text-left row">
+                        <div class="col-md-4">
+                            <input type="checkbox" id="cities" name="cities" value="1" th:checked="${ctl.isCities()}">
+                             <label for="cities">Cities</label>
+                             <div class="form-group">
+                                 <label>Sort by</label>
+                                 <div th:each="option : ${T(com.example.demo.Labs.AryanInheritance.Cities.Info).values()}">
+                                     <div class="custom-control custom-radio custom-control-inline">
+                                         <input type="radio" th:field="*{cityKey}" th:value="${option}" class="custom-control-input">
+                                         <label class="custom-control-label" th:for="${#ids.prev('cityKey')}" th:text="${option}">option</label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4">
+                             <input type="checkbox" id="food" name="food" value="1" th:checked="${ctl.isFood()}">
+                             <label for="food">Food</label>
+                             <div class="form-group">
+                                 <label>Sort by</label>
+                                 <div th:each="option : ${T(com.example.demo.Labs.AryanInheritance.Food.Info).values()}">
+                                     <div class="custom-control custom-radio custom-control-inline">
+                                         <input type="radio" th:field="*{foodKey}" th:value="${option}" class="custom-control-input">
+                                         <label class="custom-control-label" th:for="${#ids.prev('foodKey')}" th:text="${option}">option</label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" id="languages" name="languages" value="1" th:checked="${ctl.isLanguages()}">
+                        <label for="languages">Languages</label>
+                        <div class="form-group">
+                            <label>Sort by</label>
+                            <div th:each="option : ${T(com.example.demo.Labs.AryanInheritance.Languages.Info).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{languageKey}" th:value="${option}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('languageKey')}" th:text="${option}">option</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <button>Go!</button>
+                 </form>
+             </div>
+
+            <div class="col-md-6">
+                <h3>Filtered Summary</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Size</th>
+                        <th scope="col">First Row</th>
+                        <th scope="col">Last Row</th>
+                    </tr>
+                    <tr>
+                        <td th:text="${ctl.getNumber()}"></td>
+                        <td th:text="${ctl.getCircles().getFirstObject()}"></td>
+                        <td th:text="${ctl.getCircles().getLastObject()}"></td>
+
+                    </tr>
+
+                </table>
+             <div class="col-md-6">
+
+                 <br><h3>Data Details</h3>
+                 <table class="mx-auto">
+                     <tr>
+                         <th scope="col">Rows</th>
+                     </tr>
+                     <tr th:each="stuff: ${ctl.getCircleQueueList()}">
+                         <td th:text="${stuff}" ></td>
+                     </tr>
+                 </table>
+             </div>
+         </div>
+
+     </div>
+     <!-- Table Style -->
+    <style>
+        table, td, th {
+            border: 1px solid;
+        }
+        td, th {
+            text-aligt:left;
+        }
+    </style>
+</div>
+</div>
+</body>
+</html>

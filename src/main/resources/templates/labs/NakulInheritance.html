@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Nakul Inheritance</title>
+    </div>
+</head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="container">
+
+    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+        <!-- Title -->
+        <div class="col-12" style="text-align: center;">
+            <h1><strong>Data Filtering and Sorting</strong></h1>
+        </div>
+        <!-- Form and Action -->
+        <div class="jumbotron text-center row">
+            <!-- Input -->
+            <div class="col-md-6">
+                <h3>Select options to filter and sort</h3>
+                <form id="inheritanceForm" action="/labs/NakulInheritance" th:object="${ctl}" method="POST" >
+                    <div class="jumbotron text-left row">
+                        <!-- Students -->
+                        <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                            <input type="checkbox" id="student" name="student" value="1" th:checked="${ctl.isStudent()}">
+                            <label for="student">Students</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.NakulInheritance.Student.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{studentKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('studentKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                            <input type="checkbox" id="gems" name="gems" value="1" th:checked="${ctl.isGems()}">
+                            <label for="gems">Gems</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.NakulInheritance.Gems.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{gemsKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('gemsKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
+                            <input type="checkbox" id="countries" name="countries" value="1" th:checked="${ctl.isCountries()}">
+                            <label for="countries">Countries</label>
+                            <div class="form-group">
+                                <label>Sort by</label>
+                                <div th:each="option : ${T(com.example.demo.Labs.NakulInheritance.Countries.KeyType).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{countriesKey}" th:value="${option}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('countriesKey')}" th:text="${option}">option</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button>Go!</button>
+                </form>
+            </div>
+            <!-- Output/Result -->
+            <div class="col-md-6">
+                <h3>Filtered Summary</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Size</th>
+                        <th scope="col">First Row</th>
+                        <th scope="col">Last Row</th>
+                    </tr>
+                    <tr>
+                        <!-- Circle Queue Highlight data (summary)  -->
+                        <td th:text="${ctl.getCount()}"></td>
+                        <td th:text="${ctl.list.get(0)}"></td>
+                        <td th:text="${ctl.list.get(ctl.count-1)}"></td>
+                    </tr>
+                </table>
+                <br><h3>Data Details</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Rows</th>
+                    </tr>
+                    <!-- Circle Detail data (rows) -->
+                    <tr th:each="line: ${ctl.list}">
+                        <td th:text="${line.toString()}" ></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Table Style -->
+    <style>
+        table, td, th {
+            border: 1px solid;
+        }
+        td, th {
+            text-align:left;
+        }
+    </style>
+</div>`
+</div>
+</body>
+
+</html>

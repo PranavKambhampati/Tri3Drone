@@ -54,7 +54,7 @@ public abstract class _InsertionSort {
         int[] unsortedArray = new int[list.size()];
 
         for (String element : list) { // takes each element of the list and converts it to an int which is stuffed into an int[]
-            unsortedArray[list.indexOf(element)] = Integer.parseInt(element);
+            unsortedArray[list.indexOf(element)] = Integer.parseInt(element.trim());
         }
 
         return unsortedArray;
