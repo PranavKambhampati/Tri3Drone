@@ -354,4 +354,14 @@ public class LabsController {
     }
 
 
+    @GetMapping("/PranavJSPoll") // actual web address will be /labs/PranavJSPoll
+    public String pollPranav () {
+        return "labs/main";
+    }
+
+
+
+
+
+
 }
