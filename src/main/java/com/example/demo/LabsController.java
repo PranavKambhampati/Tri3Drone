@@ -18,6 +18,7 @@ import com.example.demo.Labs.michael.insertSortModel.InsertSortFor;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortRecurse;
 import com.example.demo.Labs.michael.insertSortModel.InsertSortWhile;
 import com.example.demo.Labs.michael.insertSortModel._InsertionSort;
+import com.example.demo.Forms.CreateMC;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +36,7 @@ import java.util.List;
 public class LabsController {
 
     @GetMapping("/test") // actual web address will be /labs/michael
-    public String labsMichael () {
+    public String labsMichael() {
 
         return "labs/test";
     }
@@ -59,7 +60,7 @@ public class LabsController {
     }
 
     @GetMapping("/AryanRecursion") // web address will be /labs/AryanRecursion
-    public String AryanRecursion (@RequestParam(name="num", required=false,  defaultValue="1") String num, Model model) {
+    public String AryanRecursion(@RequestParam(name = "num", required = false, defaultValue = "1") String num, Model model) {
         int nth = Integer.parseInt(num);
         AryanRecursion recursionLab = new AryanRecursion(nth); // creates object of class AryanRecursion
 
@@ -76,12 +77,12 @@ public class LabsController {
     }
 
     @GetMapping("/404")
-    public String AryanRecursion404 () {
+    public String AryanRecursion404() {
         return "labs/AryanRecursionLab404";
     }
 
     @GetMapping("/PranavRecursion")
-    public String PranavRecursion(@RequestParam(name="number", required = false, defaultValue="1") String number, Model model){
+    public String PranavRecursion(@RequestParam(name = "number", required = false, defaultValue = "1") String number, Model model) {
         int numbertocalc = Integer.parseInt(number);
         PranavRecursion pranav = new PranavRecursion(numbertocalc);
 
@@ -92,7 +93,7 @@ public class LabsController {
         model.addAttribute("forlooptime", pranav.fortime);
         model.addAttribute("streamtime", pranav.streamtime);
 
-        model.addAttribute("total",number);
+        model.addAttribute("total", number);
 
         System.out.println(number);
 
@@ -100,7 +101,7 @@ public class LabsController {
     }
 
     @GetMapping("/MichaelRecursion") // actual web address will be /labs/michael
-    public String MichaelRecursion (@RequestParam(name = "unsortedArray", required = false, defaultValue = "3,2,3,4") String unsortedArrayLiteral, Model model) {
+    public String MichaelRecursion(@RequestParam(name = "unsortedArray", required = false, defaultValue = "3,2,3,4") String unsortedArrayLiteral, Model model) {
 
         List<_InsertionSort> insertSortApproachList = new ArrayList<_InsertionSort>();
 
@@ -114,7 +115,7 @@ public class LabsController {
     }
 
     @GetMapping("/AryanSortsIntegers")
-    public String AryanSorts (@RequestParam(name="array", required=false,  defaultValue="1,1,1,1,1") String num, Model model) {
+    public String AryanSorts(@RequestParam(name = "array", required = false, defaultValue = "1,1,1,1,1") String num, Model model) {
         /*
         int[] largeArray = new int[5];
         if (num.trim() == "") {
@@ -142,12 +143,12 @@ public class LabsController {
     }
 
     @GetMapping("/AryanArrayLists")
-    public String AryanArrayLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
-                                    @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
-                                    @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
-                                    Model model) {
+    public String AryanArrayLists(@RequestParam(name = "num", required = false, defaultValue = "Des Moines") String num,
+                                  @RequestParam(name = "num2", required = false, defaultValue = "USA") String num2,
+                                  @RequestParam(name = "num3", required = false, defaultValue = "0") String num3,
+                                  Model model) {
         int newPopulation = 0;
-        if (num3.trim()!="") {
+        if (num3.trim() != "") {
             newPopulation = Integer.parseInt(num3);
         }
         AryanArrayLists arrayLists = new AryanArrayLists(num, num2, newPopulation);
@@ -163,12 +164,12 @@ public class LabsController {
     }
 
     @GetMapping("/AryanArrayListsDelete")
-    public String AryanArrayListsDelete (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
-                                   @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
-                                   @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
-                                   Model model) {
+    public String AryanArrayListsDelete(@RequestParam(name = "num", required = false, defaultValue = "Des Moines") String num,
+                                        @RequestParam(name = "num2", required = false, defaultValue = "USA") String num2,
+                                        @RequestParam(name = "num3", required = false, defaultValue = "0") String num3,
+                                        Model model) {
         int newPopulation = 0;
-        if (num3.trim()!="") {
+        if (num3.trim() != "") {
             newPopulation = Integer.parseInt(num3);
         }
         AryanArrayListDelete arrayLists = new AryanArrayListDelete(num, num2, newPopulation);
@@ -184,12 +185,12 @@ public class LabsController {
     }
 
     @GetMapping("/AryanLinkedLists")
-    public String AryanLinkedLists (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
-                                   @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
-                                   @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
+    public String AryanLinkedLists(@RequestParam(name = "num", required = false, defaultValue = "Des Moines") String num,
+                                   @RequestParam(name = "num2", required = false, defaultValue = "USA") String num2,
+                                   @RequestParam(name = "num3", required = false, defaultValue = "0") String num3,
                                    Model model) {
         int newPopulation = 0;
-        if (num3.trim()!="") {
+        if (num3.trim() != "") {
             newPopulation = Integer.parseInt(num3);
         }
         AryanLinkedLists LinkedLists = new AryanLinkedLists(num, num2, newPopulation);
@@ -205,12 +206,12 @@ public class LabsController {
     }
 
     @GetMapping("/AryanLinkedListsRemove")
-    public String AryanLinkedListsRemove (@RequestParam(name="num", required=false,  defaultValue="Des Moines") String num,
-                                          @RequestParam(name="num2", required=false,  defaultValue="USA") String num2,
-                                          @RequestParam(name="num3", required=false,  defaultValue="0") String num3,
-                                          Model model) {
+    public String AryanLinkedListsRemove(@RequestParam(name = "num", required = false, defaultValue = "Des Moines") String num,
+                                         @RequestParam(name = "num2", required = false, defaultValue = "USA") String num2,
+                                         @RequestParam(name = "num3", required = false, defaultValue = "0") String num3,
+                                         Model model) {
         int newPopulation = 0;
-        if (num3.trim()!="") {
+        if (num3.trim() != "") {
             newPopulation = Integer.parseInt(num3);
         }
         AryanLinkedListRemove LinkedLists = new AryanLinkedListRemove(num, num2, newPopulation);
@@ -226,7 +227,7 @@ public class LabsController {
     }
 
     @GetMapping("/AryanSortsStrings")
-    public String AryanSortsStrings (@RequestParam(name="array", required=false,  defaultValue="t,t,t,t,t") String num, Model model) {
+    public String AryanSortsStrings(@RequestParam(name = "array", required = false, defaultValue = "t,t,t,t,t") String num, Model model) {
 
         AryanSortsStrings StringsSortsLab = new AryanSortsStrings(num);
         model.addAttribute("bubbleSortAnswer", StringsSortsLab.BubbleSortPrintedAnswer);
@@ -243,7 +244,7 @@ public class LabsController {
     }
 
     @GetMapping("/AryanSortsObjects")
-    public String AryanSortsObjects (@RequestParam(name="array", required=false,  defaultValue="t,t,t,t,t") String num, Model model) {
+    public String AryanSortsObjects(@RequestParam(name = "array", required = false, defaultValue = "t,t,t,t,t") String num, Model model) {
 
         AryanSortsObjects ObjectsSortsLab = new AryanSortsObjects(num);
         model.addAttribute("bubbleSortAnswer", ObjectsSortsLab.BubbleSortObjectPrintedAnswer);
@@ -258,7 +259,7 @@ public class LabsController {
         model.addAttribute("totalArrays", num);
         return "labs/AryanSortsObjectsLab";
     }
-  
+
     @GetMapping("/NakulSort")
     public String NakulSortGet(Model model) {
 
@@ -352,6 +353,70 @@ public class LabsController {
 
         return "labs/NakulSort";
     }
+
+    @GetMapping("/CreateMC")
+        public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = " ") String num,
+                               @RequestParam(name = "num2", required = false, defaultValue = " ") String num2,
+                               @RequestParam(name = "num3", required = false, defaultValue = " ") String num3,
+                               @RequestParam(name = "num4", required = false, defaultValue = " ") String num4,
+                               @RequestParam(name = "num5", required = false, defaultValue = " ") String num5,
+                               @RequestParam(name = "num6", required = false, defaultValue = " ") String num6,
+                               @RequestParam(name = "num7", required = false, defaultValue = " ") String num7,
+                               @RequestParam(name = "num8", required = false, defaultValue = " ") String num8,
+                               @RequestParam(name = "num9", required = false, defaultValue = " ") String num9,
+                               @RequestParam(name = "num10", required = false, defaultValue = " ") String num10,
+                               @RequestParam(name = "num11", required = false, defaultValue = " ") String num11,
+                               @RequestParam(name = "num12", required = false, defaultValue = " ") String num12,
+                               @RequestParam(name = "num13", required = false, defaultValue = " ") String num13,
+                               @RequestParam(name = "num14", required = false, defaultValue = " ") String num14,
+                               @RequestParam(name = "num15", required = false, defaultValue = " ") String num15,
+                               @RequestParam(name = "num16", required = false, defaultValue = " ") String num16,
+                               @RequestParam(name = "num17", required = false, defaultValue = " ") String num17,
+                               @RequestParam(name = "num18", required = false, defaultValue = " ") String num18,
+                               @RequestParam(name = "num19", required = false, defaultValue = " ") String num19,
+                               @RequestParam(name = "num20", required = false, defaultValue = " ") String num20,
+                               @RequestParam(name = "num21", required = false, defaultValue = " ") String num21,
+                               @RequestParam(name = "num22", required = false, defaultValue = " ") String num22,
+                               @RequestParam(name = "num23", required = false, defaultValue = " ") String num23,
+                               @RequestParam(name = "num24", required = false, defaultValue = " ") String num24,
+                               @RequestParam(name = "num25", required = false, defaultValue = " ") String num25,
+                               Model model) {
+            CreateMC form = new CreateMC(num, num2, num3, num4, num5,num6,num7,num8,num9,num10,num11,num12,num13,num14
+            ,num15,num16,num17,num18,num19,num20,num21,num22,num23,num24,num25);
+
+            model.addAttribute("question", form.question);
+            model.addAttribute("answerChoice1", form.answerOne);
+            model.addAttribute("answerChoice2", form.answerTwo);
+            model.addAttribute("answerChoice3", form.answerThree);
+            model.addAttribute("answerChoice4", form.answerFour);
+
+            model.addAttribute("question2", form.question2);
+            model.addAttribute("answerChoice21", form.answer21);
+            model.addAttribute("answerChoice22", form.answer22);
+            model.addAttribute("answerChoice23", form.answer23);
+            model.addAttribute("answerChoice24", form.answer24);
+
+            model.addAttribute("question3", form.question3);
+            model.addAttribute("answerChoice31", form.answer31);
+            model.addAttribute("answerChoice32", form.answer32);
+            model.addAttribute("answerChoice33", form.answer33);
+            model.addAttribute("answerChoice34", form.answer34);
+
+            model.addAttribute("question4", form.question4);
+            model.addAttribute("answerChoice41", form.answer41);
+            model.addAttribute("answerChoice42", form.answer42);
+            model.addAttribute("answerChoice43", form.answer43);
+            model.addAttribute("answerChoice44", form.answer44);
+
+            model.addAttribute("question5", form.question5);
+            model.addAttribute("answerChoice51", form.answer51);
+            model.addAttribute("answerChoice52", form.answer52);
+            model.addAttribute("answerChoice53", form.answer53);
+            model.addAttribute("answerChoice54", form.answer54);
+
+            model.addAttribute("totalNumber", num);
+            return "labs/CreateMCPage";
+        }
 
 
     @GetMapping("/PranavJSPoll") // actual web address will be /labs/PranavJSPoll
