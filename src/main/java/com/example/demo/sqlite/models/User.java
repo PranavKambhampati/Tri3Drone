@@ -1,34 +1,30 @@
-package com.example.demo.sqlite.models;
-
-import jakarta.validation.constraints.*;
-import lombok.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-//import javax.validation.constraints.Max;
-//import javax.validation.constraints.Min;
-//import javax.validation.constraints.Size;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
-@Setter
 @Getter
-@ToString
+@Setter
+@Accessors(chain=true)
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "User")
 public class User {
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    /*
-    @NonNull: Places this in @RequiredArgsConstructor
-    @Size(min=2, max=30): Allows names between 2 and 30 characters long.
-     */
-    @NonNull
-    @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
-    private String name;
-
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
+    @NotEmpty(message = "First name is required")
+    private String firstname;
+    @NotEmpty(message = "Last name is required")
+    private String lastname;
     @Column(nullable = true, name = "email")
     private String email;
-
 }
