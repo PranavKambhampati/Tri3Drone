@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <link rel="stylesheet" href="/css/student-info.css">
+    <style>
+        button[type=submit] {
+            position: relative;
+            width: 75%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 100px 20px;
+            margin-bottom: 0;
+            margin-top: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Red Hat Display', sans-serif;
+            font-weight: 400;
+            left: 20%;
+            font-size: xx-large;
+            text-transform: uppercase;
+        }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form">
+    <form name="logout_form" th:action="@{/logout}" method="post">
+        <input name="_csrf" type="hidden" th:value="${_csrf.token}">
+        <button type="submit" name="logout_button">Do you REALLY want to Logout???? (if you do, click me)</button>
+    </form>
+</div>
+
+</body>
+</html>
