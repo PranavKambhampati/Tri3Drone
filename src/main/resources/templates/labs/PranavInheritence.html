@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
     <meta charset="UTF-8">
     <title>Pranav Inheritence</title>
     <style>
@@ -56,8 +58,9 @@
         }
 
     </style>
-</head>
-<body>
+</div></head>
+
+<body><div layout:fragment="content" th:remove="tag">
 <div class="container">
 
     <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
@@ -143,5 +146,5 @@
         }
     </style>
 </div>
-</body>
+</div></body>
 </html>
