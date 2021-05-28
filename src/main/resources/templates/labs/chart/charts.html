@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
     <meta charset="UTF-8">
     <title>Charts Testing</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,8 +23,9 @@
         }
     </style>
 
-</head>
-<body>
+</div></head>
+
+<body><div layout:fragment="content" th:remove="tag">
     <h1>Chart.js Sample Charts</h1>
     <h6>Note: These charts were made using the Chart.js library. Both the Pie Chart and the Bar Graph were made using the same set of data.</h6>
     <h6>Next Step: Data from the database will be used to create these charts instead of random data.</h6>
@@ -50,5 +53,5 @@
         <script src="/js/chartscript.js"></script>
     </div>
 
-</body>
+</div></body>
 </html>
