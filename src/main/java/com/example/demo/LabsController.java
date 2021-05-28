@@ -424,6 +424,11 @@ public class LabsController {
         return "labs/main";
     }
 
+    @GetMapping("/Charts") //actual web address will be /labs/Charts
+    public String charts(){
+        return "labs/chart/charts";
+    }
+
 
 
 
