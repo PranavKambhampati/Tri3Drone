@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
     <meta charset="UTF-8">
     <title>Pranav LinkedList Lab</title>
-</head>
+</div></head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
@@ -58,7 +60,7 @@
 
 </style>
 </head>
-<body>
+<body><div layout:fragment="content" th:remove="tag">
 
  <div class="container">
      <h1>Pranav's LinkedList Lab</h1>
@@ -95,6 +97,6 @@
 
      </div>
 
-</body>
+</div></body>
 
 </html>

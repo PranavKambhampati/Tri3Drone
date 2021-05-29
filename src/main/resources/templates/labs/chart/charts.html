@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <meta charset="UTF-8">
+    <title>Charts Testing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <style>
+        h1{
+            text-align: center;
+            margin-bottom: 100px
+        }
+
+        h6{
+            text-align: center;
+        }
+
+        .row{
+            margin-bottom: 100px;
+        }
+    </style>
+
+</div></head>
+
+<body><div layout:fragment="content" th:remove="tag">
+    <h1>Chart.js Sample Charts</h1>
+    <h6>Note: These charts were made using the Chart.js library. Both the Pie Chart and the Bar Graph were made using the same set of data.</h6>
+    <h6>Next Step: Data from the database will be used to create these charts instead of random data.</h6>
+    <h1></h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 chart">
+                <canvas id="myChart" width="600" height="500"></canvas>
+            </div>
+            <div class="col-6 chart">
+                <canvas id="myChart2" width="600" height="500"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 chart">
+                <canvas id="myChart4" width="600" height="500"></canvas>
+            </div>
+            <div class="col-6 chart">
+                <canvas id="myChart3" width="600" height="500"></canvas>
+            </div>
+        </div>
+    </div>
+    <div>
+        <script src="/js/chartscript.js"></script>
+    </div>
+
+</div></body>
+</html>
