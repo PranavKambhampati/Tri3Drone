@@ -12,10 +12,10 @@
 Umbrella Ticket (Overall Plan): [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/78)
 
 This week, we worked on:
-* Database Setup
-* Spring Security
-* Form UI Refinement
-* Chart.js for analytics
+* Database Setup (Michael)
+* Spring Security (Nakul)
+* Form UI Refinement (Aryan)
+* Chart.js for analytics (Pranav)
 
 Database Setup:
 
