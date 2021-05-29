@@ -7,6 +7,24 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
+## Umbrella Ticket 6/1
+
+Umbrella Ticket (Overall Plan): [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/78)
+
+This week, we worked on:
+* Database Setup
+* Spring Security
+* Form UI Refinement
+* Chart.js for analytics
+
+Database Setup:
+
+Spring Security:
+
+Form UI Refinement:
+
+Chart.js: This is a js library that can be used to produce graphs. Our idea was to use data from the polling service to generate graphs which would help the admin visualize the data. This week, I(Pranav) mostly spent my time setting up chart.js and experimenting with random data to generate graphs. I've basically created a template that help me in the next step. My next goal is to substitute the random data with actual data from the database to create more realistic charts. This is a link to my ticket for this, which outlines what I've worked on and provides code and runtime links: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/79)
+
 ## Mini Review #1 Submission:
 * [Binary Self Grade Link](https://docs.google.com/document/d/1JxNWZn2bUWhOfovqLVBmIACtPDtluWY6KuZ3SPmGEuw/edit)
 
