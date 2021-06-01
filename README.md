@@ -23,7 +23,7 @@ Spring Security:
 
 Form UI Refinement:
 
-Chart.js: This is a js library that can be used to produce graphs. Our idea was to use data from the polling service to generate graphs which would help the admin visualize the data. This week, I(Pranav) mostly spent my time setting up chart.js and experimenting with random data to generate graphs. I've basically created a template that help me in the next step. My next goal is to substitute the random data with actual data from the database to create more realistic charts. This is a link to my ticket for this, which outlines what I've worked on and provides code and runtime links: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/79)
+Chart.js: This is a js library that can be used to produce graphs. Our idea was to use data from the polling service to generate graphs which would help the admin visualize the data. This week, I(Pranav) mostly spent my time setting up chart.js and experimenting with random data to generate graphs. I've basically created a template that help me in the next step. My next goal is to substitute the random data with actual data from the database to create more realistic charts. This is a link to my ticket for this, which outlines what I've worked on and provides code and runtime links: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/79). Ticket for next week: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/72).
 
 
 
