@@ -55,8 +55,8 @@ public class DbExampleController {
 
     @GetMapping("/deleteUser")
     public String deleteUser(@RequestParam(name = "id", defaultValue = "-1") Long id) {
-        if (session.findAll().size() >= id && !(id < 0)) { // logic to prevent invalid id
-            session.deleteById(id); // searches and finds entry of given id and deletes it
+        if (session.findAll().size() >= id && id > 0) { // logic to prevent invalid id
+            session.deleteById(id); // searches and finds entry of given id and deletes it? (not working currently)
 
         }
         return "db/delete";
