@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<title>Create a Quiz!</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+  <title>Create a Form</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
   body {
     font-family: 'Montserrat', sans-serif;
@@ -53,11 +55,12 @@
 </div></head>
 
 <body>
+</div><div layout:fragment="content" th:remove="tag">
 <div class="container">
   <div class="content">
-    <h1>Create a Quiz!</h1>
+    <h1>Create a Form</h1>
     <div style="margin: 2%;">
-      <form id="forms" action="/labs/CreateMC" method="GET" >
+      <form id="forms" action="/labs/ShowMC" method="GET" >
         <strong><label for="num">Type the first question:</label></strong>
         <br><input name="num" id="num" type="text"> </br>
         <label for="num2">Type the first answer choice:</label>
@@ -113,41 +116,10 @@
         <label for="num25">Type the fourth answer choice:</label>
         <br><input name="num25" id="num25" type="text"> </br>
 
-        <button>Enter!</button>
+        <a href="/labs/ShowMC"><button>Created Form</button></a>
       </form>
     </div>
-    <div style="margin: 2%;">
-      <strong><td th:text="'Question 1: ' + ${question}"></td></strong>
-      <br><td th:text="'A: ' + ${answerChoice1}"></td> </br>
-      <td th:text="'B: ' + ${answerChoice2}"></td>
-      <br><td th:text="'C: ' + ${answerChoice3}"></td></br>
-      <td th:text="'D: ' + ${answerChoice4}"></td>
 
-      <br><strong><td th:text="'Question 2: ' + ${question2}"></td></strong></br>
-      <br><td th:text="'A: ' + ${answerChoice21}"></td> </br>
-      <td th:text="'B: ' + ${answerChoice22}"></td>
-      <br><td th:text="'C: ' + ${answerChoice23}"></td></br>
-      <br><td th:text="'D: ' + ${answerChoice24}"></td></br>
-
-      <br><strong><td th:text="'Question 3: ' + ${question3}"></td></strong></br>
-      <br><td th:text="'A: ' + ${answerChoice31}"></td> </br>
-      <td th:text="'B: ' + ${answerChoice32}"></td>
-      <br><td th:text="'C: ' + ${answerChoice33}"></td></br>
-      <br><td th:text="'D: ' + ${answerChoice34}"></td></br>
-
-      <br><strong><td th:text="'Question 4: ' + ${question4}"></td></strong></br>
-      <br><td th:text="'A: ' + ${answerChoice41}"></td> </br>
-      <td th:text="'B: ' + ${answerChoice42}"></td>
-      <br><td th:text="'C: ' + ${answerChoice43}"></td></br>
-      <br><td th:text="'D: ' + ${answerChoice44}"></td></br>
-
-      <br><strong><td th:text="'Question 5: ' + ${question5}"></td></strong></br>
-      <br><td th:text="'A: ' + ${answerChoice51}"></td> </br>
-      <td th:text="'B: ' + ${answerChoice52}"></td>
-      <br><td th:text="'C: ' + ${answerChoice53}"></td></br>
-      <br><td th:text="'D: ' + ${answerChoice54}"></td></br>
-
-    </div>
 
   </div>
 </div></div>
