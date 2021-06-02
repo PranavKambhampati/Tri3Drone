@@ -16,6 +16,10 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
+    /**
+     * Uncomment for expanded creation of a new user entry in the database
+     */
+    /*
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return args -> {
@@ -31,4 +35,5 @@ public class Main {
             System.out.println(userRepository.findAll());
         };
     }
+     */
 }
