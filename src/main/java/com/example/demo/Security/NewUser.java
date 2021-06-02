@@ -20,30 +20,8 @@ public class NewUser {
     @NotBlank(message = "password may not be empty")
     @NotNull(message = "Password may not be empty")
     private String password;
-    @NotNull
-    @Min(value = 13,message = "Age must be greater than 13 or equal to")
-    @Max(value = 20,message = "Age must be less than 20 or equal to")
-    private int age;
-    @NotBlank(message = "Field must be filled in")
-    @NotNull(message = "Field must be filled in")
-    private String year;
+
     private final String Role;
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public String getRole() {
         return Role;
@@ -81,8 +59,6 @@ public class NewUser {
                 "name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", Age=" + age +
-                ", year='" + year + '\'' +
                 ", Role='" + Role + '\'' +
                 '}';
     }
