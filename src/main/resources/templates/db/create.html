@@ -5,7 +5,8 @@
     <title>Add User</title>
 </head>
 <body>
-<form class="userDetails" action="/listAll" method="POST">
+<h1>Create a new user entry in the DB (live to AWS RDS)</h1>
+<form class="userDetails" action="/db/createUser" method="GET">
     <input type="text" id="firstName" name="firstName" placeholder="First Name"/>
     <input type="text" id="lastName" name="lastName" placeholder="Last Name"/>
     <input type="text" id="userName" name="username" placeholder="Username"/>
@@ -15,5 +16,6 @@
 
     <button class="submit">Create</button>
 </form>
+<a href="/db/listAllUsers"><button>View All Data</button></a>
 </body>
 </html>

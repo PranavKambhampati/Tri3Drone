@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Users</title>
 </head>
 <body>
+<h1>List all of the user entries in the AWS RDS Database</h1>
+<p th:text="${db_data}"></p>
+<a href="/db/createUser"><button>Create Another User Entry</button></a>
 
 </body>
 </html>
