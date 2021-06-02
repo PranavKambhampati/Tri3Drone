@@ -19,7 +19,11 @@ This week, we worked on:
 
 Database Setup:
 
-Spring Security:
+[Spring Security Create User Ticket](https://github.com/PranavKambhampati/Tri3Drone/issues/84): This ticket was created by Nakul Nandhakumar. My goal this week was to implement the CreateUser HTML page for users to interact with and create their user account which must be used to login and access select portions of the website like the Forms section. I used CSS styling from our previous project last year to create a form that accepts usernames and passwords and validates them against a Java class which details parameters to check against and return an error if there is one. If the username and password are valid, the information is sent to a data transfer object created from the class NewUser which I created in order to store the information of the user. Currently, the create user page works as intended however the data transfer object created when submitting information does not link to the database so users are unable to log in with their newly created account. This will be fixed in the next ticket where database integration is the main priority and this is my goal for next week.
+[Runtime Link]()
+[CreateUser HTML Code]()
+[NewUser DTO Class]()
+[Spring Security CreateUser Controller]()
 
 Form UI Refinement: My (Aryan) goal this week was to display the created form on a new page and to also find a way to make the form more dynamic. I was able to accomplish the goal of showing the created form on a new page, however, I wasn't satisfied with how I made the form more dynamic. Currently, if you just type in the questions you desire (ex: you want 2 questions), then the form will only show 2 questions with populated results, with 3 other empty results. While this may be a solution, I am not pleased with it, and will look to either incorporate a list into the controller and research more this week or I will try to incorporate JavaScript files and HTML hidden variables in order to move through the number of questions the user requests for.
 [Runtime Link](http://ec2-34-217-90-30.us-west-2.compute.amazonaws.com/labs/CreateMC) 
