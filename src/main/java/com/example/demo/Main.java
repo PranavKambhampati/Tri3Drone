@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.mysql.models.User;
 import com.example.demo.mysql.models.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,16 @@ public class Main {
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return args -> {
-            //userRepository.
+            User steven = new User( // clearer way to define objects with lots of data
+                    "Steven",
+                    "Lebreski",
+                    "stevel01",
+                    "1234",
+                    "steve@lebreski.com",
+                    "user"
+            );
+            userRepository.save(steven);
+            System.out.println(userRepository.findAll());
         };
     }
 }
