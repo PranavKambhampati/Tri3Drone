@@ -17,7 +17,10 @@ This week, we worked on:
 * Form UI Refinement (Aryan)
 * Chart.js for analytics (Pranav)
 
-**1. Database Setup:**
+**1. [Database Setup](https://github.com/PranavKambhampati/Tri3Drone/issues/80):**
+This week, AWS RDS was used as a live alternative to localhost used last week. The RDS VPC hosts a MySQL database that can be viewed inside of MySQLWorkbench or directly in IntelliJ's database viewer through its endpoint link. Database interaction is present through 3 HTML pages to perform Create, Read and Delete (not always working). Current errors include an SQL syntax error (I am not writing any SQL code because of javax.persistence use- hibernate) when trying to add a second POJO class. <br>
+Next Week's Ticket [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/86)
+
 
 **2. [Spring Security Create User Ticket](https://github.com/PranavKambhampati/Tri3Drone/issues/84):** This ticket was created by *Nakul Nandhakumar*. My goal this week was to implement the CreateUser HTML page for users to interact with and create their user account which must be used to login and access select portions of the website like the Forms section. I used CSS styling from our previous project last year to create a form that accepts usernames and passwords and validates them against a Java class which details parameters to check against and return an error if there is one. If the username and password are valid, the information is sent to a data transfer object created from the class NewUser which I created in order to store the information of the user. Currently, the create user page works as intended however the data transfer object created when submitting information does not link to the database so users are unable to log in with their newly created account. This will be fixed in the next ticket where database integration is the main priority and this is my goal for next week. I also have to set up the admin role and account with special permission. <br>
 [Runtime Link]() <br>
