@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.Forms.AskQuestions;
 import com.example.demo.Labs.AryanLinkedLists.AryanArrayListDelete;
 import com.example.demo.Labs.AryanLinkedLists.AryanArrayLists;
 import com.example.demo.Labs.AryanLinkedLists.AryanLinkedListRemove;
@@ -354,6 +355,19 @@ public class LabsController {
         return "labs/NakulSort";
     }
 
+    /*
+    @GetMapping("GetQuestions")
+    public String GetQuestions(@RequestParam(name = "num", required = false, defaultValue = "0") String num, Model model) {
+        int nth = Integer.parseInt(num);
+        AskQuestions questions = new AskQuestions(nth);
+
+        model.addAttribute("numberOfQuestions", questions.numOfQuestions);
+        model.addAttribute("totalNumber", num);
+        return "labs/AskQuestions";
+    }
+
+     */
+
     @GetMapping("/CreateMC")
         public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = " ") String num,
                                @RequestParam(name = "num2", required = false, defaultValue = " ") String num2,
@@ -390,11 +404,13 @@ public class LabsController {
             model.addAttribute("answerChoice3", form.answerThree);
             model.addAttribute("answerChoice4", form.answerFour);
 
-            model.addAttribute("question2", form.question2);
-            model.addAttribute("answerChoice21", form.answer21);
-            model.addAttribute("answerChoice22", form.answer22);
-            model.addAttribute("answerChoice23", form.answer23);
-            model.addAttribute("answerChoice24", form.answer24);
+
+                model.addAttribute("question2", form.question2);
+                model.addAttribute("answerChoice21", form.answer21);
+                model.addAttribute("answerChoice22", form.answer22);
+                model.addAttribute("answerChoice23", form.answer23);
+                model.addAttribute("answerChoice24", form.answer24);
+
 
             model.addAttribute("question3", form.question3);
             model.addAttribute("answerChoice31", form.answer31);
@@ -402,11 +418,14 @@ public class LabsController {
             model.addAttribute("answerChoice33", form.answer33);
             model.addAttribute("answerChoice34", form.answer34);
 
+
+
             model.addAttribute("question4", form.question4);
             model.addAttribute("answerChoice41", form.answer41);
             model.addAttribute("answerChoice42", form.answer42);
             model.addAttribute("answerChoice43", form.answer43);
             model.addAttribute("answerChoice44", form.answer44);
+
 
 
             model.addAttribute("question5", form.question5);
@@ -417,6 +436,7 @@ public class LabsController {
 
             model.addAttribute("totalNumber", num);
             return "labs/CreateMCPage";
+
         }
 
     @GetMapping("/ShowMC")
