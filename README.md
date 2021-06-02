@@ -7,6 +7,29 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
+## Umbrella Ticket 6/1
+
+Umbrella Ticket (Overall Plan): [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/78)
+
+This week, we worked on:
+* Database Setup (Michael)
+* Spring Security (Nakul)
+* Form UI Refinement (Aryan)
+* Chart.js for analytics (Pranav)
+
+Database Setup:
+
+Spring Security:
+
+Form UI Refinement: My (Aryan) goal this week was to display the created form on a new page and to also find a way to make the form more dynamic. I was able to accomplish the goal of showing the created form on a new page, however, I wasn't satisfied with how I made the form more dynamic. Currently, if you just type in the questions you desire (ex: you want 2 questions), then the form will only show 2 questions with populated results, with 3 other empty results. While this may be a solution, I am not pleased with it, and will look to either incorporate a list into the controller and research more this week or I will try to incorporate JavaScript files and HTML hidden variables in order to move through the number of questions the user requests for.
+[Runtime Link](http://ec2-34-217-90-30.us-west-2.compute.amazonaws.com/labs/CreateMC) 
+[Link to Week of 5/31 Ticket](https://github.com/PranavKambhampati/Tri3Drone/issues/8)
+[Link to Week of 6/7 Ticket](https://github.com/PranavKambhampati/Tri3Drone/issues/67)
+
+Chart.js: This is a js library that can be used to produce graphs. Our idea was to use data from the polling service to generate graphs which would help the admin visualize the data. This week, I(Pranav) mostly spent my time setting up chart.js and experimenting with random data to generate graphs. I've basically created a template that help me in the next step. My next goal is to substitute the random data with actual data from the database to create more realistic charts. This is a link to my ticket for this, which outlines what I've worked on and provides code and runtime links: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/79). Ticket for next week: [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/72).
+
+
+
 ## Mini Review #1 Submission:
 * [Binary Self Grade Link](https://docs.google.com/document/d/1JxNWZn2bUWhOfovqLVBmIACtPDtluWY6KuZ3SPmGEuw/edit)
 

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.Forms.AskQuestions;
 import com.example.demo.Labs.AryanLinkedLists.AryanArrayListDelete;
 import com.example.demo.Labs.AryanLinkedLists.AryanArrayLists;
 import com.example.demo.Labs.AryanLinkedLists.AryanLinkedListRemove;
@@ -354,6 +355,19 @@ public class LabsController {
         return "labs/NakulSort";
     }
 
+    /*
+    @GetMapping("GetQuestions")
+    public String GetQuestions(@RequestParam(name = "num", required = false, defaultValue = "0") String num, Model model) {
+        int nth = Integer.parseInt(num);
+        AskQuestions questions = new AskQuestions(nth);
+
+        model.addAttribute("numberOfQuestions", questions.numOfQuestions);
+        model.addAttribute("totalNumber", num);
+        return "labs/AskQuestions";
+    }
+
+     */
+
     @GetMapping("/CreateMC")
         public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = " ") String num,
                                @RequestParam(name = "num2", required = false, defaultValue = " ") String num2,
@@ -390,11 +404,13 @@ public class LabsController {
             model.addAttribute("answerChoice3", form.answerThree);
             model.addAttribute("answerChoice4", form.answerFour);
 
-            model.addAttribute("question2", form.question2);
-            model.addAttribute("answerChoice21", form.answer21);
-            model.addAttribute("answerChoice22", form.answer22);
-            model.addAttribute("answerChoice23", form.answer23);
-            model.addAttribute("answerChoice24", form.answer24);
+
+                model.addAttribute("question2", form.question2);
+                model.addAttribute("answerChoice21", form.answer21);
+                model.addAttribute("answerChoice22", form.answer22);
+                model.addAttribute("answerChoice23", form.answer23);
+                model.addAttribute("answerChoice24", form.answer24);
+
 
             model.addAttribute("question3", form.question3);
             model.addAttribute("answerChoice31", form.answer31);
@@ -402,11 +418,15 @@ public class LabsController {
             model.addAttribute("answerChoice33", form.answer33);
             model.addAttribute("answerChoice34", form.answer34);
 
+
+
             model.addAttribute("question4", form.question4);
             model.addAttribute("answerChoice41", form.answer41);
             model.addAttribute("answerChoice42", form.answer42);
             model.addAttribute("answerChoice43", form.answer43);
             model.addAttribute("answerChoice44", form.answer44);
+
+
 
             model.addAttribute("question5", form.question5);
             model.addAttribute("answerChoice51", form.answer51);
@@ -416,12 +436,82 @@ public class LabsController {
 
             model.addAttribute("totalNumber", num);
             return "labs/CreateMCPage";
+
         }
+
+    @GetMapping("/ShowMC")
+    public String ShowMC(@RequestParam(name = "num", required = false, defaultValue = " ") String num,
+                           @RequestParam(name = "num2", required = false, defaultValue = " ") String num2,
+                           @RequestParam(name = "num3", required = false, defaultValue = " ") String num3,
+                           @RequestParam(name = "num4", required = false, defaultValue = " ") String num4,
+                           @RequestParam(name = "num5", required = false, defaultValue = " ") String num5,
+                           @RequestParam(name = "num6", required = false, defaultValue = " ") String num6,
+                           @RequestParam(name = "num7", required = false, defaultValue = " ") String num7,
+                           @RequestParam(name = "num8", required = false, defaultValue = " ") String num8,
+                           @RequestParam(name = "num9", required = false, defaultValue = " ") String num9,
+                           @RequestParam(name = "num10", required = false, defaultValue = " ") String num10,
+                           @RequestParam(name = "num11", required = false, defaultValue = " ") String num11,
+                           @RequestParam(name = "num12", required = false, defaultValue = " ") String num12,
+                           @RequestParam(name = "num13", required = false, defaultValue = " ") String num13,
+                           @RequestParam(name = "num14", required = false, defaultValue = " ") String num14,
+                           @RequestParam(name = "num15", required = false, defaultValue = " ") String num15,
+                           @RequestParam(name = "num16", required = false, defaultValue = " ") String num16,
+                           @RequestParam(name = "num17", required = false, defaultValue = " ") String num17,
+                           @RequestParam(name = "num18", required = false, defaultValue = " ") String num18,
+                           @RequestParam(name = "num19", required = false, defaultValue = " ") String num19,
+                           @RequestParam(name = "num20", required = false, defaultValue = " ") String num20,
+                           @RequestParam(name = "num21", required = false, defaultValue = " ") String num21,
+                           @RequestParam(name = "num22", required = false, defaultValue = " ") String num22,
+                           @RequestParam(name = "num23", required = false, defaultValue = " ") String num23,
+                           @RequestParam(name = "num24", required = false, defaultValue = " ") String num24,
+                           @RequestParam(name = "num25", required = false, defaultValue = " ") String num25,
+                           Model model) {
+        CreateMC form = new CreateMC(num, num2, num3, num4, num5,num6,num7,num8,num9,num10,num11,num12,num13,num14
+                ,num15,num16,num17,num18,num19,num20,num21,num22,num23,num24,num25);
+
+        model.addAttribute("question", form.question);
+        model.addAttribute("answerChoice1", form.answerOne);
+        model.addAttribute("answerChoice2", form.answerTwo);
+        model.addAttribute("answerChoice3", form.answerThree);
+        model.addAttribute("answerChoice4", form.answerFour);
+
+        model.addAttribute("question2", form.question2);
+        model.addAttribute("answerChoice21", form.answer21);
+        model.addAttribute("answerChoice22", form.answer22);
+        model.addAttribute("answerChoice23", form.answer23);
+        model.addAttribute("answerChoice24", form.answer24);
+
+        model.addAttribute("question3", form.question3);
+        model.addAttribute("answerChoice31", form.answer31);
+        model.addAttribute("answerChoice32", form.answer32);
+        model.addAttribute("answerChoice33", form.answer33);
+        model.addAttribute("answerChoice34", form.answer34);
+
+        model.addAttribute("question4", form.question4);
+        model.addAttribute("answerChoice41", form.answer41);
+        model.addAttribute("answerChoice42", form.answer42);
+        model.addAttribute("answerChoice43", form.answer43);
+        model.addAttribute("answerChoice44", form.answer44);
+
+        model.addAttribute("question5", form.question5);
+        model.addAttribute("answerChoice51", form.answer51);
+        model.addAttribute("answerChoice52", form.answer52);
+        model.addAttribute("answerChoice53", form.answer53);
+        model.addAttribute("answerChoice54", form.answer54);
+
+        model.addAttribute("totalNumber", num);
+        return "labs/ShowMCPage";
+    }
 
 
     @GetMapping("/PranavJSPoll") // actual web address will be /labs/PranavJSPoll
     public String pollPranav () {
         return "labs/main";
+    }
+
+    @GetMapping("/Charts") //actual web address will be /labs/Charts
+    public String charts(){
+        return "labs/chart/charts";
     }
 
 
