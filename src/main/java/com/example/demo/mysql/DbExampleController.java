@@ -23,7 +23,7 @@ public class DbExampleController {
     UserRepository session;
 
     @GetMapping("/createUser")
-    public String create(@RequestParam(name = "firstName", required = false) String firstName,
+    public String create(@RequestParam(name = "firstName", required = false, defaultValue = "-1") String firstName,
                           @RequestParam(name = "lastName", required = false) String lastName,
                           @RequestParam(name = "username", required = false) String username,
                           @RequestParam(name = "password", required = false) String password,
@@ -35,18 +35,31 @@ public class DbExampleController {
                                 password,
                                 email,
                                 role);
-        session.save(newUser); // automatically adds new entry to correct table based on javax.persistence (Hibernate)
+        if (!firstName.equals("-1")) { // catch to avoid null entries of Users
+            session.save(newUser); // automatically adds new entry to correct table based on javax.persistence (Hibernate)
+
+        }
 
         return "db/create";
     }
 
     @GetMapping("/listAllUsers")
     public String viewAll(Model model) {
-        List allData = session.findAll(); // pulls all data elements in the form of a list
+        List allData = session.findAll(); // pulls all data elements in the form of a List
 
         String formattedData = allData.toString();
 
         model.addAttribute("db_data", formattedData);
         return "db/listAll";
     }
+
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam(name = "id", defaultValue = "-1") Long id) {
+        if (session.findAll().size() >= id && !(id < 0)) { // logic to prevent invalid id
+            session.deleteById(id); // searches and finds entry of given id and deletes it
+
+        }
+        return "db/delete";
+    }
+
 }
