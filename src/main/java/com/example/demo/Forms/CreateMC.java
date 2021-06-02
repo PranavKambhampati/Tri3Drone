@@ -2,8 +2,6 @@ package com.example.demo.Forms;
 
 public class CreateMC {
 
-    // Help taken from https://www.youtube.com/watch?v=3JfySNe5MrM
-
     public String question;
     public String answerOne;
     public String answerTwo;
