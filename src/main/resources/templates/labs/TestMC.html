@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test MC</title>
+
+  <style>
+    .hideElements {
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function hideOrShow() {
+      var box = document.getElementById("box");
+      var hide = document.getElementsByClassName("hideElements");
+
+      for(var i = 0; i!= hide.length; i++) {
+        if(box.checked) {
+          hide[i].style.display = "block";
+        }
+        else {
+          hide[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <form action="/labs/ShowMC" method="GET" >
+    <input type="checkbox" name="box" id="box" onclick="hideOrShow()"/>
+    <label for="box">Click to add or remove a question</label>
+    <br />
+    <label>Name:</label><input type="text" name="name" class="hideElements"/>
+    <br />
+    <label>Email:</label><input type="text" name="email" class="hideElements"/>
+
+  </form>
+
+</body>
+</html>
