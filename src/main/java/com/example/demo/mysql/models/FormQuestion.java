@@ -5,31 +5,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Entity(name = "Form")
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Form {
+public class FormQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
-    private User creator;
-    @OneToMany(mappedBy = "form")
-    private List<FormQuestion> questions;
-
-    public Form(Long id, User creator) {
+    @ManyToOne
+    private Form form;
+    public FormQuestion(Long id) {
         this.id = id;
-        this.creator = creator;
     }
 
     @Override
     public String toString() {
-        return "Form{" +
+        return "FormQuestion{" +
                 "id=" + id +
-                ", creator=" + creator +
                 '}';
     }
 }
