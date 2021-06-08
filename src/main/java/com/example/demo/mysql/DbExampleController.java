@@ -2,6 +2,7 @@ package com.example.demo.mysql;
 
 import com.example.demo.mysql.models.User;
 import com.example.demo.mysql.models.UserRepository;
+import com.example.demo.mysql.models.UserSQL;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,9 @@ import java.util.List;
 @Setter
 public class DbExampleController {
     @Autowired
-    UserRepository session;
+    private UserSQL session;
 
-    @GetMapping("/createUser")
+    @GetMapping("/create")
     public String create(@RequestParam(name = "firstName", required = false, defaultValue = "-1") String firstName,
                           @RequestParam(name = "lastName", required = false) String lastName,
                           @RequestParam(name = "username", required = false) String username,
@@ -45,7 +46,7 @@ public class DbExampleController {
 
     @GetMapping("/listAllUsers")
     public String viewAll(Model model) {
-        List allData = session.findAll(); // pulls all data elements in the form of a List
+        List allData = session.listAll(); // pulls all data elements in the form of a List
 
         String formattedData = allData.toString();
 
@@ -55,8 +56,8 @@ public class DbExampleController {
 
     @GetMapping("/deleteUser")
     public String deleteUser(@RequestParam(name = "id", defaultValue = "-1") Long id) {
-        if (session.findAll().size() >= id && id > 0) { // logic to prevent invalid id
-            session.deleteById(id); // searches and finds entry of given id and deletes it? (not working currently)
+        if (session.listAll().size() >= id && id > 0) { // logic to prevent invalid id
+            session.delete(id); // searches and finds entry of given id and deletes it? (not working currently)
 
         }
         return "db/delete";

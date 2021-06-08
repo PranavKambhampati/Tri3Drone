@@ -347,7 +347,7 @@ Same as other team members, due to difficulties when deploying on Heroku the tim
 ### Tickets
 
 ##### Backlog Tickets
-1. Admin Form Creator UI: Create a UI that admins can use to create forms for their groups.
+1. Admin Form Creator UI: Create a UI that admins can use to create forms for their surveyGroups.
 2. Login/Logout/CreateUser Page: Create UI for users to login and logout and make new users. Need to connect this to database to store the credentials.
 3. Spring Security Configuration: Add Spring Security to protect user credentials.
 4. Default Hub View (Displays all forms that user can access): Create a Dashboard for the user which will serve as the main landing page. Users will be able to access forms here and admins will be able to make forms here.
