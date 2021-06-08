@@ -1,5 +1,6 @@
 package com.example.demo.Security;
 
+import com.example.demo.mysql.models.UserSQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +14,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserSQL repository;
 
     @Autowired
     public ApplicationSecurityConfig(PasswordEncoder passwordEncoder) {
@@ -28,7 +35,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/index", "/css/*", "/js/*", "/labs/*", "/createUser")
+                .antMatchers("/", "/index", "/css/*", "/js/*", "/labs/*", "/create")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -43,17 +50,17 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/index");
     }
 
-    @Override
     @Bean
-    protected UserDetailsService userDetailsService() {
-        UserDetails annaSmithUser = User.builder()
-                .username("annasmith")
-                .password(passwordEncoder.encode("password"))
-                .roles("STUDENT") // ROLE_STUDENT
-                .build();
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+        List<UserDetails> userDetailsList = new ArrayList<>();
+        List<com.example.demo.mysql.models.User> userdbList = repository.listAll();
+        for (com.example.demo.mysql.models.User user: userdbList){
+            userDetailsList.add(User.withUsername(user.getUsername()).password(passwordEncoder.encode(user.getPassword()))
+                    .roles(user.getRole()).build());
+        }
+        userDetailsList.add(User.withUsername("nighthawk").password(passwordEncoder.encode("dnhs20-21"))
+                .roles("STUDENT").build());
 
-        return new InMemoryUserDetailsManager(
-                annaSmithUser
-        );
+        return new InMemoryUserDetailsManager(userDetailsList);
     }
 }
