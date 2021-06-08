@@ -17,7 +17,7 @@ public class Main {
     }
 
     /**
-     * Uncomment for expanded creation of a new user entry in the database
+     * Uncomment for expanded creation of a new user entry in the database hi
      */
     /*
     @Bean
