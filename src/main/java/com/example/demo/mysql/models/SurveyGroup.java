@@ -1,4 +1,4 @@
-/*package com.example.demo.mysql.models;
+package com.example.demo.mysql.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -6,22 +6,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-IMPLEMENTATION OF SECOND TABLE THREW ERRORS WITH SQL SYNTAX
-
-@Entity(name = "Groups")
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Group {
+public class SurveyGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String groupName;
-    private String adminOwner;
+    @OneToOne
+    private User adminOwner;
+    @ManyToOne
+    private User members;
 
-    public Group(String groupName, String adminOwner) {
+    public SurveyGroup(String groupName, User adminOwner, User members) {
         this.groupName = groupName;
         this.adminOwner = adminOwner;
+        this.members = members;
     }
 
     @Override
@@ -30,6 +32,7 @@ public class Group {
                 "id=" + id +
                 ", groupName='" + groupName + '\'' +
                 ", adminOwner=" + adminOwner +
+                ", members=" + members +
                 '}';
     }
-}*/
+}

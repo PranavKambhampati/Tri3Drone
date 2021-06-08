@@ -19,10 +19,14 @@ public class Form {
     private User creator;
     @OneToMany(mappedBy = "form")
     private List<FormQuestion> questions;
-
-    public Form(Long id, User creator) {
-        this.id = id;
+    /* Constructor without @OneToMany values */
+    public Form(User creator) {
         this.creator = creator;
+    }
+    /* Constructor with @OneToMany values */
+    public Form(User creator, List<FormQuestion> questions) {
+        this.creator = creator;
+        this.questions = questions;
     }
 
     @Override
@@ -30,6 +34,7 @@ public class Form {
         return "Form{" +
                 "id=" + id +
                 ", creator=" + creator +
+                ", questions=" + questions +
                 '}';
     }
 }

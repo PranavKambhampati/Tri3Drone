@@ -108,6 +108,13 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.1.7.Final</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+            <version>3.2.6.ga</version>
+        </dependency>
+
     </dependencies>
 
     <build>
