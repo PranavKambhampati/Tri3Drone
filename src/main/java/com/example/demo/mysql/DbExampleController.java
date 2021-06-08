@@ -23,7 +23,7 @@ public class DbExampleController {
     @Autowired
     private UserSQL session;
 
-    @GetMapping("/createUser")
+    @GetMapping("/create")
     public String create(@RequestParam(name = "firstName", required = false, defaultValue = "-1") String firstName,
                           @RequestParam(name = "lastName", required = false) String lastName,
                           @RequestParam(name = "username", required = false) String username,
