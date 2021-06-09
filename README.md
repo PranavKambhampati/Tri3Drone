@@ -17,7 +17,7 @@ Nakul:
 
 Aryan:
 
-Pranav: I actually had to divert from what I intially planned because I realized that getting the data from the database was going to be more challenging than I thought. While I did a little bit of research, I wasn't able to make much progress on this aspect of the project. I tried to use Mr. M's code to model a RestAPI controller; this is what I spent most of my time this week. Next week, I will finalize the data retrival and utilize that data to further develop the analytics page. [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/92)
+Pranav: I actually had to divert from what I intially planned because I realized that getting the data from the database was going to be more challenging than I thought. While I did a little bit of research, I wasn't able to make much progress on this aspect of the project. I tried to use Mr. M's code to model a RestAPI controller; this is what I spent most of my time this week. Next week, I will finalize the data retrival and utilize that data to further develop the analytics page. [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/92) |||
 [LINK TO NEXT TICKET](https://github.com/PranavKambhampati/Tri3Drone/issues/72)
 
 ## Umbrella Ticket 6/1
