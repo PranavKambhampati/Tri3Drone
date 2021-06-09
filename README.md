@@ -15,7 +15,9 @@ Michael:
 
 Nakul:
 
-Aryan:
+Aryan: My goal this week was to begin the database implementation for the form UI. I was able to achieve this with the help of Michael @mhayescs19 . We worked on Tuesday evening to add certain aspects of the form UI to the database and SQL models. We were able to create the form objects, and add the list of questions into the form object through an arraylist. However, we still need to save the form, as we encountered a white label when trying to save the form. I was also able to find a solution using CSS and JavaScript to hide/show elements to make the form more dynamic, will be implemented once database implementation finished. Next week I will finalize my database setup and finish making the form more dynamic. 
+[Link to Ticket 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/67) |||
+[Link to Ticket 6/14](https://github.com/PranavKambhampati/Tri3Drone/issues/94)
 
 Pranav: I actually had to divert from what I intially planned because I realized that getting the data from the database was going to be more challenging than I thought. While I did a little bit of research, I wasn't able to make much progress on this aspect of the project. I tried to use Mr. M's code to model a RestAPI controller; this is what I spent most of my time this week. Next week, I will finalize the data retrival and utilize that data to further develop the analytics page. [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/92) |||
 [LINK TO NEXT TICKET](https://github.com/PranavKambhampati/Tri3Drone/issues/72)
