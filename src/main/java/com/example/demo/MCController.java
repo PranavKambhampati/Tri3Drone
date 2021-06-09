@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Forms.CreateMC;
+import com.example.demo.Security.PrincipalUserService;
 import com.example.demo.mysql.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,7 +77,11 @@ public class MCController {
                            @RequestParam(name = "num50", required = false, defaultValue = " ") String num50,
                            Model model) {
         List<FormQuestion> listOfQuestions = new ArrayList<FormQuestion>();
+        //PrincipalUserService userService = new PrincipalUserService();
+        //Long userID = userService.getUserID();
+        User currentUser = UserRepository.get(Long.valueOf(1));
         Form formObject = new Form();
+        formObject.setCreator(currentUser);
 
 
         CreateMC form = new CreateMC(num, num2, num3, num4, num5,num6,num7,num8,num9,num10,num11,num12,num13,num14
@@ -84,12 +89,14 @@ public class MCController {
                 num31,num32,num33,num34,num35,num36,num37,num38,num39,num40,num41,num42,num43,num44,num45,num46,num47,
                 num48,num49,num50);
         FormQuestion formQuestion1 = new FormQuestion();
+
         formQuestion1.setForm(formObject);
         formQuestion1.setQuestion(form.question);
         formQuestion1.setOpt_1(form.answerOne);
         formQuestion1.setOpt_2(form.answerTwo);
         formQuestion1.setOpt_3(form.answerThree);
         formQuestion1.setOpt_4(form.answerFour);
+        listOfQuestions.add(formQuestion1);
 
         FormQuestion formQuestion2 = new FormQuestion();
         formQuestion2.setForm(formObject);
@@ -98,6 +105,7 @@ public class MCController {
         formQuestion2.setOpt_2(form.answer22);
         formQuestion2.setOpt_3(form.answer23);
         formQuestion2.setOpt_4(form.answer24);
+        listOfQuestions.add(formQuestion2);
 
         FormQuestion formQuestion3 = new FormQuestion();
         formQuestion3.setForm(formObject);
@@ -106,6 +114,7 @@ public class MCController {
         formQuestion3.setOpt_2(form.answer32);
         formQuestion3.setOpt_3(form.answer33);
         formQuestion3.setOpt_4(form.answer34);
+        listOfQuestions.add(formQuestion3);
 
         FormQuestion formQuestion4 = new FormQuestion();
         formQuestion4.setForm(formObject);
@@ -114,6 +123,7 @@ public class MCController {
         formQuestion4.setOpt_2(form.answer42);
         formQuestion4.setOpt_3(form.answer43);
         formQuestion4.setOpt_4(form.answer44);
+        listOfQuestions.add(formQuestion4);
 
         FormQuestion formQuestion5 = new FormQuestion();
         formQuestion5.setForm(formObject);
@@ -122,6 +132,7 @@ public class MCController {
         formQuestion5.setOpt_2(form.answer52);
         formQuestion5.setOpt_3(form.answer53);
         formQuestion5.setOpt_4(form.answer54);
+        listOfQuestions.add(formQuestion5);
 
         FormQuestion formQuestion6 = new FormQuestion();
         formQuestion6.setForm(formObject);
@@ -130,6 +141,7 @@ public class MCController {
         formQuestion6.setOpt_2(form.answer62);
         formQuestion6.setOpt_3(form.answer63);
         formQuestion6.setOpt_4(form.answer64);
+        listOfQuestions.add(formQuestion6);
 
 
         FormQuestion formQuestion7 = new FormQuestion();
@@ -139,6 +151,7 @@ public class MCController {
         formQuestion7.setOpt_2(form.answer72);
         formQuestion7.setOpt_3(form.answer73);
         formQuestion7.setOpt_4(form.answer74);
+        listOfQuestions.add(formQuestion7);
 
 
         FormQuestion formQuestion8 = new FormQuestion();
@@ -148,6 +161,7 @@ public class MCController {
         formQuestion8.setOpt_2(form.answer82);
         formQuestion8.setOpt_3(form.answer83);
         formQuestion8.setOpt_4(form.answer84);
+        listOfQuestions.add(formQuestion8);
 
         FormQuestion formQuestion9 = new FormQuestion();
         formQuestion9.setForm(formObject);
@@ -156,6 +170,7 @@ public class MCController {
         formQuestion9.setOpt_2(form.answer92);
         formQuestion9.setOpt_3(form.answer93);
         formQuestion9.setOpt_4(form.answer94);
+        listOfQuestions.add(formQuestion9);
 
         FormQuestion formQuestion10 = new FormQuestion();
         formQuestion10.setForm(formObject);
@@ -164,6 +179,11 @@ public class MCController {
         formQuestion10.setOpt_2(form.answer102);
         formQuestion10.setOpt_3(form.answer103);
         formQuestion10.setOpt_4(form.answer104);
+        listOfQuestions.add(formQuestion10);
+
+        formObject.setQuestions(listOfQuestions);
+        formSQl.save(formObject);
+        System.out.println(formSQl.listAll());
 
         model.addAttribute("question", form.question);
         model.addAttribute("answerChoice1", form.answerOne);
@@ -323,6 +343,43 @@ public class MCController {
         model.addAttribute("answerChoice52", form.answer52);
         model.addAttribute("answerChoice53", form.answer53);
         model.addAttribute("answerChoice54", form.answer54);
+
+
+        model.addAttribute("question5", form.question5);
+        model.addAttribute("answerChoice51", form.answer51);
+        model.addAttribute("answerChoice52", form.answer52);
+        model.addAttribute("answerChoice53", form.answer53);
+        model.addAttribute("answerChoice54", form.answer54);
+
+        model.addAttribute("question6", form.question6);
+        model.addAttribute("answerChoice61", form.answer61);
+        model.addAttribute("answerChoice62", form.answer62);
+        model.addAttribute("answerChoice63", form.answer63);
+        model.addAttribute("answerChoice64", form.answer64);
+
+        model.addAttribute("question7", form.question7);
+        model.addAttribute("answerChoice71", form.answer71);
+        model.addAttribute("answerChoice72", form.answer72);
+        model.addAttribute("answerChoice73", form.answer73);
+        model.addAttribute("answerChoice74", form.answer74);
+
+        model.addAttribute("question8", form.question8);
+        model.addAttribute("answerChoice81", form.answer81);
+        model.addAttribute("answerChoice82", form.answer82);
+        model.addAttribute("answerChoice83", form.answer83);
+        model.addAttribute("answerChoice84", form.answer84);
+
+        model.addAttribute("question9", form.question9);
+        model.addAttribute("answerChoice91", form.answer91);
+        model.addAttribute("answerChoice92", form.answer92);
+        model.addAttribute("answerChoice93", form.answer93);
+        model.addAttribute("answerChoice94", form.answer94);
+
+        model.addAttribute("question10", form.question10);
+        model.addAttribute("answerChoice101", form.answer101);
+        model.addAttribute("answerChoice102", form.answer102);
+        model.addAttribute("answerChoice103", form.answer103);
+        model.addAttribute("answerChoice104", form.answer104);
 
 
 
