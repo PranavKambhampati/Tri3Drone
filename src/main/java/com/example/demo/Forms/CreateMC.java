@@ -33,11 +33,45 @@ public class CreateMC {
     public String answer54;
 
 
+    public String question6;
+    public String answer61;
+    public String answer62;
+    public String answer63;
+    public String answer64;
+
+    public String question7;
+    public String answer71;
+    public String answer72;
+    public String answer73;
+    public String answer74;
+
+    public String question8;
+    public String answer81;
+    public String answer82;
+    public String answer83;
+    public String answer84;
+
+    public String question9;
+    public String answer91;
+    public String answer92;
+    public String answer93;
+    public String answer94;
+
+    public String question10;
+    public String answer101;
+    public String answer102;
+    public String answer103;
+    public String answer104;
+
     public CreateMC(String question1, String answer1, String answer2, String answer3, String answer4, String question2,
                     String answer21, String answer22, String answer23, String answer24, String question3, String answer31,
                     String answer32, String answer33, String answer34, String question4, String answer41, String answer42,
                     String answer43, String answer44, String question5, String answer51, String answer52, String answer53,
-                    String answer54) {
+                    String answer54, String question6, String answer61, String answer62, String answer63, String answer64,
+                    String question7, String answer71, String answer72, String answer73, String answer74, String question8,
+                    String answer81, String answer82, String answer83, String answer84, String question9, String answer91,
+                    String answer92, String answer93, String answer94, String question10, String answer101, String answer102,
+                    String answer103, String answer104) {
         question = getQuestion(question1);
         answerOne = getAnswer(answer1);
         answerTwo = getAnswer(answer2);
@@ -67,6 +101,37 @@ public class CreateMC {
         this.answer52 = getAnswer(answer52);
         this.answer53 = getAnswer(answer53);
         this.answer54 = getAnswer(answer54);
+
+        this.question6 = getQuestion(question6);
+        this.answer61 = getAnswer(answer61);
+        this.answer62 = getAnswer(answer62);
+        this.answer63 = getAnswer(answer63);
+        this.answer64 = getAnswer(answer64);
+
+        this.question7 = getQuestion(question7);
+        this.answer71 = getAnswer(answer71);
+        this.answer72 = getAnswer(answer72);
+        this.answer73 = getAnswer(answer73);
+        this.answer74 = getAnswer(answer74);
+
+        this.question8 = getQuestion(question8);
+        this.answer81 = getAnswer(answer81);
+        this.answer82 = getAnswer(answer82);
+        this.answer83 = getAnswer(answer83);
+        this.answer84 = getAnswer(answer84);
+
+        this.question9 = getQuestion(question9);
+        this.answer91 = getAnswer(answer91);
+        this.answer92 = getAnswer(answer92);
+        this.answer93 = getAnswer(answer93);
+        this.answer94 = getAnswer(answer94);
+
+        this.question10 = getQuestion(question10);
+        this.answer101 = getAnswer(answer101);
+        this.answer102 = getAnswer(answer102);
+        this.answer103 = getAnswer(answer103);
+        this.answer104 = getAnswer(answer104);
+
 
     }
 
