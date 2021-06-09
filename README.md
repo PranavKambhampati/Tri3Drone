@@ -11,7 +11,7 @@
 
 Our main goal this week was to make more progress on database implementation and project aesthetics.
 
-Michael:
+Michael: The main database bean error was fixed through correctly mapping the ORM entities. This week, the Form and FormQuestion entities and related JPA/SQL repositories were implemented to prepare for crossover with @Aryan. The bean error (entityManagerFactory) also has a secondary cause and now occurs exclusively while connected to the DNHS WiFi. Overall, these entities are now in master, since there are no build errors, but there are some runtime errors, which will be explained next. @Aryan collaboration was partially successful, but there is an error in saving the entity which leads to the question of the necessity of the @JoinColumn annotation. @Nakul collaboration was partially successful as well. Database users now connect to Spring security, but we still need to determine how to actively update this list (eg a new user created after runtime is not called from the database because Spring Security only pulls users once). [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/86) ||| [LINK TO NEXT TICKET]()
 
 Nakul:
 
