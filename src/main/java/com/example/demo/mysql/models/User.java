@@ -27,6 +27,10 @@ public class User {
     private String role;
     @OneToMany(mappedBy = "creator")
     private List<Form> forms = new ArrayList<>();
+    @OneToMany
+    private List<Form> completedForms = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<FormQuestionResponse> answeredQuestions = new ArrayList<>();
     @OneToMany(mappedBy = "members")
     private List<SurveyGroup> surveyGroups = new ArrayList<>();
     /* Constructor without @OneToMany values */
@@ -59,8 +63,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
-                ", forms=" + forms +
-                ", surveyGroups=" + surveyGroups +
                 '}';
     }
 }

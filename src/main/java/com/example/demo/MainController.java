@@ -20,6 +20,9 @@ public class MainController {
     @Autowired
     private FormQuestionSQL formQuestionRepository;
 
+    @Autowired
+    private FormQuestionResponseSQL formQuestionResponseRepository;
+
     @GetMapping("/index")
     public String index () {
         PrincipalUserService service = new PrincipalUserService(this.userRepository);
@@ -63,13 +66,29 @@ public class MainController {
         //formQuestionRepository.save(question_1); // "child" entity
         //formQuestionRepository.save(question_2); // "child" entity
 
-        List<Form> forms = currentUser.getForms();
+        /* Getting form question from a form with user id of original form creator */
+        List<Form> forms = userRepository.get(1).getForms();
         Form form_1 = forms.get(0);
 
         List<FormQuestion> form_1_questions = form_1.getQuestions();
         FormQuestion form_1_question_1 = form_1_questions.get(0);
         System.out.println(form_1_question_1.getQuestion());
 
+        FormQuestionResponse response_1 = new FormQuestionResponse();
+        response_1.setForm(form_1);
+        response_1.setQuestion(form_1_question_1);
+        response_1.setUser(currentUser);
+        response_1.setResponse("A");
+
+        formQuestionResponseRepository.save(response_1);
+
+        List<FormQuestionResponse> questionsAnswered = userRepository.get(userID).getAnsweredQuestions();
+        FormQuestionResponse first_question_associated = questionsAnswered.get(0);
+        Long formID = first_question_associated.getForm().getId();
+        String question = first_question_associated.getQuestion().getQuestion();
+        String response = first_question_associated.getResponse();
+
+        System.out.println("p1-drone FORM QUESTION DETAILS: " + formID + question + response);
 
         //System.out.println("p1-drone CURRENT USER: " + username);
         //System.out.println("p1-drone USER TABLE: " + userRepository.listAll());
