@@ -35,7 +35,6 @@ public class Form {
         return "Form{" +
                 "id=" + id +
                 ", creator=" + creator +
-                ", questions=" + questions +
                 '}';
     }
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>User Forms</title>
+    <title>Form Analytics</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -106,25 +106,21 @@
 </div><div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
-            <form action="/analytics/form" method="GET">
-                <input name="number" type="text">
-                <button>View</button>
-            </form>
-                <div class="resultTable">
-                    <table class="results">
-                        <tr class="header">
-                            <th>Form Name</th>
-                        </tr>
-                        <tr th:each="form : ${userFormList}">
-                            <!--<a th:href="@{~/analytics/form/{id}/(id=2)}"><td th:text="Form  + ${form.getId()}"></td></a>-->
-                            <a href="@{https://www.google.com/}"><td th:text="Form  + ${form.getId()}"></td></a>
-                        </tr>
-                    </table>
-                    <div/>
+            <h1 th:text="Form  + ${currentForm.getId()}"></h1>
+            <div class="resultTable">
+                <table class="results">
+                    <tr class="header">
+                        <!--<th>Form Name</th>-->
+                    </tr>
+                    <!--<tr th:each="form : ${userFormList}">
+                        <a th:href="@{'/analytics/form/'(id=${form.getId()})}"><td th:text="Form  + ${form.getId()}"></td></a>
+                    </tr>-->
+                </table>
+                <div/>
 
-                </div>
             </div>
-        </div></div>
+        </div>
+    </div></div>
 
 
 
