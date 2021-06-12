@@ -16,7 +16,7 @@ public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private User creator;
     @OneToMany(mappedBy = "form")
     private List<FormQuestion> questions = new ArrayList<>();

@@ -25,6 +25,8 @@ public class User {
     //@Column(name = "email", nullable = false, columnDefinition = "TEXT", unique = true)
     private String email;
     private String role;
+    @OneToMany(mappedBy = "creator")
+    private List<Form> forms = new ArrayList<>();
     @OneToMany(mappedBy = "members")
     private List<SurveyGroup> surveyGroups = new ArrayList<>();
     /* Constructor without @OneToMany values */
@@ -57,7 +59,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
-                ", groups=" + surveyGroups +
+                ", forms=" + forms +
+                ", surveyGroups=" + surveyGroups +
                 '}';
     }
 }

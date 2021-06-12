@@ -31,9 +31,9 @@ public class MainController {
 
         System.out.println("p1-drone CURRENT USER: " + username);
 
-        System.out.println("p1-drone FORM TABLE: " + formRepository.listAll());
+        //System.out.println("p1-drone FORM TABLE: " + formRepository.listAll());
 
-        /* Form newForm = new Form();
+        /*Form newForm = new Form();
         FormQuestion question_1 = new FormQuestion();
         question_1.setQuestion("First question?");
         question_1.setOpt_1("A Jan");
@@ -57,7 +57,25 @@ public class MainController {
         newForm.setQuestions(questionList);
         newForm.setCreator(currentUser);
 
-        formRepository.save(newForm); */
+        /* Must save objects in this order otherwise there is no parent to the child entities */
+        /* In this scenario, you must save the Form first since all FormQuestions need to be attached to a form*/
+        //formRepository.save(newForm); // "parent" entity
+        //formQuestionRepository.save(question_1); // "child" entity
+        //formQuestionRepository.save(question_2); // "child" entity
+
+        List<Form> forms = currentUser.getForms();
+        Form form_1 = forms.get(0);
+
+        List<FormQuestion> form_1_questions = form_1.getQuestions();
+        FormQuestion form_1_question_1 = form_1_questions.get(0);
+        System.out.println(form_1_question_1.getQuestion());
+
+
+        //System.out.println("p1-drone CURRENT USER: " + username);
+        //System.out.println("p1-drone USER TABLE: " + userRepository.listAll());
+        //System.out.println("p1-drone FORM TABLE: " + formRepository.listAll());
+        //System.out.println("p1-drone FORM QUESTION TABLE: " + formQuestionRepository.listAll());
+
 
         return "index.html";
     }
