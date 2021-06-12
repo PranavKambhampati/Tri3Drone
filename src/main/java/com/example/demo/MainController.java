@@ -67,28 +67,32 @@ public class MainController {
         //formQuestionRepository.save(question_2); // "child" entity
 
         /* Getting form question from a form with user id of original form creator */
-        List<Form> forms = userRepository.get(1).getForms();
+        User creator = userRepository.get(1);
+        List<Form> forms = creator.getForms();
         Form form_1 = forms.get(0);
 
         List<FormQuestion> form_1_questions = form_1.getQuestions();
-        FormQuestion form_1_question_1 = form_1_questions.get(0);
+        FormQuestion form_1_question_1 = form_1_questions.get(1);
         System.out.println(form_1_question_1.getQuestion());
 
         FormQuestionResponse response_1 = new FormQuestionResponse();
         response_1.setForm(form_1);
         response_1.setQuestion(form_1_question_1);
         response_1.setUser(currentUser);
-        response_1.setResponse("A");
+        response_1.setResponse("B");
 
         formQuestionResponseRepository.save(response_1);
 
-        List<FormQuestionResponse> questionsAnswered = userRepository.get(userID).getAnsweredQuestions();
+        User current = userRepository.get(userID);
+        List<FormQuestionResponse> questionsAnswered = current.getAnsweredQuestions();
         FormQuestionResponse first_question_associated = questionsAnswered.get(0);
         Long formID = first_question_associated.getForm().getId();
-        String question = first_question_associated.getQuestion().getQuestion();
+        Long user_id = first_question_associated.getUser().getId();
+        Long question = first_question_associated.getQuestion().getId();
+        // Long question = first_question_associated.getQuestion(); // returns FormQuestion object, which contains question liter AND answers to a certain question
         String response = first_question_associated.getResponse();
 
-        System.out.println("p1-drone FORM QUESTION DETAILS: " + formID + question + response);
+        System.out.println("p1-drone FORM QUESTION DETAILS: " + "form id:" + formID + "user_id" + user_id + "question id:" + question + "actual response" + response);
 
         //System.out.println("p1-drone CURRENT USER: " + username);
         //System.out.println("p1-drone USER TABLE: " + userRepository.listAll());
