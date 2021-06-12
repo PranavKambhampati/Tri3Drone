@@ -3,6 +3,7 @@ package com.example.demo.mysql.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 //import javax.validation.constraints.Max;
 //import javax.validation.constraints.Min;
@@ -25,7 +26,7 @@ public class User {
     private String email;
     private String role;
     @OneToMany(mappedBy = "members")
-    private List<SurveyGroup> surveyGroups;
+    private List<SurveyGroup> surveyGroups = new ArrayList<>();
     /* Constructor without @OneToMany values */
     public User(String firstName, String lastName, String username, String password, String email, String role) {
         this.firstName = firstName;
