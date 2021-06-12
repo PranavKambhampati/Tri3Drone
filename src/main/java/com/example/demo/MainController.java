@@ -58,7 +58,7 @@ public class MainController {
         questionList.add(question_2);
 
         newForm.setQuestions(questionList);
-        newForm.setCreator(currentUser);
+        newForm.setCreator(currentUser);*/
 
         /* Must save objects in this order otherwise there is no parent to the child entities */
         /* In this scenario, you must save the Form first since all FormQuestions need to be attached to a form*/
@@ -79,7 +79,7 @@ public class MainController {
         response_1.setForm(form_1);
         response_1.setQuestion(form_1_question_1);
         response_1.setUser(currentUser);
-        response_1.setResponse("B");
+        response_1.setResponse("G July");
 
         formQuestionResponseRepository.save(response_1);
 

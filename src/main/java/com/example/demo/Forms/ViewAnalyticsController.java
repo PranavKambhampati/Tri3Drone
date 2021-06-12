@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,6 +48,53 @@ public class ViewAnalyticsController {
     public String userFormDetailView(@RequestParam(name = "number") String number, Model model) {
         Form currentForm = allUserForms.get(Integer.parseInt(number));
 
+        List<FormQuestionResponse> allFormResponses = formQuestionResponseRepository.listAll();
+        List<FormQuestion> formQuestions = currentForm.getQuestions();
+
+        List<AnalyticCounter> questionCounters = new ArrayList<>();
+
+        boolean newQuestion = true;
+        int questionNumber = -1;
+        for (FormQuestionResponse response : allFormResponses) {
+            for (FormQuestion question : formQuestions) { // cycling through all of the questions in the given form selected
+                if (newQuestion){ // creating a counter object for each question
+                    questionCounters.add(new AnalyticCounter());
+                    questionNumber++;
+                }
+                newQuestion = false; // second move boolean switch to avoid creating another counter
+
+
+                if ((currentForm.getId() == response.getForm().getId()) && (question.getId() == response.getQuestion().getId())) { // checks to see if the given indexed question response is a response to the given form
+                    String[] options = {question.getOpt_1(), question.getOpt_2(), question.getOpt_3(), question.getOpt_4()}; // maps out all of the responses in a given question
+                    for (int i = 0; i < 4; i++) {
+                        if (options[i].equals(response.getResponse())) { // checks to see if the response matches a given from option from the question
+                            switch (i) {
+                                case 0:
+                                    questionCounters.get(questionNumber).incrementOpt1();
+                                    break;
+                                case 1:
+                                    questionCounters.get(questionNumber).incrementOpt2();
+                                    break;
+                                case 2:
+                                    questionCounters.get(questionNumber).incrementOpt3();
+                                    break;
+                                case 3:
+                                    questionCounters.get(questionNumber).incrementOpt4();
+                                    break;
+                                default:
+                                    System.out.println("Fatal error occurred, the database structure has lost its integrity. ");
+                            }
+                        }
+                    }
+
+                    questionCounters.get(questionNumber);
+                }
+            }
+            newQuestion = true;
+
+        }
+
+        model.addAttribute("analyticCounters", questionCounters);
         model.addAttribute("currentForm", currentForm);
         return "forms/analytics/userFormDetail";
     }

@@ -18,7 +18,7 @@ public class Form {
     private Long id;
     @ManyToOne
     private User creator;
-    @OneToMany(mappedBy = "form")
+    @OneToMany(mappedBy = "form", fetch= FetchType.EAGER)
     private List<FormQuestion> questions = new ArrayList<>();
     /* Constructor without @OneToMany values */
     public Form(User creator) {

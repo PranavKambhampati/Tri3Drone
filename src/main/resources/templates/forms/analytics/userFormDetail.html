@@ -110,20 +110,22 @@
             <div class="resultTable">
                 <table class="results">
                     <tr class="header">
-                        <!--<th>Form Name</th>-->
+                        <th>Counter</th>
                     </tr>
-                    <!--<tr th:each="form : ${userFormList}">
-                        <a th:href="@{'/analytics/form/'(id=${form.getId()})}"><td th:text="Form  + ${form.getId()}"></td></a>
-                    </tr>-->
+                    <tr th:each="counter : ${analyticCounters}">
+                        <td>
+                            <p th:text="${counter.getOption_1()}"></p>
+                            <p th:text="${counter.getOption_2()}"></p>
+                            <p th:text="${counter.getOption_3()}"></p>
+                            <p th:text="${counter.getOption_4()}"></p>
+                        </td>
+                    </tr>
                 </table>
                 <div/>
 
             </div>
         </div>
     </div></div>
-
-
-
 </div>
 
 </body>
