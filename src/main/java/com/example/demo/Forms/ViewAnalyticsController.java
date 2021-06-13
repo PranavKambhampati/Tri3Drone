@@ -20,6 +20,8 @@ public class ViewAnalyticsController {
     @Autowired
     private UserSQL userRepository;
     @Autowired
+    private FormSQL formRepository;
+    @Autowired
     private FormQuestionResponseSQL formQuestionResponseRepository;
     @Autowired
     private FormQuestionSQL formQuestionRepository;
@@ -42,11 +44,12 @@ public class ViewAnalyticsController {
         return "forms/analytics/userFormDashboard";
     }
 
-    //@GetMapping("/form/{id}")
-    @GetMapping("/form")
-    //public String userFormDetailView(@PathVariable("id") int id, Model model) {
-    public String userFormDetailView(@RequestParam(name = "number") String number, Model model) {
-        Form currentForm = allUserForms.get(Integer.parseInt(number));
+    @GetMapping("/form/{id}/")
+    //@GetMapping("/form")
+    public String userFormDetailView(@PathVariable("id") int id, Model model) {
+    //public String userFormDetailView(@RequestParam(name = "number") String number, Model model) {
+        //Form currentForm = allUserForms.get(Integer.parseInt(number));
+        Form currentForm = formRepository.get(id);
 
         List<FormQuestionResponse> allFormResponses = formQuestionResponseRepository.listAll();
         List<FormQuestion> formQuestions = currentForm.getQuestions();

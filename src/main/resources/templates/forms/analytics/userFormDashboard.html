@@ -116,8 +116,9 @@
                             <th>Form Name</th>
                         </tr>
                         <tr th:each="form : ${userFormList}">
-                            <!--<a th:href="@{~/analytics/form/{id}/(id=2)}"><td th:text="Form  + ${form.getId()}"></td></a>-->
-                            <a href="@{https://www.google.com/}"><td th:text="Form  + ${form.getId()}"></td></a>
+                            <td>
+                            <a th:href="@{~/analytics/form/{id}/(id=2)}"><p th:text="Form  + ${form.getId()}"></p></a>
+                            </td>
                         </tr>
                     </table>
                     <div/>
