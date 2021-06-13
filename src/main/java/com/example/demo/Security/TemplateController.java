@@ -1,5 +1,7 @@
 package com.example.demo.Security;
 
+import com.example.demo.mysql.models.User;
+import com.example.demo.mysql.models.UserSQL;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,8 +19,24 @@ public class TemplateController {
     @Autowired
     private PasswordEncoder encoder;
 
+    @Autowired
+    private UserSQL repository;
+
     @GetMapping("/login")
     public String getLoginView() {
+        /* admin user always created if the DB is reset */
+        if (repository.listAll().size() == 0) {
+            User admin = new User( // clearer way to define objects with lots of data
+                    "admin",
+                    "user",
+                    "nighthawk",
+                    "dnhs20-21",
+                    "dnhs.cs.a@gmail.com",
+                    "USER"
+            );
+
+            repository.save(admin);
+        }
         return "security/login";
     }
 

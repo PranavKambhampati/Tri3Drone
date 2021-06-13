@@ -7,6 +7,21 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
+## Pre-Final Team Checkpoint 6/8
+
+Our main goal this week was to make more progress on database implementation and project aesthetics.
+
+Michael: The main database bean error was fixed through correctly mapping the ORM entities. This week, the Form and FormQuestion entities and related JPA/SQL repositories were implemented to prepare for crossover with @Aryan. The bean error (entityManagerFactory) also has a secondary cause and now occurs exclusively while connected to the DNHS WiFi. Overall, these entities are now in master, since there are no build errors, but there are some runtime errors, which will be explained next. @Aryan collaboration was partially successful, but there is an error in saving the entity which leads to the question of the necessity of the @JoinColumn annotation. @Nakul collaboration was partially successful as well. Database users now connect to Spring security, but we still need to determine how to actively update this list (eg a new user created after runtime is not called from the database because Spring Security only pulls users once). [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/86) ||| [LINK TO NEXT TICKET](https://github.com/PranavKambhampati/Tri3Drone/issues/95)
+
+Nakul:
+
+Aryan: My goal this week was to begin the database implementation for the form UI. I was able to achieve this with the help of Michael @mhayescs19 . We worked on Tuesday evening to add certain aspects of the form UI to the database and SQL models. We were able to create the form objects, and add the list of questions into the form object through an arraylist. However, we still need to save the form, as we encountered a white label when trying to save the form. I was also able to find a solution using CSS and JavaScript to hide/show elements to make the form more dynamic, will be implemented once database implementation finished. Next week I will finalize my database setup and finish making the form more dynamic. 
+[Link to Ticket 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/67) |||
+[Link to Ticket 6/14](https://github.com/PranavKambhampati/Tri3Drone/issues/94)
+
+Pranav: I actually had to divert from what I intially planned because I realized that getting the data from the database was going to be more challenging than I thought. While I did a little bit of research, I wasn't able to make much progress on this aspect of the project. I tried to use Mr. M's code to model a RestAPI controller; this is what I spent most of my time this week. Next week, I will finalize the data retrival and utilize that data to further develop the analytics page. [LINK TO TICKET 6/8](https://github.com/PranavKambhampati/Tri3Drone/issues/92) |||
+[LINK TO NEXT TICKET](https://github.com/PranavKambhampati/Tri3Drone/issues/72)
+
 ## Umbrella Ticket 6/1
 
 Umbrella Ticket (Overall Plan): [LINK](https://github.com/PranavKambhampati/Tri3Drone/issues/78)
