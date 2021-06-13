@@ -69,7 +69,26 @@
         }
       }
     }
+    function showOrHideForm() {
+      var oAllQuestionsDiv = document.getElementById("allQuestionDiv");
+      var oQuestionNum = document.getElementById("questionNum");
+      var iQuestionNumber = parseInt(oQuestionNum.value);
+      var oBtnSubmit = document.getElementById("btnSubmit");
+      if(iQuestionNumber>0) {
+        for(var i = 1; i<= iQuestionNumber; i++) {
+          var oIndQuestion = document.getElementById("question" + i.toString());
+          oIndQuestion.style.display = "block";
+        }
+        oBtnSubmit.style.display="block";
+      }
+      else {
+        alert("Please enter a valid number");
+        oBtnSubmit.style.display="none";
+      }
+    }
   </script>
+
+
 </div></head>
 
 <body>
@@ -81,65 +100,83 @@
       <form id="forms" action="/labs/ShowMC" method="GET" >
         <br />
         <br />
-        <strong><label for="num">Type the first question:</label></strong>
-        <br><input name="num" id="num" type="text"> </br>
-        <label for="num2">Type the first answer choice:</label>
-        <br><input name="num2" id="num2" type="text"> </br>
-        <label for="num3">Type the second answer choice:</label>
-        <br><input name="num3" id="num3" type="text"> </br>
-        <label for="num4">Type the third answer choice:</label>
-        <br><input name="num4" id="num4" type="text"> </br>
-        <label for="num5">Type the fourth answer choice:</label>
-        <br><input name="num5" id="num5" type="text"> </br>
-        <br />
+        <strong><label for="questionNum">Please enter the number of questions you want (max is 10):</label></strong>
+        <br><input name="questionNum" id="questionNum" type="text"> </br>
+        <button onclick="showOrHideForm(); return false;">Create Form</button>
+        <div id="allQuestionDiv">
+          <div id="question1" style="display: none;">
+            <strong><label for="num">Type the first question:</label></strong>
+            <br><input name="num" id="num" type="text"> </br>
+            <label for="num2">Type the first answer choice:</label>
+            <br><input name="num2" id="num2" type="text"> </br>
+            <label for="num3">Type the second answer choice:</label>
+            <br><input name="num3" id="num3" type="text"> </br>
+            <label for="num4">Type the third answer choice:</label>
+            <br><input name="num4" id="num4" type="text"> </br>
+            <label for="num5">Type the fourth answer choice:</label>
+            <br><input name="num5" id="num5" type="text"> </br>
+            <br />
+          </div>
 
-        <strong><label for="num6">Type the second question:</label></strong>
-        <br><input name="num6" id="num6" type="text" class="hideElements"> </br>
-        <label for="num7">Type the first answer choice:</label>
-        <br><input name="num7" id="num7" type="text">  </br>
-        <label for="num8">Type the second answer choice:</label>
-        <br><input name="num8" id="num8" type="text"> </br>
-        <label for="num9">Type the third answer choice:</label>
-        <br><input name="num9" id="num9" type="text"> </br>
-        <label for="num10">Type the fourth answer choice:</label>
-        <br><input name="num10" id="num10" type="text">  </br>
 
-        <br />
-        <strong><label for="num11">Type the third question:</label></strong>
-        <br><input name="num11" id="num11" type="text"> </br>
-        <label for="num12">Type the first answer choice:</label>
-        <br><input name="num12" id="num12" type="text"> </br>
-        <label for="num13">Type the second answer choice:</label>
-        <br><input name="num13" id="num13" type="text"> </br>
-        <label for="num14">Type the third answer choice:</label>
-        <br><input name="num14" id="num14" type="text"> </br>
-        <label for="num15">Type the fourth answer choice:</label>
-        <br><input name="num15" id="num15" type="text"> </br>
-        <br />
-        <strong><label for="num16">Type the fourth question:</label></strong>
-        <br><input name="num16" id="num16" type="text"> </br>
-        <label for="num17">Type the first answer choice:</label>
-        <br><input name="num17" id="num17" type="text"> </br>
-        <label for="num18">Type the second answer choice:</label>
-        <br><input name="num18" id="num18" type="text"> </br>
-        <label for="num19">Type the third answer choice:</label>
-        <br><input name="num19" id="num19" type="text"> </br>
-        <label for="num20">Type the fourth answer choice:</label>
-        <br><input name="num20" id="num20" type="text"> </br>
+          <div id="question2" style="display: none;">
+            <strong><label for="num6">Type the second question:</label></strong>
+            <br><input name="num6" id="num6" type="text"> </br>
+            <label for="num7">Type the first answer choice:</label>
+            <br><input name="num7" id="num7" type="text">  </br>
+            <label for="num8">Type the second answer choice:</label>
+            <br><input name="num8" id="num8" type="text"> </br>
+            <label for="num9">Type the third answer choice:</label>
+            <br><input name="num9" id="num9" type="text"> </br>
+            <label for="num10">Type the fourth answer choice:</label>
+            <br><input name="num10" id="num10" type="text"> </br>
+            <br />
+          </div>
 
-        <strong><label for="num21">Type the fifth question:</label></strong>
-        <br><input name="num21" id="num21" type="text"> </br>
-        <label for="num22">Type the first answer choice:</label>
-        <br><input name="num22" id="num22" type="text"> </br>
-        <label for="num23">Type the second answer choice:</label>
-        <br><input name="num23" id="num23" type="text"> </br>
-        <label for="num24">Type the third answer choice:</label>
-        <br><input name="num24" id="num24" type="text"> </br>
-        <label for="num25">Type the fourth answer choice:</label>
-        <br><input name="num25" id="num25" type="text"> </br>
+          <div id="question3" style="display: none;">
+            <strong><label for="num11">Type the third question:</label></strong>
+            <br><input name="num11" id="num11" type="text"> </br>
+            <label for="num12">Type the first answer choice:</label>
+            <br><input name="num12" id="num12" type="text"> </br>
+            <label for="num13">Type the second answer choice:</label>
+            <br><input name="num13" id="num13" type="text"> </br>
+            <label for="num14">Type the third answer choice:</label>
+            <br><input name="num14" id="num14" type="text"> </br>
+            <label for="num15">Type the fourth answer choice:</label>
+            <br><input name="num15" id="num15" type="text"> </br>
+            <br />
+          </div>
 
-        <a href="/labs/ShowMC"><button>Created Form</button></a>
+          <div id="question4" style="display: none;">
+            <strong><label for="num16">Type the fourth question:</label></strong>
+            <br><input name="num16" id="num16" type="text"> </br>
+            <label for="num17">Type the first answer choice:</label>
+            <br><input name="num17" id="num17" type="text"> </br>
+            <label for="num18">Type the second answer choice:</label>
+            <br><input name="num18" id="num18" type="text"> </br>
+            <label for="num19">Type the third answer choice:</label>
+            <br><input name="num19" id="num19" type="text"> </br>
+            <label for="num20">Type the fourth answer choice:</label>
+            <br><input name="num20" id="num20" type="text"> </br>
+          </div>
+
+          <div id="question5" style="display: none;">
+            <strong><label for="num21">Type the fifth question:</label></strong>
+            <br><input name="num21" id="num21" type="text"> </br>
+            <label for="num22">Type the first answer choice:</label>
+            <br><input name="num22" id="num22" type="text"> </br>
+            <label for="num23">Type the second answer choice:</label>
+            <br><input name="num23" id="num23" type="text"> </br>
+            <label for="num24">Type the third answer choice:</label>
+            <br><input name="num24" id="num24" type="text"> </br>
+            <label for="num25">Type the fourth answer choice:</label>
+            <br><input name="num25" id="num25" type="text"> </br>
+          </div>
+
+          <a href="/labs/ShowMC"><button id="btnSubmit" style="display: none;">Submit Form</button></a>
+        </div>
       </form>
+
     </div>
 
 
