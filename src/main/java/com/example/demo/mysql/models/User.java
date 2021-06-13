@@ -3,6 +3,7 @@ package com.example.demo.mysql.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 //import javax.validation.constraints.Max;
 //import javax.validation.constraints.Min;
@@ -24,8 +25,14 @@ public class User {
     //@Column(name = "email", nullable = false, columnDefinition = "TEXT", unique = true)
     private String email;
     private String role;
+    @OneToMany(mappedBy = "creator")
+    private List<Form> forms = new ArrayList<>();
+    @OneToMany
+    private List<Form> completedForms = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<FormQuestionResponse> answeredQuestions = new ArrayList<>();
     @OneToMany(mappedBy = "members")
-    private List<SurveyGroup> surveyGroups;
+    private List<SurveyGroup> surveyGroups = new ArrayList<>();
     /* Constructor without @OneToMany values */
     public User(String firstName, String lastName, String username, String password, String email, String role) {
         this.firstName = firstName;
@@ -56,7 +63,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
-                ", groups=" + surveyGroups +
                 '}';
     }
 }

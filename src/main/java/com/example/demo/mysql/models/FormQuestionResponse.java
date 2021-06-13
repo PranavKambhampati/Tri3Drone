@@ -14,9 +14,9 @@ public class FormQuestionResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private User user;
-    @OneToOne
+    @ManyToOne
     private Form form;
     @OneToOne
     private FormQuestion question;

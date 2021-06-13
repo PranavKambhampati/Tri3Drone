@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>User Forms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <form action="/analytics/form" method="GET">
+                <input name="number" type="text">
+                <button>View</button>
+            </form>
+                <div class="resultTable">
+                    <table class="results">
+                        <tr class="header">
+                            <th>Form Name</th>
+                        </tr>
+                        <tr th:each="form : ${userFormList}">
+                            <td>
+                            <a th:href="@{~/analytics/form/{id}/(id=2)}"><p th:text="Form  + ${form.getId()}"></p></a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div/>
+
+                </div>
+            </div>
+        </div></div>
+
+
+
+</div>
+
+</body>
+</html>

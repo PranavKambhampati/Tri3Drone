@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Form")
@@ -15,10 +16,10 @@ public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private User creator;
-    @OneToMany(mappedBy = "form")
-    private List<FormQuestion> questions;
+    @OneToMany(mappedBy = "form", fetch= FetchType.EAGER)
+    private List<FormQuestion> questions = new ArrayList<>();
     /* Constructor without @OneToMany values */
     public Form(User creator) {
         this.creator = creator;
@@ -34,7 +35,6 @@ public class Form {
         return "Form{" +
                 "id=" + id +
                 ", creator=" + creator +
-                ", questions=" + questions +
                 '}';
     }
 }
