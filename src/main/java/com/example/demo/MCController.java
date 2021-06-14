@@ -185,19 +185,23 @@ public class MCController {
         formSQl.save(formObject);
         System.out.println(formSQl.listAll());
 
-        model.addAttribute("question", form.question);
-        model.addAttribute("answerChoice1", form.answerOne);
-        model.addAttribute("answerChoice2", form.answerTwo);
-        model.addAttribute("answerChoice3", form.answerThree);
-        model.addAttribute("answerChoice4", form.answerFour);
 
 
-        model.addAttribute("question2", form.question2);
-        model.addAttribute("answerChoice21", form.answer21);
-        model.addAttribute("answerChoice22", form.answer22);
-        model.addAttribute("answerChoice23", form.answer23);
-        model.addAttribute("answerChoice24", form.answer24);
+            model.addAttribute("questionDiv1", form.questionDiv1);
+            model.addAttribute("question", form.question);
+            model.addAttribute("answerChoice1", form.answerOne);
+            model.addAttribute("answerChoice2", form.answerTwo);
+            model.addAttribute("answerChoice3", form.answerThree);
+            model.addAttribute("answerChoice4", form.answerFour);
 
+
+
+            model.addAttribute("questionDiv2", form.questionDiv2);
+            model.addAttribute("question2", form.question2);
+            model.addAttribute("answerChoice21", form.answer21);
+            model.addAttribute("answerChoice22", form.answer22);
+            model.addAttribute("answerChoice23", form.answer23);
+            model.addAttribute("answerChoice24", form.answer24);
 
         model.addAttribute("question3", form.question3);
         model.addAttribute("answerChoice31", form.answer31);
@@ -314,67 +318,70 @@ public class MCController {
                 num31,num32,num33,num34,num35,num36,num37,num38,num39,num40,num41,num42,num43,num44,num45,num46,num47,
                 num48,num49,num50);
 
+        model.addAttribute("questionDiv1", form.questionDiv1);
         model.addAttribute("question", form.question);
         model.addAttribute("answerChoice1", form.answerOne);
         model.addAttribute("answerChoice2", form.answerTwo);
         model.addAttribute("answerChoice3", form.answerThree);
         model.addAttribute("answerChoice4", form.answerFour);
 
+        model.addAttribute("questionDiv2", form.questionDiv2);
         model.addAttribute("question2", form.question2);
         model.addAttribute("answerChoice21", form.answer21);
         model.addAttribute("answerChoice22", form.answer22);
         model.addAttribute("answerChoice23", form.answer23);
         model.addAttribute("answerChoice24", form.answer24);
 
+        model.addAttribute("questionDiv3", form.questionDiv3);
         model.addAttribute("question3", form.question3);
         model.addAttribute("answerChoice31", form.answer31);
         model.addAttribute("answerChoice32", form.answer32);
         model.addAttribute("answerChoice33", form.answer33);
         model.addAttribute("answerChoice34", form.answer34);
 
+        model.addAttribute("questionDiv4", form.questionDiv4);
         model.addAttribute("question4", form.question4);
         model.addAttribute("answerChoice41", form.answer41);
         model.addAttribute("answerChoice42", form.answer42);
         model.addAttribute("answerChoice43", form.answer43);
         model.addAttribute("answerChoice44", form.answer44);
 
+        model.addAttribute("questionDiv5", form.questionDiv5);
         model.addAttribute("question5", form.question5);
         model.addAttribute("answerChoice51", form.answer51);
         model.addAttribute("answerChoice52", form.answer52);
         model.addAttribute("answerChoice53", form.answer53);
         model.addAttribute("answerChoice54", form.answer54);
 
-
-        model.addAttribute("question5", form.question5);
-        model.addAttribute("answerChoice51", form.answer51);
-        model.addAttribute("answerChoice52", form.answer52);
-        model.addAttribute("answerChoice53", form.answer53);
-        model.addAttribute("answerChoice54", form.answer54);
-
+        model.addAttribute("questionDiv6", form.questionDiv6);
         model.addAttribute("question6", form.question6);
         model.addAttribute("answerChoice61", form.answer61);
         model.addAttribute("answerChoice62", form.answer62);
         model.addAttribute("answerChoice63", form.answer63);
         model.addAttribute("answerChoice64", form.answer64);
 
+        model.addAttribute("questionDiv7", form.questionDiv7);
         model.addAttribute("question7", form.question7);
         model.addAttribute("answerChoice71", form.answer71);
         model.addAttribute("answerChoice72", form.answer72);
         model.addAttribute("answerChoice73", form.answer73);
         model.addAttribute("answerChoice74", form.answer74);
 
+        model.addAttribute("questionDiv8", form.questionDiv8);
         model.addAttribute("question8", form.question8);
         model.addAttribute("answerChoice81", form.answer81);
         model.addAttribute("answerChoice82", form.answer82);
         model.addAttribute("answerChoice83", form.answer83);
         model.addAttribute("answerChoice84", form.answer84);
 
+        model.addAttribute("questionDiv9", form.questionDiv9);
         model.addAttribute("question9", form.question9);
         model.addAttribute("answerChoice91", form.answer91);
         model.addAttribute("answerChoice92", form.answer92);
         model.addAttribute("answerChoice93", form.answer93);
         model.addAttribute("answerChoice94", form.answer94);
 
+        model.addAttribute("questionDiv10", form.questionDiv10);
         model.addAttribute("question10", form.question10);
         model.addAttribute("answerChoice101", form.answer101);
         model.addAttribute("answerChoice102", form.answer102);
