@@ -52,6 +52,14 @@
       padding: 5px;
     }
   </style>
+
+  <script type="text/javascript">
+    function hideStuff() {
+
+
+    }
+  </script>
+
 </div></head>
 
 <body>
@@ -60,35 +68,85 @@
     <div class="content">
       <h1>Created Quiz</h1>
       <div style="margin: 2%;">
-        <strong><td th:text="'Question 1: ' + ${question}"></td></strong>
-        <br><td th:text="'A: ' + ${answerChoice1}"></td> </br>
-        <td th:text="'B: ' + ${answerChoice2}"></td>
-        <br><td th:text="'C: ' + ${answerChoice3}"></td></br>
-        <td th:text="'D: ' + ${answerChoice4}"></td>
+        <div id="question1" th:style=" ${questionDiv1}">
+          <strong><td th:text="'Question 1: ' + ${question}"></td></strong>
+          <br><td th:text="'A: ' + ${answerChoice1}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice2}"></td>
+          <br><td th:text="'C: ' + ${answerChoice3}"></td></br>
+          <td th:text="'D: ' + ${answerChoice4}"></td>
+        </div>
 
-        <br><strong><td th:text="'Question 2: ' + ${question2}"></td></strong></br>
-        <br><td th:text="'A: ' + ${answerChoice21}"></td> </br>
-        <td th:text="'B: ' + ${answerChoice22}"></td>
-        <br><td th:text="'C: ' + ${answerChoice23}"></td></br>
-        <br><td th:text="'D: ' + ${answerChoice24}"></td></br>
+        <div id="question2" th:style=" ${questionDiv2}">
+          <br><strong><td th:text="'Question 2: ' + ${question2}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice21}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice22}"></td>
+          <br><td th:text="'C: ' + ${answerChoice23}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice24}"></td></br>
+        </div>
 
-        <br><strong><td th:text="'Question 3: ' + ${question3}"></td></strong></br>
-        <br><td th:text="'A: ' + ${answerChoice31}"></td> </br>
-        <td th:text="'B: ' + ${answerChoice32}"></td>
-        <br><td th:text="'C: ' + ${answerChoice33}"></td></br>
-        <br><td th:text="'D: ' + ${answerChoice34}"></td></br>
+        <div id="question3" th:style=" ${questionDiv3}">
+          <br><strong><td th:text="'Question 3: ' + ${question3}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice31}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice32}"></td>
+          <br><td th:text="'C: ' + ${answerChoice33}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice34}"></td></br>
+        </div>
 
-        <br><strong><td th:text="'Question 4: ' + ${question4}"></td></strong></br>
-        <br><td th:text="'A: ' + ${answerChoice41}"></td> </br>
-        <td th:text="'B: ' + ${answerChoice42}"></td>
-        <br><td th:text="'C: ' + ${answerChoice43}"></td></br>
-        <br><td th:text="'D: ' + ${answerChoice44}"></td></br>
+        <div id="question4" th:style=" ${questionDiv4}">
+          <br><strong><td th:text="'Question 4: ' + ${question4}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice41}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice42}"></td>
+          <br><td th:text="'C: ' + ${answerChoice43}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice44}"></td></br>
+        </div>
 
-        <br><strong><td th:text="'Question 5: ' + ${question5}"></td></strong></br>
-        <br><td th:text="'A: ' + ${answerChoice51}"></td> </br>
-        <td th:text="'B: ' + ${answerChoice52}"></td>
-        <br><td th:text="'C: ' + ${answerChoice53}"></td></br>
-        <br><td th:text="'D: ' + ${answerChoice54}"></td></br>
+        <div id="question5" th:style=" ${questionDiv5}">
+          <br><strong><td th:text="'Question 5: ' + ${question5}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice51}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice52}"></td>
+          <br><td th:text="'C: ' + ${answerChoice53}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice54}"></td></br>
+        </div>
+
+        <div id="question6" th:style=" ${questionDiv6}">
+          <br><strong><td th:text="'Question 6: ' + ${question6}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice61}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice62}"></td>
+          <br><td th:text="'C: ' + ${answerChoice63}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice64}"></td></br>
+        </div>
+
+        <div id="question7" th:style=" ${questionDiv7}">
+          <br><strong><td th:text="'Question 7: ' + ${question7}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice71}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice72}"></td>
+          <br><td th:text="'C: ' + ${answerChoice73}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice74}"></td></br>
+        </div>
+
+        <div id="question8" th:style=" ${questionDiv8}">
+          <br><strong><td th:text="'Question 8: ' + ${question8}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice81}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice82}"></td>
+          <br><td th:text="'C: ' + ${answerChoice83}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice84}"></td></br>
+        </div>
+
+        <div id="question9" th:style=" ${questionDiv9}">
+          <br><strong><td th:text="'Question 9: ' + ${question9}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice91}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice92}"></td>
+          <br><td th:text="'C: ' + ${answerChoice93}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice64}"></td></br>
+        </div>
+
+        <div id="question10" th:style=" ${questionDiv10}">
+          <br><strong><td th:text="'Question 10: ' + ${question10}"></td></strong></br>
+          <br><td th:text="'A: ' + ${answerChoice101}"></td> </br>
+          <td th:text="'B: ' + ${answerChoice102}"></td>
+          <br><td th:text="'C: ' + ${answerChoice103}"></td></br>
+          <br><td th:text="'D: ' + ${answerChoice104}"></td></br>
+        </div>
 
       </div>
 
