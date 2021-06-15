@@ -20,7 +20,7 @@
             background: #eeeeee;
             border-radius: 10px;
             min-height: 75px;
-            max-width: 1000px;
+            max-width: 1500px;
             box-shadow: 10px 10px 50px 10px #888888;
         }
 
@@ -129,13 +129,30 @@
 
             </p>
 
-            <!--Maybe add a picture of the database relationships that Michael made-->
+            <!--How do you insert a picture?-->
+            <!--<img width="75%" height="auto" src="/DatabaseRelationships.JPG">-->
+
         </div>
         <div>
             <h1>Key Technical Aspects</h1>
+            <p><u>Spring Boot Security:</u> We used Spring Security to keep track of the users on the program. Users can typically create a new user to access the project,
+            however, the project needs to be refreshed when a new user is made. This isn't possible to do when it has been deployed, therefore, to login, users can use
+            the list of pre-made user accounts.
+                <script src="https://gist.github.com/PranavKambhampati/83a08c4ea8777a77d58e7cf5009ed68e.js"></script>
+                <script src="https://gist.github.com/PranavKambhampati/aee8552dd9843b82ca96b0e8b40ec4dc.js"></script>
+            </p>
 
-            <p>Spring Boot Security: We used Spring Security to keep track of the users on the program. Add more stuff.</p>
-            <p>Database: RDS?</p>
+            <p><u>Database:</u> We used SQL in order to model our data, however, we used RDS in order to host our database. The utilization of a databse allowed us to
+            easily pull and save values in different parts of the application. For example, some things that were saved include the Users, Form Questions, Forms and Form Responses.
+            Below are the model files for each:
+                <script src="https://gist.github.com/PranavKambhampati/f2106d6b2c2908d7db05cf1f441c5aa9.js"></script>
+                <script src="https://gist.github.com/PranavKambhampati/2d14c639b2db06117108ce9eeb6938ab.js"></script>
+                <script src="https://gist.github.com/PranavKambhampati/84e44c2925b27898efa380ad2b262841.js"></script>
+
+
+
+
+            </p>
             <p></p>
         </div>
     </div>
