@@ -5,11 +5,17 @@
     <title>Create User</title>
     <link rel="stylesheet" href="/css/student-info.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
         h1 {
             text-align: center;
             vertical-align: top;
             font-size: x-large;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 600;
             margin-bottom: 50px;
             margin-top: 0;
@@ -24,7 +30,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
             float: left;
             left: -85px;
@@ -39,7 +45,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
             float: left;
             left: -85px;
@@ -54,7 +60,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
             float: left;
             left: -85px;
@@ -62,7 +68,7 @@
 
         label{
             position: relative;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
             float: left;
             left: -85px;
@@ -79,7 +85,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
             float:left;
             left: -85px;
@@ -118,7 +124,7 @@
             cursor: pointer;
             left: 500px;
             top: 25px;
-            font-family: 'Red Hat Display', sans-serif;
+            /*font-family: 'Red Hat Display', sans-serif;*/
             font-weight: 400;
         }
 
@@ -131,20 +137,34 @@
         <form th:action="@{/createUser}" method="post" th:object="${newUser}">
             <h1>CREATE USER INFO</h1>
             <div class="field">
-                <label for="name">Name:</label>
-                <input id="name" type="text" th:field="*{name}">
-                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+                <label for="firstName">First Name:</label>
+                <input id="firstName" type="text" th:field="*{firstName}">
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</span>
             </div>
             <div class="field">
-                <label for="username">Username:</label><input id="username" type="text" th:field="*{username}">
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" type="text" th:field="*{lastName}">
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</span>
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input id="email" type="text" th:field="*{email}">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
+            </div>
+            <div class="field">
+                <label for="username">Username:</label>
+                <input id="username" type="text" th:field="*{username}">
                 <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span>
             </div>
             <div class="field">
-                <label for="password">Password:</label><input id="password" type="password" th:field="*{password}">
+                <label for="password">Password:</label>
+                <input id="password" type="password" th:field="*{password}">
                 <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
             </div>
+
             <button type="submit" id="submitter">Submit</button>
         </form>
+        <p th:text="${error}"></p>
         <a class="link" href="/login">RETURN TO LOG IN PAGE</a>
 </body>
 </html>
