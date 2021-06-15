@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Form Analytics</title>
+    <title>Available Forms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -106,19 +106,19 @@
 </div><div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
-            <h1 th:text="'Form '+ ${currentForm.getId()}"></h1>
             <div class="resultTable">
+                <h1>Take a Form</h1>
+                <p>Click one of the forms from the list of all the forms in our system to complete it!</p>
                 <table class="results">
                     <tr class="header">
-                        <th>Counter</th>
+                        <th>Form Name</th>
+                        <th>Form Creator</th>
                     </tr>
-                    <tr th:each="counter : ${analyticCounters}">
+                    <tr th:each="form : ${allCreatedFormsList}">
                         <td>
-                            <p th:text="${counter.getOption_1()}"></p>
-                            <p th:text="${counter.getOption_2()}"></p>
-                            <p th:text="${counter.getOption_3()}"></p>
-                            <p th:text="${counter.getOption_4()}"></p>
+                            <a th:href="@{~/analytics/form/{id}/(id=${form.getId()})}"><p th:text="'Take Form ' + ${form.getId()}"></p></a>
                         </td>
+                        <td th:text="${form.getCreator().getUsername()}"></td>
                     </tr>
                 </table>
                 <div/>
@@ -126,6 +126,9 @@
             </div>
         </div>
     </div></div>
+
+
+
 </div>
 
 </body>

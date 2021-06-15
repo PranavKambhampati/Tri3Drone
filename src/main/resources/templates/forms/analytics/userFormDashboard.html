@@ -106,10 +106,13 @@
 </div><div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
-            <form action="/analytics/form" method="GET">
+            <!-- Deprecated system to access form -->
+            <!--<form action="/analytics/form" method="GET">
                 <input name="number" type="text">
                 <button>View</button>
-            </form>
+            </form>-->
+            <h1>My Forms</h1>
+            <p>Click one of the forms to view the breakdown of responses by question.</p>
                 <div class="resultTable">
                     <table class="results">
                         <tr class="header">
@@ -117,7 +120,7 @@
                         </tr>
                         <tr th:each="form : ${userFormList}">
                             <td>
-                            <a th:href="@{~/analytics/form/{id}/(id=${form.getId()})}"><p th:text="Form  + ${form.getId()}"></p></a>
+                            <a th:href="@{~/analytics/form/{id}/(id=${form.getId()})}"><p th:text="'Form ' + ${form.getId()}"></p></a>
                             </td>
                         </tr>
                     </table>
