@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,68 +34,78 @@ public class MCController {
 
 
     @GetMapping("/CreateMC")
-    public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = "-1") String num,
-                           @RequestParam(name = "num2", required = false, defaultValue = "-1") String num2,
-                           @RequestParam(name = "num3", required = false, defaultValue = "-1") String num3,
-                           @RequestParam(name = "num4", required = false, defaultValue = "-1") String num4,
-                           @RequestParam(name = "num5", required = false, defaultValue = "-1") String num5,
-                           @RequestParam(name = "num6", required = false, defaultValue = "-1") String num6,
-                           @RequestParam(name = "num7", required = false, defaultValue = "-1") String num7,
-                           @RequestParam(name = "num8", required = false, defaultValue = "-1") String num8,
-                           @RequestParam(name = "num9", required = false, defaultValue = "-1") String num9,
-                           @RequestParam(name = "num10", required = false, defaultValue = "-1") String num10,
-                           @RequestParam(name = "num11", required = false, defaultValue = "-1") String num11,
-                           @RequestParam(name = "num12", required = false, defaultValue = "-1") String num12,
-                           @RequestParam(name = "num13", required = false, defaultValue = "-1") String num13,
-                           @RequestParam(name = "num14", required = false, defaultValue = "-1") String num14,
-                           @RequestParam(name = "num15", required = false, defaultValue = "-1") String num15,
-                           @RequestParam(name = "num16", required = false, defaultValue = "-1") String num16,
-                           @RequestParam(name = "num17", required = false, defaultValue = "-1") String num17,
-                           @RequestParam(name = "num18", required = false, defaultValue = "-1") String num18,
-                           @RequestParam(name = "num19", required = false, defaultValue = "-1") String num19,
-                           @RequestParam(name = "num20", required = false, defaultValue = "-1") String num20,
-                           @RequestParam(name = "num21", required = false, defaultValue = "-1") String num21,
-                           @RequestParam(name = "num22", required = false, defaultValue = "-1") String num22,
-                           @RequestParam(name = "num23", required = false, defaultValue = "-1") String num23,
-                           @RequestParam(name = "num24", required = false, defaultValue = "-1") String num24,
-                           @RequestParam(name = "num25", required = false, defaultValue = "-1") String num25,
-                           @RequestParam(name = "num26", required = false, defaultValue = "-1") String num26,
-                           @RequestParam(name = "num27", required = false, defaultValue = "-1") String num27,
-                           @RequestParam(name = "num28", required = false, defaultValue = "-1") String num28,
-                           @RequestParam(name = "num29", required = false, defaultValue = "-1") String num29,
-                           @RequestParam(name = "num30", required = false, defaultValue = "-1") String num30,
-                           @RequestParam(name = "num31", required = false, defaultValue = "-1") String num31,
-                           @RequestParam(name = "num32", required = false, defaultValue = "-1") String num32,
-                           @RequestParam(name = "num33", required = false, defaultValue = "-1") String num33,
-                           @RequestParam(name = "num34", required = false, defaultValue = "-1") String num34,
-                           @RequestParam(name = "num35", required = false, defaultValue = "-1") String num35,
-                           @RequestParam(name = "num36", required = false, defaultValue = "-1") String num36,
-                           @RequestParam(name = "num37", required = false, defaultValue = "-1") String num37,
-                           @RequestParam(name = "num38", required = false, defaultValue = "-1") String num38,
-                           @RequestParam(name = "num39", required = false, defaultValue = "-1") String num39,
-                           @RequestParam(name = "num40", required = false, defaultValue = "-1") String num40,
-                           @RequestParam(name = "num41", required = false, defaultValue = "-1") String num41,
-                           @RequestParam(name = "num42", required = false, defaultValue = "-1") String num42,
-                           @RequestParam(name = "num43", required = false, defaultValue = "-1") String num43,
-                           @RequestParam(name = "num44", required = false, defaultValue = "-1") String num44,
-                           @RequestParam(name = "num45", required = false, defaultValue = "-1") String num45,
-                           @RequestParam(name = "num46", required = false, defaultValue = "-1") String num46,
-                           @RequestParam(name = "num47", required = false, defaultValue = "-1") String num47,
-                           @RequestParam(name = "num48", required = false, defaultValue = "-1") String num48,
-                           @RequestParam(name = "num49", required = false, defaultValue = "-1") String num49,
-                           @RequestParam(name = "num50", required = false, defaultValue = "-1") String num50,
+    public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = "-0") String num,
+                           @RequestParam(name = "num2", required = false, defaultValue = "-0") String num2,
+                           @RequestParam(name = "num3", required = false, defaultValue = "-0") String num3,
+                           @RequestParam(name = "num4", required = false, defaultValue = "-0") String num4,
+                           @RequestParam(name = "num5", required = false, defaultValue = "-0") String num5,
+                           @RequestParam(name = "num6", required = false, defaultValue = "-0") String num6,
+                           @RequestParam(name = "num7", required = false, defaultValue = "-0") String num7,
+                           @RequestParam(name = "num8", required = false, defaultValue = "-0") String num8,
+                           @RequestParam(name = "num9", required = false, defaultValue = "-0") String num9,
+                           @RequestParam(name = "num10", required = false, defaultValue = "-0") String num10,
+                           @RequestParam(name = "num11", required = false, defaultValue = "-0") String num11,
+                           @RequestParam(name = "num12", required = false, defaultValue = "-0") String num12,
+                           @RequestParam(name = "num13", required = false, defaultValue = "-0") String num13,
+                           @RequestParam(name = "num14", required = false, defaultValue = "-0") String num14,
+                           @RequestParam(name = "num15", required = false, defaultValue = "-0") String num15,
+                           @RequestParam(name = "num16", required = false, defaultValue = "-0") String num16,
+                           @RequestParam(name = "num17", required = false, defaultValue = "-0") String num17,
+                           @RequestParam(name = "num18", required = false, defaultValue = "-0") String num18,
+                           @RequestParam(name = "num19", required = false, defaultValue = "-0") String num19,
+                           @RequestParam(name = "num20", required = false, defaultValue = "-0") String num20,
+                           @RequestParam(name = "num21", required = false, defaultValue = "-0") String num21,
+                           @RequestParam(name = "num22", required = false, defaultValue = "-0") String num22,
+                           @RequestParam(name = "num23", required = false, defaultValue = "-0") String num23,
+                           @RequestParam(name = "num24", required = false, defaultValue = "-0") String num24,
+                           @RequestParam(name = "num25", required = false, defaultValue = "-0") String num25,
+                           @RequestParam(name = "num26", required = false, defaultValue = "-0") String num26,
+                           @RequestParam(name = "num27", required = false, defaultValue = "-0") String num27,
+                           @RequestParam(name = "num28", required = false, defaultValue = "-0") String num28,
+                           @RequestParam(name = "num29", required = false, defaultValue = "-0") String num29,
+                           @RequestParam(name = "num30", required = false, defaultValue = "-0") String num30,
+                           @RequestParam(name = "num31", required = false, defaultValue = "-0") String num31,
+                           @RequestParam(name = "num32", required = false, defaultValue = "-0") String num32,
+                           @RequestParam(name = "num33", required = false, defaultValue = "-0") String num33,
+                           @RequestParam(name = "num34", required = false, defaultValue = "-0") String num34,
+                           @RequestParam(name = "num35", required = false, defaultValue = "-0") String num35,
+                           @RequestParam(name = "num36", required = false, defaultValue = "-0") String num36,
+                           @RequestParam(name = "num37", required = false, defaultValue = "-0") String num37,
+                           @RequestParam(name = "num38", required = false, defaultValue = "-0") String num38,
+                           @RequestParam(name = "num39", required = false, defaultValue = "-0") String num39,
+                           @RequestParam(name = "num40", required = false, defaultValue = "-0") String num40,
+                           @RequestParam(name = "num41", required = false, defaultValue = "-0") String num41,
+                           @RequestParam(name = "num42", required = false, defaultValue = "-0") String num42,
+                           @RequestParam(name = "num43", required = false, defaultValue = "-0") String num43,
+                           @RequestParam(name = "num44", required = false, defaultValue = "-0") String num44,
+                           @RequestParam(name = "num45", required = false, defaultValue = "-0") String num45,
+                           @RequestParam(name = "num46", required = false, defaultValue = "-0") String num46,
+                           @RequestParam(name = "num47", required = false, defaultValue = "-0") String num47,
+                           @RequestParam(name = "num48", required = false, defaultValue = "-0") String num48,
+                           @RequestParam(name = "num49", required = false, defaultValue = "-0") String num49,
+                           @RequestParam(name = "num50", required = false, defaultValue = "-0") String num50,
                            Model model) {
+        innit();
         List<FormQuestion> listOfQuestions = new ArrayList<>();
 
         Form formObject = new Form(); // new form entry
-        formObject.setCreator(currentUser); // relationship back to user that is currently logged in
+        /*FormQuestion formQuestion1 = new FormQuestion();
+        FormQuestion formQuestion2 = new FormQuestion();
+        FormQuestion formQuestion3 = new FormQuestion();
+        FormQuestion formQuestion4 = new FormQuestion();
+        FormQuestion formQuestion5 = new FormQuestion();
+        FormQuestion formQuestion6 = new FormQuestion();
+        FormQuestion formQuestion7 = new FormQuestion();
+        FormQuestion formQuestion8 = new FormQuestion();
+        FormQuestion formQuestion9 = new FormQuestion();
+        FormQuestion formQuestion10 = new FormQuestion();*/
 
 
         CreateMC form = new CreateMC(num, num2, num3, num4, num5,num6,num7,num8,num9,num10,num11,num12,num13,num14
                 ,num15,num16,num17,num18,num19,num20,num21,num22,num23,num24,num25,num26,num27,num28,num29,num30,
                 num31,num32,num33,num34,num35,num36,num37,num38,num39,num40,num41,num42,num43,num44,num45,num46,num47,
                 num48,num49,num50);
-        if (!(form.question.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion1 = new FormQuestion();
             formQuestion1.setForm(formObject);
             formQuestion1.setQuestion(form.question);
@@ -105,7 +116,7 @@ public class MCController {
             listOfQuestions.add(formQuestion1);
         }
 
-        if (!(form.question2.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question2.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion2 = new FormQuestion();
             formQuestion2.setForm(formObject);
             formQuestion2.setQuestion(form.question2);
@@ -116,7 +127,7 @@ public class MCController {
             listOfQuestions.add(formQuestion2);
         }
 
-        if (!(form.question3.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question3.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion3 = new FormQuestion();
             formQuestion3.setForm(formObject);
             formQuestion3.setQuestion(form.question3);
@@ -127,7 +138,7 @@ public class MCController {
             listOfQuestions.add(formQuestion3);
         }
 
-        if (!(form.question4.equals("-1"))){ // validation to determine if the user entered a question
+        if (!(form.question4.equals("-0"))){ // validation to determine if the user entered a question
             FormQuestion formQuestion4 = new FormQuestion();
             formQuestion4.setForm(formObject);
             formQuestion4.setQuestion(form.question4);
@@ -138,7 +149,7 @@ public class MCController {
             listOfQuestions.add(formQuestion4);
         }
 
-        if (!(form.question5.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question5.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion5 = new FormQuestion();
             formQuestion5.setForm(formObject);
             formQuestion5.setQuestion(form.question5);
@@ -149,7 +160,7 @@ public class MCController {
             listOfQuestions.add(formQuestion5);
         }
 
-        if (!(form.question6.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question6.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion6 = new FormQuestion();
             formQuestion6.setForm(formObject);
             formQuestion6.setQuestion(form.question6);
@@ -160,7 +171,7 @@ public class MCController {
             listOfQuestions.add(formQuestion6);
         }
 
-        if (!(form.question7.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question7.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion7 = new FormQuestion();
             formQuestion7.setForm(formObject);
             formQuestion7.setQuestion(form.question7);
@@ -171,7 +182,7 @@ public class MCController {
             listOfQuestions.add(formQuestion7);
         }
 
-        if (!(form.question8).equals("-1")) { // validation to determine if the user entered a question
+        if (!(form.question8).equals("-0")) { // validation to determine if the user entered a question
             FormQuestion formQuestion8 = new FormQuestion();
             formQuestion8.setForm(formObject);
             formQuestion8.setQuestion(form.question8);
@@ -182,7 +193,7 @@ public class MCController {
             listOfQuestions.add(formQuestion8);
         }
 
-        if (!(form.question9.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question9.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion9 = new FormQuestion();
             formQuestion9.setForm(formObject);
             formQuestion9.setQuestion(form.question9);
@@ -193,7 +204,7 @@ public class MCController {
             listOfQuestions.add(formQuestion9);
         }
 
-        if (!(form.question10.equals("-1"))) { // validation to determine if the user entered a question
+        if (!(form.question10.equals("-0"))) { // validation to determine if the user entered a question
             FormQuestion formQuestion10 = new FormQuestion();
             formQuestion10.setForm(formObject);
             formQuestion10.setQuestion(form.question10);
@@ -204,6 +215,7 @@ public class MCController {
             listOfQuestions.add(formQuestion10);
         }
 
+        formObject.setCreator(currentUser); // relationship back to user that is currently logged in
         formObject.setQuestions(listOfQuestions);
         formSQl.save(formObject);
 

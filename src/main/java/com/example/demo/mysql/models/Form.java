@@ -15,6 +15,7 @@ import java.util.List;
 public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true)
     private Long id;
     @ManyToOne
     private User creator;
