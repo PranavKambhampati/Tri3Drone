@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Form Analytics</title>
+    <title>Taking Survey</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -106,26 +106,16 @@
 </div><div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div class="content">
-            <h1 th:text="'Form '+ ${currentForm.getId()}"></h1>
             <div class="resultTable">
-                <table class="results">
-                    <tr class="header">
-                        <th>Counter</th>
-                    </tr>
-                    <tr th:each="counter : ${analyticCounters}">
-                        <td>
-                            <p th:text="${counter.getOption_1()}"></p>
-                            <p th:text="${counter.getOption_2()}"></p>
-                            <p th:text="${counter.getOption_3()}"></p>
-                            <p th:text="${counter.getOption_4()}"></p>
-                        </td>
-                    </tr>
-                </table>
+                <p></p>
                 <div/>
 
             </div>
         </div>
     </div></div>
+
+
+
 </div>
 
 </body>
