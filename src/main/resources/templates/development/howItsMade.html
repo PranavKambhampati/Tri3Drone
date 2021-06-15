@@ -76,13 +76,16 @@
             </p>
         </div>
         <div>
+
+            <h3><a href="https://github.com/PranavKambhampati/Tri3Drone/projects/1">p1Drone Project Board</a></h3>
+
             <h1>Overall Project Goal</h1>
             <p>
-                <u>Main Project Idea:</u> Group Based Polling Application with Analytics
+                <u><strong>Main Project Idea:</strong></u> Group Based Polling Application with Analytics
             </p>
 
             <p>
-                <u>Theme and Concept: </u>
+                <u><strong>Theme and Concept: </strong></u>
             <ul>
                 <li>Group based polling application with analytics</li>
                 <li>Allows admins to poll/quiz other users</li>
@@ -92,7 +95,7 @@
             </p>
 
             <p>
-                <u>Main User Interactions:</u>
+                <u><strong>Main User Interactions:</strong></u>
             <ul>
                 <li>User can create an account (Spring Security)</li>
                 <li>Group admins can create a custom from for other users to fill out</li>
@@ -103,7 +106,7 @@
             </p>
 
             <p>
-                <u>Key Technical Aspects:</u>
+                <u><strong>Key Technical Aspects:</strong></u>
             <ul>
                 <li>Group admin creates a form which is saved and accessible by a certain key in the database</li>
                 <li>User completes a form which is loaded on a template page which consists of the question and selection responses which is actively pulled from the database when each page is loaded</li>
@@ -116,7 +119,7 @@
 
             <p>
 
-                <u>Features:</u>
+                <u><strong>Features:</strong></u>
             <ul>
                 <li>Login & account; save user in database using Spring Security</li>
                 <li>SQL management of user created data</li>
@@ -135,25 +138,30 @@
         </div>
         <div>
             <h1>Key Technical Aspects</h1>
-            <p><u>Spring Boot Security:</u> We used Spring Security to keep track of the users on the program. Users can typically create a new user to access the project,
+            <p><u><strong>Spring Boot Security:</strong></u> We used Spring Security to keep track of the users on the program. Users can typically create a new user to access the project,
             however, the project needs to be refreshed when a new user is made. This isn't possible to do when it has been deployed, therefore, to login, users can use
             the list of pre-made user accounts.
                 <script src="https://gist.github.com/PranavKambhampati/83a08c4ea8777a77d58e7cf5009ed68e.js"></script>
                 <script src="https://gist.github.com/PranavKambhampati/aee8552dd9843b82ca96b0e8b40ec4dc.js"></script>
             </p>
 
-            <p><u>Database:</u> We used SQL in order to model our data, however, we used RDS in order to host our database. The utilization of a databse allowed us to
+            <p><u><strong>Database:</strong></u> We used SQL in order to model our data, however, we used RDS in order to host our database. The utilization of a databse allowed us to
             easily pull and save values in different parts of the application. For example, some things that were saved include the Users, Form Questions, Forms and Form Responses.
             Below are the model files for each:
                 <script src="https://gist.github.com/PranavKambhampati/f2106d6b2c2908d7db05cf1f441c5aa9.js"></script>
                 <script src="https://gist.github.com/PranavKambhampati/2d14c639b2db06117108ce9eeb6938ab.js"></script>
                 <script src="https://gist.github.com/PranavKambhampati/84e44c2925b27898efa380ad2b262841.js"></script>
-
-
-
-
             </p>
-            <p></p>
+            <p><u><strong>Analytic Counters:</strong></u> We used counters in order to keep track of how many users picked a specific answer choice for each question in each form.
+                On the analytics page, the admin can view this by picking a form from the dashboard and looking and the counter entries. This is achieved through a
+                counter class that has objects which keep track of the users' responses.
+            </p>
+
+            <p>
+                <u><strong>Dynamic Form:</strong></u> The forms in the program are dynamic, which means that they allow the admin to pick the number of questions that their form has (with a maximum value of 10).
+                This is valuable because it provides a cleaner UI to work with. The dynamic aspect of the form creation was accomplished through the use of CSS and JS, allowing us to hide
+                the questions that weren't going to be used by the admin.
+            </p>
         </div>
     </div>
 </div></div>
