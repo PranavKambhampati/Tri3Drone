@@ -7,6 +7,22 @@
 
 [p1-Drone Project Board](https://github.com/aryan114/Tri3Drone/projects/1)
 
+## Final Project
+
+Link to deployed website on Mr. M's Hardware: [LINK](http://drone.nighthawkcodingsociety.com/)
+
+To view our development process, visit this [LINK](http://drone.nighthawkcodingsociety.com/labs/howItsMade)
+
+Final Self-Scoring:
+| Scrum Member      | Score |
+| ----------- | ----------- |
+| Michael      | /20       |
+| Nakul   | /20        |
+| Pranav   | /20        |
+| Aryan   | /20        |
+
+
+
 ## Pre-Final Team Checkpoint 6/8
 
 Our main goal this week was to make more progress on database implementation and project aesthetics.
