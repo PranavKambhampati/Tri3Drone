@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Available Forms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #d6d6d6;
+        }
+        .container {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 25px;
+            background: #eeeeee;
+            border-radius: 10px;
+            min-height: 75px;
+            max-width: 1000px;
+            box-shadow: 10px 10px 50px 10px #888888;
+        }
+
+        .container .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 125%;
+        }
+
+        .container .content .dataEntry li a {
+            color: #4769ae;
+            display: block;
+        }
+        /* ".name" = div, "#name" = id of element */
+        .container .content .dataEntry input {
+            width: 500px;
+            border-radius: 1.5px;
+        }
+
+        .container .content .dataEntry button {
+            border-radius: 10px;
+            color: white;
+            background: #3ba0ff;
+            border: #2d6dff;
+            padding: 5px;
+
+            font-size: 101%;
+        }
+
+        .container .content .dataEntry button:hover {
+            background: #2d7dc3;
+            border: #2d6dff;
+        }
+
+        .container .results table {
+            border-collapse: collapse;
+            border: 0.5px solid black;
+
+        }
+        /* Padding in table rows */
+        .container .results th, td {
+            padding: 7px;
+            text-align: left;
+
+        }
+        /* Alternating color of rows; evens- light gray */
+        .container .results tr:nth-child(even) {
+            background-color: #C7CED1;
+        }
+        /* Alternating color of rows; may be redundant for to declare white */
+        .container .results tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .container .results tr.header {
+            background-color: #cfcdcd;
+            border: 0.5px solid black;
+        }
+
+        footer{
+            text-align: center;
+
+        }
+
+        .container .results .timeComparison td {
+            color: green;
+        }
+        .container .results .timeComparison.red td {
+            color: red;
+        }
+
+        /* Adjusts entire page content to the left and down in order to be visible
+next to the navigation bar */
+        /*.container */.studentGradeBook {
+            font-size: 14px;
+            position: relative;
+            top: 90px;
+            margin-left: 220px;
+            float: left;
+        }
+        /* Entire Main Large Grade Position Control */
+        /*.container .studentGradeBook .contentView*/ .classScheduleTiles {
+            position: relative;
+            float: left;
+            top: 30px;
+
+        }
+
+        /*.container .studentGradeBook .contentView .classScheduleTiles */.wrapper {
+            position: relative;
+            display: inline-block;
+            flex-direction: column;
+
+            padding-right: 15px;
+            margin: 0px;
+
+        }
+        /* Controls background color and roundness each class tile */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper*/ .box {
+            position: relative;
+            float: left;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 150px;
+            height: 175px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+
+            background: #6E7E85;
+            border-radius: 20px;
+            /*box-sizing: content-box;*/
+            width: 150px;
+
+        }
+        /* Contrast around class title and teacher name */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper .box*/ .contentClassTitle{
+            background-color: #929ea5;
+            border-radius: 5px;
+            height: 71px;
+
+            padding: 3px;
+        }
+        /* Controls sizing, alignment, and color of period number text */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper .box*/ .contentPeriod h2 {
+            font-size: 200%;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        /* Text coloring & sizing of class title */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper .box*/ .contentClassTitle p {
+            font-size: 150%;
+            color: #222222;
+            text-align: center;
+
+        }
+        /* Text coloring & sizing of teacher name */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper .box*/ .contentClassTitle h5 {
+            font-size: 90%;
+            color: #222222;
+            text-align: center;
+        }
+        /* Text coloring & sizing of grade */
+        /*.container .studentGradeBook .contentView .classScheduleTiles .wrapper .box */.contentGrade h4 {
+            font-size: 280%;
+            color: white;
+            text-align: center;
+        }
+        icon-icon {
+            size: 64px;
+            color: white;
+        }
+    </style>
+</div></head>
+
+<body>
+
+</div><div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div class="content">
+            <div class="resultTable">
+                <h1 th:text="'Hello, ' + ${currentUser}"></h1>
+                <div class="classScheduleTiles">
+                    <div class="wrapper" id="myForms"><a href="/analytics/myForms">
+                        <div class="box">
+                            <div class="contentPeriod">
+                                <h2>Your Forms</h2>
+                            </div>
+                            <div class="contentClassTitle">
+                                <h5>List of all created forms</h5>
+                            </div>
+                        </div>
+                    </a></div>
+                    <div class="wrapper" id="takeAForm"><a href="/takeAForm/allForms">
+                        <div class="box">
+                            <div class="contentPeriod">
+                                <h2>Take A Form</h2>
+                            </div>
+                            <div class="contentClassTitle">
+                                <h5>Select a form to complete</h5>
+                            </div>
+                        </div>
+                    </a></div>
+                    <div class="wrapper" id="createAForm"><a href="/create/survey">
+                        <div class="box">
+                            <div class="contentPeriod">
+                                <h2>Create a Form</h2>
+                            </div>
+                            <div class="contentClassTitle">
+                                <h5>Create a form with 1-10 questions</h5>
+                            </div>
+                        </div>
+                    </a></div>
+                </div>
+            <div/>
+
+            </div>
+        </div>
+    </div></div>
+
+
+
+</div>
+</body>
+</html>

@@ -12,7 +12,9 @@ public class NewUser {
     @NotBlank(message = "Name cannot be null")
     @NotNull(message = "Name cannot be null")
     @Size(min = 3, max = 20, message = "name must be bigger than 3 characters and must be less than 20")
-    private String name;
+    private String firstName;
+    @Size(min = 3, max = 20, message = "name must be bigger than 3 characters and must be less than 20")
+    private String lastName;
     @NotNull(message = "Username must be filled in")
     @NotBlank(message = "Username must not be blank")
     @Size(min = 4, max=12, message="username must be greater then 4 digits long and less than 12 digits")
@@ -20,6 +22,8 @@ public class NewUser {
     @NotBlank(message = "password may not be empty")
     @NotNull(message = "Password may not be empty")
     private String password;
+    @Email
+    private String email;
 
     private final String Role;
 
@@ -30,12 +34,19 @@ public class NewUser {
     public NewUser() {
         this.Role = "STUDENT";
     }
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String name) {
+        this.lastName = name;
     }
 
     public String getUsername() {
@@ -53,14 +64,23 @@ public class NewUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "NewUser{" +
-                "name='" + name + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", Role='" + Role + '\'' +
                 '}';
     }
-
 }

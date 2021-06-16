@@ -25,6 +25,12 @@ public class MainController {
 
     @GetMapping("/index")
     public String index () {
+
+        //userRepository.delete(31);
+        return "index";
+    }
+
+    private void earlyDBTests() {
         PrincipalUserService service = new PrincipalUserService(this.userRepository);
 
         Long userID = service.getUserID();
@@ -99,7 +105,5 @@ public class MainController {
         //System.out.println("p1-drone FORM TABLE: " + formRepository.listAll());
         //System.out.println("p1-drone FORM QUESTION TABLE: " + formQuestionRepository.listAll());
 
-
-        return "index.html";
     }
 }

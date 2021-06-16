@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Forms;
 
 import com.example.demo.Forms.CreateMC;
 import com.example.demo.Security.PrincipalUserService;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/labs")
+@RequestMapping("/create")
 public class MCController {
     @Autowired
     private UserSQL UserRepository;
@@ -33,7 +33,7 @@ public class MCController {
     }
 
 
-    @GetMapping("/CreateMC")
+    @GetMapping("/survey")
     public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = "-0") String num,
                            @RequestParam(name = "num2", required = false, defaultValue = "-0") String num2,
                            @RequestParam(name = "num3", required = false, defaultValue = "-0") String num3,
