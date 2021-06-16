@@ -382,7 +382,7 @@ public class LabsController {
 
     @GetMapping("/howItsMade")
     public String howItsMade(){
-        return "/development/howItsMade";
+        return "development/howItsMade";
     }
 
 

@@ -397,6 +397,7 @@ public class MCController {
             model.addAttribute("answerChoice104", listOfQuestions.get(9).getOpt_4());
         }
 
+        model.addAttribute("form", currentForm);
         return "labs/ShowMCPage";
     }
 

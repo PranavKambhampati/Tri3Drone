@@ -116,7 +116,7 @@
                     </tr>
                     <tr th:each="form : ${allCreatedFormsList}">
                         <td>
-                            <a th:href="@{~/analytics/form/{id}/(id=${form.getId()})}"><p th:text="'Take Form ' + ${form.getId()}"></p></a>
+                            <a th:href="@{~/create/ShowMC/{id}/(id=${form.getId()})}"><p th:text="'Take Form ' + ${form.getId()}"></p></a>
                         </td>
                         <td th:text="${form.getCreator().getUsername()}"></td>
                     </tr>
