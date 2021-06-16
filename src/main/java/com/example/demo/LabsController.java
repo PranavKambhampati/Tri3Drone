@@ -380,6 +380,11 @@ public class LabsController {
         return "labs/chart/charts";
     }
 
+    @GetMapping("/howItsMade")
+    public String howItsMade(){
+        return "/development/howItsMade";
+    }
+
 
 
 

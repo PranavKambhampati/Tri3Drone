@@ -507,6 +507,10 @@ public class MCController {
 
         return "labs/ShowMCPage";
     }
+    @GetMapping("/Final")
+    public String Final() {
+        return "labs/Final";
+    }
 }
 
 
