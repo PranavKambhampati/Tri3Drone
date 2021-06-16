@@ -42,6 +42,9 @@ public class AvailableFormsController {
 
     @GetMapping("/survey/{id}")
     public String takeASurvey(@PathVariable("id") int id, Model model) {
+        Form formAccessed = formRepository.get(id);
+
+        
 
         return "forms/interaction/takeASurvey";
     }
