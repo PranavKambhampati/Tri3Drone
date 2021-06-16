@@ -19,7 +19,7 @@ Final Self-Scoring:
 | Michael      | /5       |  /15 |  /20 |
 | Nakul   | /5       |  /15 |  /20 |
 | Pranav   | 5/5       |  /15 |  /20 |
-| Aryan   | /5       |  /15 |  /20 |
+| Aryan   | 5/5       |  /15 |  /20 |
 
 
 
