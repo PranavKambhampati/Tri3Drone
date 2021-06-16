@@ -14,12 +14,12 @@ Link to deployed website on Mr. M's Hardware: [LINK](http://drone.nighthawkcodin
 To view our development process, visit this [LINK](http://drone.nighthawkcodingsociety.com/labs/howItsMade)
 
 Final Self-Scoring:
-| Scrum Member      | Score |
-| ----------- | ----------- |
-| Michael      | /20       |
-| Nakul   | /20        |
-| Pranav   | /20        |
-| Aryan   | /20        |
+| Scrum Member   | Individual | Team |  Total |
+| ----------- | ----------- | ----------- | ----------- |
+| Michael      | /5       |  /15 |  /20 |
+| Nakul   | /5       |  /15 |  /20 |
+| Pranav   | /5       |  /15 |  /20 |
+| Aryan   | /5       |  /15 |  /20 |
 
 
 
