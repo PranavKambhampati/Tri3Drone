@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html" layout:decorate="~{fragments/layout}">
 
 <head><div layout:fragment="metadata" th:remove="tag">
   <title>Created Quiz</title>
@@ -68,87 +69,91 @@
     <div class="content">
       <h1>Created Quiz</h1>
       <div style="margin: 2%;">
-        <div id="question1" th:style=" ${questionDiv1}">
-          <strong><td th:text="'Question 1: ' + ${question}"></td></strong>
-          <br><td th:text="'A: ' + ${answerChoice1}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice2}"></td>
-          <br><td th:text="'C: ' + ${answerChoice3}"></td></br>
-          <td th:text="'D: ' + ${answerChoice4}"></td>
-        </div>
+        <form id="forms" action="/dashboard/home" method="GET" >
+          <div id="question1" th:style=" ${questionDiv1}">
+            <strong><td th:text="'Question 1: ' + ${question}"></td></strong><br>
+            <input type="radio" name="question1" th:value="${answerChoice1}"><td th:text="'A: ' + ${answerChoice1}"></td> </br>
+            <input type="radio" name="question2" th:value="${answerChoice2}"><td th:text="'B: ' + ${answerChoice2}"></td></br>
+            <input type="radio" name="question3" th:value="${answerChoice3}"><td th:text="'C: ' + ${answerChoice3}"></td></br>
+            <input type="radio" name="question4" th:value="${answerChoice4}"><td th:text="'D: ' + ${answerChoice4}"></td>
+          </div>
 
-        <div id="question2" th:style=" ${questionDiv2}">
-          <br><strong><td th:text="'Question 2: ' + ${question2}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice21}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice22}"></td>
-          <br><td th:text="'C: ' + ${answerChoice23}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice24}"></td></br>
-        </div>
+          <div id="question2" th:style=" ${questionDiv2}">
+            <br><strong><td th:text="'Question 2: ' + ${question2}"></td></strong></br>
+            <input type="radio" name="question5" th:value="${answerChoice21}"><td th:text="'A: ' + ${answerChoice21}"></td> </br>
+            <input type="radio" name="question6" th:value="${answerChoice22}"><td th:text="'B: ' + ${answerChoice22}"></td></br>
+            <input type="radio" name="question7" th:value="${answerChoice23}"><td th:text="'C: ' + ${answerChoice23}"></td></br>
+            <input type="radio" name="question8" th:value="${answerChoice24}"><td th:text="'D: ' + ${answerChoice24}"></td></br>
+          </div>
 
-        <div id="question3" th:style=" ${questionDiv3}">
-          <br><strong><td th:text="'Question 3: ' + ${question3}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice31}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice32}"></td>
-          <br><td th:text="'C: ' + ${answerChoice33}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice34}"></td></br>
-        </div>
+          <div id="question3" th:style=" ${questionDiv3}">
+            <br><strong><td th:text="'Question 3: ' + ${question3}"></td></strong></br>
+            <input type="radio" name="question9" th:value="${answerChoice31}"><td th:text="'A: ' + ${answerChoice31}"></td> </br>
+            <input type="radio" name="question10" th:value="${answerChoice32}"><td th:text="'B: ' + ${answerChoice32}"></td></br>
+            <input type="radio" name="question11" th:value="${answerChoice33}"><td th:text="'C: ' + ${answerChoice33}"></td></br>
+            <input type="radio" name="question12" th:value="${answerChoice34}"><td th:text="'D: ' + ${answerChoice34}"></td></br>
+          </div>
 
-        <div id="question4" th:style=" ${questionDiv4}">
-          <br><strong><td th:text="'Question 4: ' + ${question4}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice41}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice42}"></td>
-          <br><td th:text="'C: ' + ${answerChoice43}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice44}"></td></br>
-        </div>
+          <div id="question4" th:style=" ${questionDiv4}">
+            <br><strong><td th:text="'Question 4: ' + ${question4}"></td></strong></br>
+            <input type="radio" name="question13" th:value="${answerChoice41}"><td th:text="'A: ' + ${answerChoice41}"></td> </br>
+            <input type="radio" name="question14" th:value="${answerChoice42}"><td th:text="'B: ' + ${answerChoice42}"></td></br>
+            <input type="radio" name="question15" th:value="${answerChoice43}"><td th:text="'C: ' + ${answerChoice43}"></td></br>
+            <input type="radio" name="question16" th:value="${answerChoice44}"><td th:text="'D: ' + ${answerChoice44}"></td></br>
+          </div>
 
-        <div id="question5" th:style=" ${questionDiv5}">
-          <br><strong><td th:text="'Question 5: ' + ${question5}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice51}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice52}"></td>
-          <br><td th:text="'C: ' + ${answerChoice53}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice54}"></td></br>
-        </div>
+          <div id="question5" th:style=" ${questionDiv5}">
+            <br><strong><td th:text="'Question 5: ' + ${question5}"></td></strong></br>
+            <input type="radio" name="question17" th:value="${answerChoice51}"><td th:text="'A: ' + ${answerChoice51}"></td> </br>
+            <input type="radio" name="question18" th:value="${answerChoice52}"><td th:text="'B: ' + ${answerChoice52}"></td></br>
+            <input type="radio" name="question19" th:value="${answerChoice53}"><td th:text="'C: ' + ${answerChoice53}"></td></br>
+            <input type="radio" name="question20" th:value="${answerChoice54}"><td th:text="'D: ' + ${answerChoice54}"></td></br>
+          </div>
 
-        <div id="question6" th:style=" ${questionDiv6}">
-          <br><strong><td th:text="'Question 6: ' + ${question6}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice61}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice62}"></td>
-          <br><td th:text="'C: ' + ${answerChoice63}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice64}"></td></br>
-        </div>
+          <div id="question6" th:style=" ${questionDiv6}">
+            <br><strong><td th:text="'Question 6: ' + ${question6}"></td></strong></br>
+            <input type="radio" name="question21" th:value="${answerChoice61}"><td th:text="'A: ' + ${answerChoice61}"></td> </br>
+            <input type="radio" name="question22" th:value="${answerChoice62}"><td th:text="'B: ' + ${answerChoice62}"></td></br>
+            <input type="radio" name="question23" th:value="${answerChoice63}"><td th:text="'C: ' + ${answerChoice63}"></td></br>
+            <input type="radio" name="question24" th:value="${answerChoice64}"><td th:text="'D: ' + ${answerChoice64}"></td></br>
+          </div>
 
-        <div id="question7" th:style=" ${questionDiv7}">
-          <br><strong><td th:text="'Question 7: ' + ${question7}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice71}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice72}"></td>
-          <br><td th:text="'C: ' + ${answerChoice73}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice74}"></td></br>
-        </div>
+          <div id="question7" th:style=" ${questionDiv7}">
+            <br><strong><td th:text="'Question 7: ' + ${question7}"></td></strong></br>
+            <input type="radio" name="question25" th:value="${answerChoice71}"><br><td th:text="'A: ' + ${answerChoice71}"></td> </br>
+            <input type="radio" name="question26" th:value="${answerChoice72}"><td th:text="'B: ' + ${answerChoice72}"></td></br>
+            <input type="radio" name="question27" th:value="${answerChoice73}"><br><td th:text="'C: ' + ${answerChoice73}"></td></br>
+            <input type="radio" name="question28" th:value="${answerChoice74}"><br><td th:text="'D: ' + ${answerChoice74}"></td></br>
+          </div>
 
-        <div id="question8" th:style=" ${questionDiv8}">
-          <br><strong><td th:text="'Question 8: ' + ${question8}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice81}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice82}"></td>
-          <br><td th:text="'C: ' + ${answerChoice83}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice84}"></td></br>
-        </div>
+          <div id="question8" th:style=" ${questionDiv8}">
+            <br><strong><td th:text="'Question 8: ' + ${question8}"></td></strong></br>
+            <input type="radio" name="question29" th:value="${answerChoice81}"><td th:text="'A: ' + ${answerChoice81}"></td> </br>
+            <input type="radio" name="question30" th:value="${answerChoice82}"><td th:text="'B: ' + ${answerChoice82}"></td></br>
+            <input type="radio" name="question31" th:value="${answerChoice83}"><td th:text="'C: ' + ${answerChoice83}"></td></br>
+            <input type="radio" name="question32" th:value="${answerChoice84}"><td th:text="'D: ' + ${answerChoice84}"></td></br>
+          </div>
 
-        <div id="question9" th:style=" ${questionDiv9}">
-          <br><strong><td th:text="'Question 9: ' + ${question9}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice91}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice92}"></td>
-          <br><td th:text="'C: ' + ${answerChoice93}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice64}"></td></br>
-        </div>
+          <div id="question9" th:style=" ${questionDiv9}">
+            <br><strong><td th:text="'Question 9: ' + ${question9}"></td></strong></br>
+            <input type="radio" name="question33" th:value="${answerChoice91}"><td th:text="'A: ' + ${answerChoice91}"></td> </br>
+            <input type="radio" name="question34" th:value="${answerChoice92}"><td th:text="'B: ' + ${answerChoice92}"></td></br>
+            <input type="radio" name="question35" th:value="${answerChoice93}"><td th:text="'C: ' + ${answerChoice93}"></td></br>
+            <input type="radio" name="question36" th:value="${answerChoice94}"><td th:text="'D: ' + ${answerChoice64}"></td></br>
+          </div>
 
-        <div id="question10" th:style=" ${questionDiv10}">
-          <br><strong><td th:text="'Question 10: ' + ${question10}"></td></strong></br>
-          <br><td th:text="'A: ' + ${answerChoice101}"></td> </br>
-          <td th:text="'B: ' + ${answerChoice102}"></td>
-          <br><td th:text="'C: ' + ${answerChoice103}"></td></br>
-          <br><td th:text="'D: ' + ${answerChoice104}"></td></br>
-        </div>
+          <div id="question10" th:style=" ${questionDiv10}">
+            <br><strong><td th:text="'Question 10: ' + ${question10}"></td></strong></br>
+            <input type="radio" name="question37" th:value="${answerChoice101}"><td th:text="'A: ' + ${answerChoice101}"></td> </br>
+            <input type="radio" name="question38" th:value="${answerChoice102}"><td th:text="'B: ' + ${answerChoice102}"></td></br>
+            <input type="radio" name="question39" th:value="${answerChoice103}"><td th:text="'C: ' + ${answerChoice103}"></td></br>
+            <input type="radio" name="question40" th:value="${answerChoice104}"><td th:text="'D: ' + ${answerChoice104}"></td></br>
+          </div>
 
+          <a href="/dashboard/home"><button id="btnSubmit" style="display: block;">Submit Form</button></a>
+        </form>
       </div>
+
 
     </div>
   </div></div>

@@ -426,10 +426,12 @@ public class MCController {
         model.addAttribute("answerChoice103", form.answer103);
         model.addAttribute("answerChoice104", form.answer104);
 
-
-
         model.addAttribute("totalNumber", num);
         return "labs/ShowMCPage";
+    }
+    @GetMapping("/Final")
+    public String Final() {
+        return "labs/Final";
     }
 }
 
