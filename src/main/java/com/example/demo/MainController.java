@@ -25,6 +25,8 @@ public class MainController {
 
     @GetMapping("/index")
     public String index () {
+
+        //userRepository.delete(31);
         return "index";
     }
 

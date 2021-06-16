@@ -60,7 +60,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         }
         /* default user now stored as the first user in the db */
         //userDetailsList.add(User.withUsername("nighthawk").password(passwordEncoder.encode("dnhs20-21"))
-          //      .roles("STUDENT").build());
+             //   .roles("STUDENT").build());
 
         return new InMemoryUserDetailsManager(userDetailsList);
     }
