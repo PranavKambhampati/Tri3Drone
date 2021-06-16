@@ -114,10 +114,11 @@
                     </tr>
                     <tr th:each="counter : ${analyticCounters}">
                         <td>
-                            <p th:text="${counter.getOption_1()}"></p>
-                            <p th:text="${counter.getOption_2()}"></p>
-                            <p th:text="${counter.getOption_3()}"></p>
-                            <p th:text="${counter.getOption_4()}"></p>
+                            <p th:text="${counter.getQuestion()}"></p>
+                            <p th:text="${counter.getVal_opt1()} + ' : ' + ${counter.getOption_1()}"></p>
+                            <p th:text="${counter.getVal_opt2()} + ' : ' + ${counter.getOption_2()}"></p>
+                            <p th:text="${counter.getVal_opt3()} + ' : ' + ${counter.getOption_3()}"></p>
+                            <p th:text="${counter.getVal_opt4()} + ' : ' + ${counter.getOption_4()}"></p>
                         </td>
                     </tr>
                 </table>
