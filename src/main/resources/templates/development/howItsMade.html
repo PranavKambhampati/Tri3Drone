@@ -148,7 +148,7 @@
             </p>
 
             <p><u><strong>Database:</strong></u> We used MySQL in order to model our data, however, we used RDS in order to host our database. The utilization of a database allowed us to
-            easily pull and save values in different parts of the application. For example, some things that were saved include the Users, Form Questions, Forms and Form Responses.
+            easily pull and save values in different parts of the application. With the help of Hibernate/javax.persistence, we were able to successful employ one to many relationships. As well, our User POJO managed by hibernate was effectively connected to Spring Security's InMemoryUserDetailsManager. With Spring Security managing the user once they are logged in, the user can be accessed from any page and which new Forms, FormQuestions, and FormResponses to be created and <strong>connected</strong> to the logged in user. For example, some things that were saved include the Users, Form Questions, Forms and Form Responses.
             Below are the model files for each:
                 <script src="https://gist.github.com/PranavKambhampati/f2106d6b2c2908d7db05cf1f441c5aa9.js"></script>
                 <script src="https://gist.github.com/PranavKambhampati/2d14c639b2db06117108ce9eeb6938ab.js"></script>
