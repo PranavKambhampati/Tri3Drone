@@ -140,14 +140,14 @@
         </div>
         <div>
             <h1>Key Technical Aspects</h1>
-            <p><u><strong>Spring Boot Security:</strong></u> We used Spring Security to keep track of the users on the program. Users can typically create a new user to access the project,
-            however, the project needs to be refreshed when a new user is made. This isn't possible to do when it has been deployed, therefore, to login, users can use
-            the list of pre-made user accounts.
+            <p><u><strong>Spring Boot Security:</strong></u> We used Spring Security to keep track of the users on the program. Users can make a new user account by clicking the login
+                button on the navbar. Newly created users are added to an arraylist that can be accessed throughout the program in order to get their details, such as the forms they made
+                and the forms that they have answered.
                 <script src="https://gist.github.com/PranavKambhampati/83a08c4ea8777a77d58e7cf5009ed68e.js"></script>
                 <script src="https://gist.github.com/PranavKambhampati/aee8552dd9843b82ca96b0e8b40ec4dc.js"></script>
             </p>
 
-            <p><u><strong>Database:</strong></u> We used SQL in order to model our data, however, we used RDS in order to host our database. The utilization of a databse allowed us to
+            <p><u><strong>Database:</strong></u> We used MySQL in order to model our data, however, we used RDS in order to host our database. The utilization of a database allowed us to
             easily pull and save values in different parts of the application. For example, some things that were saved include the Users, Form Questions, Forms and Form Responses.
             Below are the model files for each:
                 <script src="https://gist.github.com/PranavKambhampati/f2106d6b2c2908d7db05cf1f441c5aa9.js"></script>
