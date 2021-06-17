@@ -31,7 +31,6 @@ public class MCController {
         this.currentUser = UserRepository.get(service.getUserID());
     }
 
-
     @GetMapping("/survey")
     public String CreateMC(@RequestParam(name = "num", required = false, defaultValue = "-0") String num,
                            @RequestParam(name = "num2", required = false, defaultValue = "-0") String num2,
@@ -402,7 +401,7 @@ public class MCController {
     }
 
     @PostMapping("/ShowMC")
-    public String ShowMC(@RequestParam(name = "question1", required = false, defaultValue = "-0") String answer1,
+    public String ShowMC(@PathVariable("id") int id, @RequestParam(name = "question1", required = false, defaultValue = "-0") String answer1,
                          @RequestParam(name = "question2", required = false, defaultValue = "-0") String answer2,
                          @RequestParam(name = "question3", required = false, defaultValue = "-0") String answer3,
                          @RequestParam(name = "question4", required = false, defaultValue = "-0") String answer4,
@@ -506,7 +505,7 @@ public class MCController {
             counter++;
         }
 
-        return "labs/ShowMCPage";
+        return "redirect:/dashboard/home";
     }
     @GetMapping("/Final")
     public String Final() {

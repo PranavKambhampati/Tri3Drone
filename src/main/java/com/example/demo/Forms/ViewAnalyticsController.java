@@ -56,15 +56,15 @@ public class ViewAnalyticsController {
 
         List<AnalyticCounter> questionCounters = new ArrayList<>();
 
-        boolean newQuestion = true;
+        //boolean newQuestion = true;
         int questionNumber = -1;
         for (FormQuestionResponse response : allFormResponses) {
             for (FormQuestion question : formQuestions) { // cycling through all of the questions in the given form selected
-                if (newQuestion){ // creating a counter object for each question
+                //if (newQuestion){ // creating a counter object for each question
                     questionCounters.add(new AnalyticCounter(question.getQuestion(), question.getOpt_1(), question.getOpt_2(), question.getOpt_3(), question.getOpt_4()));
                     questionNumber++;
-                }
-                newQuestion = false; // second move boolean switch to avoid creating another counter
+                    //newQuestion = false; // second move boolean switch to avoid creating another counter
+               // }
 
 
                 if ((currentForm.getId() == response.getForm().getId()) && (question.getId() == response.getQuestion().getId())) { // checks to see if the given indexed question response is a response to the given form
@@ -93,7 +93,7 @@ public class ViewAnalyticsController {
                     questionCounters.get(questionNumber);
                 }
             }
-            newQuestion = true;
+            //newQuestion = true;
 
         }
 
