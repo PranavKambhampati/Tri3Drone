@@ -16,12 +16,22 @@ To view our development process, visit this [LINK](http://drone.nighthawkcodings
 Final Self-Scoring:
 | Scrum Member   | Individual | Team |  Total |
 | ----------- | ----------- | ----------- | ----------- |
-| Michael      | /5       |  /15 |  /20 |
-| Nakul   | /5       |  /15 |  /20 |
-| Pranav   | 5/5       |  /15 |  /20 |
-| Aryan   | 5/5       |  /15 |  /20 |
+| Michael      | 5/5       |  10/15 |  15/20 |
+| Nakul   | 5/5       |  10/15 |  15/20 |
+| Pranav   | 5/5       |  10/15 |  15/20 |
+| Aryan   | 5/5       |  10/15 |  15/20 |
 
-
+Theme:
+4/5 (-1, some saving logic errors in taking a form)
+Individual Sections:
+Pranav Kambhampati (5/5)
+Aryan Amberkar (5/5)
+Michael Hayes (5/5)
+Nakul Nandhakumar (5/5)
+API:
+1/5: some attempts with path variables and /listAllUsers in a similar JSON format that used between pages, no crossover API
+Deployment:
+5/5: Commerical LINK
 
 ## Pre-Final Team Checkpoint 6/8
 
